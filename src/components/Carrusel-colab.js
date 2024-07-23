@@ -1,7 +1,8 @@
 import React from "react";
+import "./components/Carrusel-colab.css";
 
 
-const Colaboradores = () => {
+const Carrusel = () => {
 
     <div className="contenidoGeneral">
         <div className="container">
@@ -37,4 +38,4 @@ const Colaboradores = () => {
     </div>
 }
 
-export default Colaboradores;
+export default Carrusel;
