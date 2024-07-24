@@ -5,9 +5,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Navba = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary opacity-50">
             <Container>
-                <Navbar.Brand href="#home">Restar Ocean</Navbar.Brand>
+                <Navbar.Brand href="#home">Restart Ocean</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
