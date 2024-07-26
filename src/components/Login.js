@@ -8,7 +8,7 @@ import {
     MDBIcon
 } from 'mdb-react-ui-kit';
 
-const Froms = () => {
+const Login = () => {
     const [name, setName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -81,19 +81,19 @@ const Froms = () => {
                 <MDBCheckbox
                     wrapperClass='d-flex justify-content-center mb-4'
                     id='form3Example5'
-                    label='Subscribe to our newsletter'
+                    label='Recibir noticias'
                     defaultChecked
                 />
 
                 <MDBBtn type='submit' className='mb-4' block >
-                    Sign in
+                    Ingresar
                 </MDBBtn>
 
                 <div className='text-center'>
                     <p>
-                        Not a member? <a href='#!'>Register</a>
+                        No estás registrado? <a href='#!'>Registrate</a>
                     </p>
-                    <p>or sign up with:</p>
+                    <p>También puedes ingresar con:</p>
 
                     <MDBBtn floating color="secondary" className='mx-1'>
                         <MDBIcon fab icon='facebook-f' />
@@ -116,4 +116,4 @@ const Froms = () => {
     );
 }
 
-export default Froms;
+export default Login;
