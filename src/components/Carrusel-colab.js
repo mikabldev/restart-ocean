@@ -1,41 +1,95 @@
-import React from "react";
-import "./components/Carrusel-colab.css";
+import React from 'react';
+import 'mdb-ui-kit/css/mdb.min.css'; 
+import 'mdb-ui-kit'; 
 
+const Carousel = () => {
+    return (
+        <div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
+            {/* Indicators */}
+            <div className="carousel-indicators">
+                <button
+                    data-mdb-target="#carouselDarkVariant"
+                    data-mdb-slide-to="0"
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                ></button>
+                <button
+                    data-mdb-target="#carouselDarkVariant"
+                    data-mdb-slide-to="1"
+                    aria-label="Slide 2"
+                ></button>
+                <button
+                    data-mdb-target="#carouselDarkVariant"
+                    data-mdb-slide-to="2"
+                    aria-label="Slide 3"
+                ></button>
+            </div>
 
-const Carrusel = () => {
+            {/* Inner */}
+            <div className="carousel-inner">
+                {/* Single item */}
+                <div className="carousel-item active">
+                    <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
+                        className="d-block w-100"
+                        alt="Motorbike Smoke"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </div>
 
-    <div className="contenidoGeneral">
-        <div className="container">
-            <div className="container-carrossel">
-                <div className="carrossel">
-                    <div className="carrossel-item">
-                        <img src="https://images.ecestaticos.com/T7n1X0x3_hzSw6Yl5OlqGFHEws0=/0x110:2183x1339/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F3d9%2F587%2Ffbf%2F3d9587fbf2f19d48cbfa884b48be05b9.jpg"
-                            alt="Imagen 1" draggable="false"></img>
+                {/* Single item */}
+                <div className="carousel-item">
+                    <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
+                        className="d-block w-100"
+                        alt="Mountaintop"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
-                    <div className="carrossel-item">
-                        <img src="https://postgradoveterinaria.com/wp-content/uploads/animales-marinos.jpg"
-                            alt="Imagen 2" draggable="false"></img>
-                    </div>
-                    <div className="carrossel-item">
-                        <img src="https://nubika.es/wp-content/uploads/2021/05/animales-marinos.jpg" alt="Imagen 3"
-                            draggable="false"></img>
-                    </div>
-                    <div className="carrossel-item">
-                        <img src="https://cdn0.bioenciclopedia.com/es/posts/4/8/3/tortuga_marina_384_600.jpg"
-                            alt="Imagen 4" draggable="false"></img>
-                    </div>
-                    <div className="carrossel-item">
-                        <img src="https://mx.oceana.org/wp-content/uploads/sites/17/istock_000017453850_large_1.jpg"
-                            alt="Imagen 5" draggable="false"></img>
-                    </div>
-                    <div className="carrossel-item">
-                        <img src="https://dam.ngenespanol.com/wp-content/uploads/2021/10/pulpo-caracteristicas-que-come-cuantos-cerebros-tiene.jpg"
-                            alt="Imagen 6" draggable="false"></img>
+                </div>
+
+                {/* Single item */}
+                <div className="carousel-item">
+                    <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
+                        className="d-block w-100"
+                        alt="Woman Reading a Book"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-}
+            {/* Inner */}
 
-export default Carrusel;
+            {/* Controls */}
+            <button
+                className="carousel-control-prev"
+                type="button"
+                data-mdb-target="#carouselDarkVariant"
+                data-mdb-slide="prev"
+            >
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+                className="carousel-control-next"
+                type="button"
+                data-mdb-target="#carouselDarkVariant"
+                data-mdb-slide="next"
+            >
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+        </div>
+    );
+};
+
+export default Carousel;
