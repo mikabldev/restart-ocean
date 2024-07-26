@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBCarousel, MDBCarouselItem, MDBCarouselCaption } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function Carousel() {
   return (
     <MDBCarousel showControls showIndicators>
       <MDBCarouselItem itemId={1}>
