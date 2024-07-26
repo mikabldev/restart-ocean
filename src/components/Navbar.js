@@ -4,10 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ModalLogin from './ModalLogin';
 
 const Navba = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary opacity-50">
+        <Navbar expand="lg" className="bg-body-tertiary opacity-75">
             <Container fluid>
                 <Navbar.Brand href="#home">Restart Ocean</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -35,9 +36,8 @@ const Navba = () => {
                             <Button variant="outline-success">Search</Button>
                         </Form>
                     </Nav>
-                    
                 </Navbar.Collapse>
-                <Button variant="outline-success">Login</Button>
+                <ModalLogin />
             </Container>
         </Navbar>
     );

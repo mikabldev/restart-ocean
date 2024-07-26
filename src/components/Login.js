@@ -8,7 +8,7 @@ import {
     MDBIcon
 } from 'mdb-react-ui-kit';
 
-const Froms = () => {
+const Login = () => {
     const [name, setName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -116,4 +116,4 @@ const Froms = () => {
     );
 }
 
-export default Froms;
+export default Login;
