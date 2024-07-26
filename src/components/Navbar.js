@@ -8,7 +8,7 @@ import ModalLogin from './ModalLogin';
 
 const Navba = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary opacity-75">
+        <Navbar expand="lg" className="bg-body-tertiary opacity-90" style={{zIndex: '10'}}>
             <Container fluid>
                 <Navbar.Brand href="#home">Restart Ocean</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />

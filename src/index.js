@@ -6,15 +6,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import BackgroundVideo from './components/BackgroundVideo';
+// import Navbar from './components/Navbar';
 
-import ModalLogin from './components/ModalLogin'
+// import ModalLogin from './components/ModalLogin'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <Navbar /> */}
     <BackgroundVideo />
-    
-    <ModalLogin />
+
+    {/* <ModalLogin /> */}
   </React.StrictMode>
 );
 

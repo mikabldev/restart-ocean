@@ -23,7 +23,7 @@ const ModalLogin = () => {
 
   return (
     <>
-      <MDBBtn onClick={() => setOpen(!open)}>Login</MDBBtn>
+      <MDBBtn style={{zIndex: 20}} onClick={() => setOpen(!open)}>Login</MDBBtn>
       <MDBModal open={open} setOpen={setOpen} tabIndex={-1}>
         <MDBModalDialog>
           <MDBModalContent>
