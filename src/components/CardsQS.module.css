@@ -23,7 +23,7 @@
 }
 
 .col {
-    width: calc(25% - 2rem);
+    width: calc(30% - 2rem);
     margin: 1rem;
     cursor: pointer;
 }
@@ -53,7 +53,7 @@
     height: auto;
     border-radius: 10px;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .back {
@@ -61,6 +61,8 @@
     background: -webkit-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: -o-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: linear-gradient(45deg, #cedce7 0%, #596a72 100%);
+    font-size: 0.9rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .front:after {
@@ -109,6 +111,7 @@
     -webkit-perspective: inherit;
     perspective: inherit;
     z-index: 2;
+    text-size-adjust: 24px;
 }
 
 .container .back {
@@ -142,7 +145,7 @@
 }
 
 .front .inner p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     position: relative;
 }
