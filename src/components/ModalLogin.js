@@ -37,7 +37,7 @@ const ModalLogin = () => {
 
             <MDBModalFooter>
               <MDBBtn type='button' onClick={() => setOpen(!open)}>
-                Close
+                Cerrar
               </MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>

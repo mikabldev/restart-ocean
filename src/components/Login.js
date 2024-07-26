@@ -81,19 +81,19 @@ const Login = () => {
                 <MDBCheckbox
                     wrapperClass='d-flex justify-content-center mb-4'
                     id='form3Example5'
-                    label='Subscribe to our newsletter'
+                    label='Recibir noticias'
                     defaultChecked
                 />
 
                 <MDBBtn type='submit' className='mb-4' block >
-                    Sign in
+                    Ingresar
                 </MDBBtn>
 
                 <div className='text-center'>
                     <p>
-                        Not a member? <a href='#!'>Register</a>
+                        No estás registrado? <a href='#!'>Registrate</a>
                     </p>
-                    <p>or sign up with:</p>
+                    <p>También puedes ingresar con:</p>
 
                     <MDBBtn floating color="secondary" className='mx-1'>
                         <MDBIcon fab icon='facebook-f' />
