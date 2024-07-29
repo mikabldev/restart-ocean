@@ -5,7 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ModalLogin from './ModalLogin';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Navba = () => {
     return (
