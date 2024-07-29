@@ -8,17 +8,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import BackgroundVideo from './components/BackgroundVideo';
 import Carousel from './components/Carousel';
 import CardsQS from './components/CardsQS';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BackgroundVideo />
-
-    <Carousel />
-
-    <CardsQS />
-
+    <Router>
+      <BackgroundVideo/>
+      <Carousel/>
+      <CardsQS />
+    </Router>
   </React.StrictMode>
 );
 
