@@ -91,7 +91,7 @@ const Login = () => {
 
                 <div className='text-center'>
                     <p>
-                        No estás registrado? <a href='#!'>Registrate</a>
+                        ¿No estás registrado? <a href='#!'>Regístrate</a>
                     </p>
                     <p>También puedes ingresar con:</p>
 
