@@ -5,20 +5,19 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import BackgroundVideo from './components/BackgroundVideo';
-import Carousel from './components/Carousel';
-import CardsQS from './components/CardsQS';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+// import BackgroundVideo from './components/BackgroundVideo';
+import Navba from './components/Navbar';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BackgroundVideo />
-
-    <Carousel />
-
-    <CardsQS />
-
+    <BrowserRouter>
+      <Navba/>
+      <App/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
