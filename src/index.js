@@ -32,7 +32,7 @@ root.render(
     {/* <ModalLogin /> */}
 
     <Carousel />
-
+  
 
   </React.StrictMode>
 );
