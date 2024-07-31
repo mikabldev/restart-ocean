@@ -1,6 +1,6 @@
 import React from 'react';
 import BackgroundVideo from '../components/BackgroundVideo';
-import CardsQS from '../components/CardsQS';
+import CardsQS from '../components/CardsQS/CardsQS';
 import Carousel from '../components/Carousel'
 
 const Inicio = () => {

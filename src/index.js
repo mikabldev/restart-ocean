@@ -9,6 +9,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 // import BackgroundVideo from './components/BackgroundVideo';
 import Navba from './components/Navbar';
+import NuevoPostFormato from './components/Foro/NuevoPostFormato';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,7 @@ root.render(
     <BrowserRouter>
       <Navba/>
       <App/>
+      <NuevoPostFormato/>
     </BrowserRouter>
   </React.StrictMode>
 );
