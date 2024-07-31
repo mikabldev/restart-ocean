@@ -26,6 +26,49 @@ body {
         height: 80vh; /* Ajusta la altura para pantallas más pequeñas */
     }
     .rbc-calendar {
+        font-size: 10px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        
+    }
+}
+.boton-cerrar {
+background: rgb(41, 128, 185);
+color: white;
+border-radius: 10px;
+cursor: pointer;
+border: none;
+margin-right: 10px;
+width: 35px;
+height: 35px;
+right: 10px;
+}
+.boton-eliminar-evento {
+background: rgb(41, 128, 185);
+color: white;
+border-radius: 10px;
+cursor: pointer;
+border: none;
+margin: 5px;
+}
+.event-form{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .event-form {
+        height: 80vh; /* Ajusta la altura para pantallas más pequeñas */
+        width: 10vh;
         font-size: 12px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+    input {
+        width: 10vh;
+    }
+    .boton-cerrar{
+        margin: 0;
+        width: 4vh;
+        position:fixed /* trngo que arreglar la responsividad de los botones*/
+        
     }
 }
