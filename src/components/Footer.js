@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
@@ -10,22 +11,22 @@ export default function Footer() {
         </div>
 
         <div>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="facebook-f" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="twitter" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="google" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="instagram" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="linkedin" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='!#' className='me-4 text-reset'>
             <MDBIcon fab icon="github" />
           </a>
         </div>
@@ -40,7 +41,7 @@ export default function Footer() {
                 Restart Ocean
               </h6>
               <p>
-                Resetiemos 
+                Resetiemos
                 <br></br>
                 el Oceano
               </p>
@@ -107,7 +108,7 @@ export default function Footer() {
               <p>
                 <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
               </p>
-              
+
               <a href='#!' className='text-reset'>
                 <MDBIcon icon="globe" className="me-3" /> www.abc.cl
               </a>
@@ -117,11 +118,12 @@ export default function Footer() {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2024 Copyright: 
+        © 2024 Copyright:
         <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-           Exoticoders
+          Exoticoders
         </a>
       </div>
     </MDBFooter>
   );
 }
+
