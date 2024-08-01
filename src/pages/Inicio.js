@@ -1,7 +1,7 @@
 import React from 'react';
 import BackgroundVideo from '../components/BackgroundVideo';
 import CardsQS from '../components/CardsQS/CardsQS';
-import Carousel from '../components/Carousel'
+import Carousel from '../components/Carrusel-colab'
 import Calendar1 from '../components/Calendar1'
 
 const Inicio = () => {
