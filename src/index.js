@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
 // import Navbar from './components/Navbar';
 // import ModalLogin from './components/ModalLogin'
-import Calendar1 from './components/Calendar1';
 import Navba from './components/Navbar';
 
 
