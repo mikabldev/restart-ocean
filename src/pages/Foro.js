@@ -1,9 +1,13 @@
 import React from 'react'
+import Foro from '../components/Foro'
 
-const Foro = () => {
+const Foro1 = () => {
     return (
-        <div>Foro</div>
+        <div>
+            <Foro/>
+        </div>
+
     )
 }
 
-export default Foro
+export default Foro1
