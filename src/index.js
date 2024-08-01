@@ -8,6 +8,11 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from './App';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
+
+=======
+// import Navbar from './components/Navbar';
+// import ModalLogin from './components/ModalLogin'
+
 import Navba from './components/Navbar';
 
 
