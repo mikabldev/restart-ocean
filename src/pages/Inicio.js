@@ -2,6 +2,7 @@ import React from 'react';
 import BackgroundVideo from '../components/BackgroundVideo';
 import CardsQS from '../components/CardsQS/CardsQS';
 import Carousel from '../components/Carousel'
+import Calendar1 from '../components/Calendar1'
 
 const Inicio = () => {
     return (
@@ -11,6 +12,7 @@ const Inicio = () => {
             <p>Descripción de la misión y visión del proyecto.</p>
             <CardsQS />
             <Carousel/>
+            <Calendar1/>
         </div>
     );
 };
