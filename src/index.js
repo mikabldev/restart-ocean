@@ -22,6 +22,8 @@ root.render(
     <BrowserRouter>
       <Navba/>
       <BackgroundVideo/>
+      <Carousel />
+      <Calendar1 />
       <App/>
       <Footer/>
     </BrowserRouter>
