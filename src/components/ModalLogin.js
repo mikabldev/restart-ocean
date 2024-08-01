@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Login from './Login';
+import Pills from './Pills';
 import {
   MDBBtn,
   MDBModal,
   MDBModalDialog,
   MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
   MDBModalBody,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
@@ -27,12 +25,9 @@ const ModalLogin = () => {
       <MDBModal open={open} setOpen={setOpen} tabIndex={-1}>
         <MDBModalDialog>
           <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Inicia sesión</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={() => setOpen(!open)}></MDBBtn>
-            </MDBModalHeader>
+
             <MDBModalBody>
-              <Login />
+              <Pills />
             </MDBModalBody>
 
             <MDBModalFooter>

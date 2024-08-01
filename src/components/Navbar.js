@@ -11,7 +11,7 @@ import ModalLogin from './ModalLogin';
 const Navba = () => {
     return (
         <>
-            <Navbar expand="lg" className="bg-body-tertiary opacity-90" style={{ zIndex: '10' }}>
+            <Navbar expand="lg" className="bg-body-tertiary" style={{ zIndex: '10' }}>
                 <Container fluid>
                     <Navbar.Brand as={Link} to="/">Restart Ocean</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -26,15 +26,6 @@ const Navba = () => {
                                 <NavDropdown.Item as={Link} to="/colaboradores">Colaboradores</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
                     </Navbar.Collapse>
                     <ModalLogin />
                 </Container>
