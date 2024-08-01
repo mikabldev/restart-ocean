@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Foro from './pages/Foro';
+import Donaciones from './pages/Donaciones';
+import Inicio from './pages/Inicio';
 
-const App = () => {
+function App() {
     return (
-        <div>App</div>
-    )
+        <>
+            <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/foro" element={<Foro />} />
+                <Route path="/donaciones" element={<Donaciones />} />
+            </Routes>
+        </>
+    );
 }
 
-export default App
+export default App;

@@ -25,13 +25,12 @@ const CardsQS = () => {
                             style={{ backgroundImage: `url(/img/mision.jpg)` }}
                         >
                             <div className={styles.inner}>
-                                <p>INDIA</p>
-                                <span>Taj Mahal</span>
+                                <span>Misión</span>
                             </div>
                         </div>
                         <div className={styles.back}>
                             <div className={styles.inner}>
-                                <p>Taj Mahal is a beautiful and most attractive historical place in India</p>
+                                <p>Nuestra misión es clara: crear un espacio único donde cada iniciativa, proyecto y esfuerzo dedicado a la protección y cuidado del océano en Chile encuentre su lugar. Vivimos en un país bendecido con vastas costas y una rica biodiversidad marina.</p>
                             </div>
                         </div>
                     </div>
@@ -45,16 +44,15 @@ const CardsQS = () => {
                     <div className={styles.container}>
                         <div
                             className={styles.front}
-                            style={{ backgroundImage: 'url(https://cdn.skyrisecities.com/sites/default/files/images/articles/2019/01/35507/35507-119797.jpg)' }}
+                            style={{ backgroundImage: `url(/img/vision.jpg)` }}
                         >
                             <div className={styles.inner}>
-                                <p>DUBAI</p>
-                                <span>Burj Khalifa</span>
+                                <span>Visión</span>
                             </div>
                         </div>
                         <div className={styles.back}>
                             <div className={styles.inner}>
-                                <p>The Burj Khalifa is the tallest building in the world and a global icon.</p>
+                                <p>En Restart Ocean creemos que juntos podemos marcar la diferencia. Aquí, tanto empresas como individuos pueden compartir sus proyectos, intercambiar ideas y forjar alianzas que impulsen un cambio real y duradero.</p>
                             </div>
                         </div>
                     </div>
@@ -68,16 +66,15 @@ const CardsQS = () => {
                     <div className={styles.container}>
                         <div
                             className={styles.front}
-                            style={{ backgroundImage: 'url(https://cdn.skyrisecities.com/sites/default/files/images/articles/2019/01/35507/35507-119797.jpg)' }}
+                            style={{ backgroundImage: `url(/img/proposito.jpg)` }}
                         >
                             <div className={styles.inner}>
-                                <p>DUBAI</p>
-                                <span>Burj Khalifa</span>
+                                <span>Propósito</span>
                             </div>
                         </div>
                         <div className={styles.back}>
                             <div className={styles.inner}>
-                                <p>The Burj Khalifa is the tallest building in the world and a global icon.</p>
+                                <p>Nuestra plataforma está diseñada para inspirar, conectar y movilizar a quienes aman y valoran el océano, promoviendo acciones concretas que aseguren un futuro sostenible para nuestras aguas y las generaciones futuras.</p>
                             </div>
                         </div>
                     </div>

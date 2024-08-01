@@ -26,6 +26,7 @@ body {
         height: 80vh; /* Ajusta la altura para pantallas más pequeñas */
     }
     .rbc-calendar {
-        font-size: 12px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        font-size: 10px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        
     }
 }

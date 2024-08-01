@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBCarousel, MDBCarouselItem, MDBCarouselCaption } from 'mdb-react-ui-kit';
 import './Carrusel-colab.css'; 
 
-export default function Carousel() {
+const Carousel = () => {
   return (
     <MDBCarousel showControls showIndicators>
       <MDBCarouselItem itemId={1}>
@@ -44,3 +44,4 @@ export default function Carousel() {
   );
 }
 
+export default Carousel;

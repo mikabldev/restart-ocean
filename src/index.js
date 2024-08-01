@@ -5,37 +5,27 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import BackgroundVideo from './components/BackgroundVideo';
+import App from './App';
 import Footer from './components/Footer';
-
+import { BrowserRouter } from 'react-router-dom';
+import BackgroundVideo from './components/BackgroundVideo';
 // import Navbar from './components/Navbar';
-
 // import ModalLogin from './components/ModalLogin'
-
-
-import Carousel from './components/Carrusel-colab';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
-
-
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import Carousel from './components/Carousel';
+import Calendar1 from './components/Calendar1';
+import Navba from './components/Navbar';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Navbar /> */}
-    <BackgroundVideo />
-
-    {/* <ModalLogin /> */}
-
-    <Carousel />
-
-    {/* <Footer /> */}
-    <Footer />
-
+    <BrowserRouter>
+      <Navba/>
+      <BackgroundVideo/>
+      <Carousel/>
+      <App/>
+      <Footer/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
