@@ -13,6 +13,7 @@ const Inicio = () => {
             <CardsQS />
             <Carousel/>
             <Calendar1/>
+            
         </div>
     );
 };
