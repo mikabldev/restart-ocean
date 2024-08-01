@@ -17,7 +17,6 @@ const Carousel = () => {
     <section>
       <div className="bg" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
       <header>
-        <a href="#" className="logo">COLABORADORES</a>
         <div className="toggle"></div>
       </header>
       <div className="content">
