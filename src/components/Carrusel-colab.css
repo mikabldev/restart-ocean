@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#menu-icon {
+    font-size: 3.3rem;
+    color: red;
+    display: none;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 100px;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(10px); /* Ajusta el desenfoque según tus necesidades */
+    z-index: -1;
+    transition: 0.5s;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    position: relative;
+    font-weight: 600;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+/* content section */
+.content {
+    position: relative;
+    width: 400%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Esto es el título de nuestros colaboradores */
+.content .text-box {
+    position: relative;
+    width: 900px;
+}
+
+.content .text-box h2 {
+    font-size: 3em;
+    color: white;
+    line-height: 1.2em;
+    font-weight: 700;
+}
+
+.content .text-box p {
+    color: white;
+    margin-top: 20px;
+}
+
+.content .text-box a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: white;
+    color: #333;
+    border-radius: 40px;
+    font-weight: 500;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+/* Lugar de la imagen */
+.content .imageBox {
+    position: relative;
+    width: 500px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.content .imageBox img {
+    width: 500px;
+    border-radius: 15px;
+}
+
+.thumb {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: .5s;
+    height: 150px;
+    background: rgba(173, 29, 29, 0.1);
+    padding: 5px;
+    border: 2px solid rgba(255,255,255,0.25);
+}
+
+.thumb li.active {
+    border: 2px solid rgba(255,255,255,1);
+    border-radius: 15px;
+}
+
+.thumb li::before {
+    position: absolute;
+    content: attr(data-text);
+    top: -200px;
+    left: -100px;
+    white-space: nowrap;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.thumb li.active::before {
+    opacity: 1;
+}
+
+.thumb li img {
+    width: 150px;
+    border-radius: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .bg::before {
+        display: none;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px;
+        padding-bottom: 120px;
+    }
+
+    .content {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+
+    .content .text-box {
+        max-width: 100%;
+    }
+
+    .content .text-box h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    .content .imageBox {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .content .imageBox img {
+        max-width: 300px;
+    }
+
+    .thumb li {
+        margin: 0 3px;
+        height: 55px;
+    }
+
+    .thumb li img {
+        max-width: 40px;
+    }
+
+    .thumb li::before {
+        position: absolute;
+        top: -150px;
+        left: 0;
+        font-size: 6em;
+    }
+
+    .sci {
+        background: rgba(0, 0, 0, 0.1);
+        right: 0;
+        width: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    header .navigation {
+        display: none;
+    }
+
+    header .navigation.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fc4a55;
+        z-index: 10;
+        flex-direction: column;
+    }
+
+    .toogle {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 10000;
+    }
+
+    .toogle .active {
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
