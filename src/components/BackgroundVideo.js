@@ -9,7 +9,9 @@ const BackgroundVideo = () => {
         <source src="/videos/background.mp4" type="video/mp4" />
         No se puede mostrar este video en tu navegador
       </video>
-
+    
+      <div className="contentBG d-flex flex-column ">
+        <div>
       <div className="content d-flex flex-column ">
         <div className=''>
           <h1 className='titulo'>Restart Ocean</h1>
