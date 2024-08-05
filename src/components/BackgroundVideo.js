@@ -11,12 +11,10 @@ const BackgroundVideo = () => {
       </video>
 
       <div className="contentBG d-flex flex-column ">
-        <div>
-          <div className="content d-flex flex-column ">
-            <div className=''>
-              <h1 className='titulo'>Restart Ocean</h1>
-              <p>Reseteando la vida marina</p>
-            </div>
+        <div className="content d-flex flex-column ">
+          <div className=''>
+            <h1 className='titulo'>Restart Ocean</h1>
+            <p>Reseteando la vida marina</p>
           </div>
         </div>
       </div>
