@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from 'moment';
 import 'moment/locale/es';
-import '../components/CSS/Calendar1.css';
+import '../components/Calendario/Calendar1.css';
 import Modal from 'react-modal';
 
 moment.locale('es');
