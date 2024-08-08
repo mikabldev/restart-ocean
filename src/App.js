@@ -5,6 +5,8 @@ import Donaciones from './Views/Donaciones';
 import Inicio from './Views/Inicio';
 import Calendar1 from './Views/Calendar1';
 import Navba from './components/Navbar';
+import CardsNosotros from './components/cardsNosotros/CardsNosotros';
+import NotFound from './Views/NotFound.js'
 
 
 function App() {
@@ -16,6 +18,10 @@ function App() {
                 <Route path="/foro" element={<Foro />} />
                 <Route path="/donaciones" element={<Donaciones />} />
                 <Route path="/calendario" element={<Calendar1/>} />
+                <Route path="/quienes-somos" element={<CardsNosotros/>} />
+                <Route path="/*" element={<NotFound />} />
+
+
             </Routes>
 
         </>
