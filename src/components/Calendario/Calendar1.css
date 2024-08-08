@@ -30,3 +30,19 @@ body {
         
     }
 }
+.modal-title {
+    font-weight: bold; /* Para que el texto esté en negrita */
+    font-size: 1.25rem; /* Ajusta el tamaño de la fuente */
+}
+  
+  /* Estilo para el contenido del modal */
+.modal-body label {
+    font-style: italic;
+    color: #333; /* Cambia el color del texto */
+    font-size: 15px;
+}
+  
+  /* Estilo para los botones del modal */
+.modal-footer .btn {
+    font-weight: bold; /* Para que el texto del botón esté en negrita */
+}
