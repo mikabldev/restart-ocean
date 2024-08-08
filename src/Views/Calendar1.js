@@ -4,13 +4,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from 'moment';
 import 'moment/locale/es';
 import '../components/Calendario/Calendar1.css';
-import Modal from 'react-modal';
 
 moment.locale('es');
 const localizer = momentLocalizer(moment);
-
-// Configura el elemento raíz para el modal
-Modal.setAppElement('#root');
 
 const Calendar1 = () => {
   const [eventos, setEventos] = useState([]);
@@ -135,10 +131,10 @@ const Calendar1 = () => {
                 <button type="button" className="btn-close" onClick={() => setModalEvento(false)}></button>
               </div>
               <div className="modal-body">
-                <p>Título: {eventoSeleccionado?.title}</p>
-                <p>Descripción: {eventoSeleccionado?.description}</p>
-                <p>Fecha de inicio: {moment(eventoSeleccionado?.start).format('DD-MM-YYYY HH:mm')} hrs. </p>
-                <p>Fecha final: {moment(eventoSeleccionado?.end).format('DD-MM-YYYY HH:mm')} hrs.</p>
+                <p><b>Título:</b> {eventoSeleccionado?.title}</p>
+                <p><b>Descripción:</b> {eventoSeleccionado?.description}</p>
+                <p><b>Fecha de inicio:</b>{moment(eventoSeleccionado?.start).format('DD-MM-YYYY HH:mm')} hrs. </p>
+                <p><b>Fecha final:</b> {moment(eventoSeleccionado?.end).format('DD-MM-YYYY HH:mm')} hrs.</p>
               </div>
               <div className="modal-footer">
                 <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
