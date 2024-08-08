@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../components/Carrusel-colab.css';
+import './Carrusel-colab.css';
 
 const Carousel = () => {
   const [image, setImage] = useState(`${process.env.PUBLIC_URL}/img/1.jpg`);
@@ -56,5 +56,3 @@ const Carousel = () => {
 }
 
 export default Carousel;
-
-

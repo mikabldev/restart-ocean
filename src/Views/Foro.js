@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PostList from '../components/PostList';
-import PostForm from '../components/PostForm'
-import '../components/Foro.css';
+import PostList from '../components/Foro/PostList';
+import PostForm from '../components/Foro/PostForm'
+import '../components/Foro/Foro.css';
 
 function Foro() {
     const [posts, setPosts] = useState([]);
