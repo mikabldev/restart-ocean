@@ -1,98 +1,110 @@
-/* App.css */
-
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    color: #1c1c1c;
-  }
-  
-  .App {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Styles */
-  .post-form, .comments-section {
-    margin-bottom: 20px;
-  }
-  
-  .post-form h2, .comments-section h4 {
-    margin-bottom: 10px;
-  }
-  
-  .post-form label, .comments-section label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  .post-form input, .post-form textarea,
-  .comments-section textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .post-form button, .comments-section button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #0079d3;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .post-form button:hover, .comments-section button:hover {
-    background-color: #0056a1;
-  }
-  
-  /* Post List Styles */
-  h1, h2 {
-    border-bottom: 2px solid #e1e1e1;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  li {
-    border-bottom: 1px solid #e1e1e1;
-    padding: 15px 0;
-  }
-  
-  li:last-child {
-    border-bottom: none;
-  }
-  
-  .post-author {
-    font-size: 0.9rem;
-    color: #888888;
-  }
-  
-  .comments-section {
-    margin-top: 20px;
-  }
-  
-  .comments-section ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .comments-section li {
-    border-bottom: 1px solid #e1e1e1;
-    padding: 10px 0;
-  }
-  
+  font-family: Arial, sans-serif; /* Tipografía básica y clara */
+  background-color: #e0f7fa; /* Fondo azul claro */
+  margin: 0; /* Sin márgenes alrededor del body */
+  padding: 0; /* Sin relleno alrededor del body */
+  color: #333; /* Color del texto */
+  display: flex; /* Uso de flexbox para el layout */
+  flex-direction: column; /* Layout en columna */
+}
+
+/* Main Container */
+.App {
+  display: flex; /* Layout en flex para el contenedor principal */
+  width: 100%; /* Ancho completo de la página */
+  margin: 0; /* Sin márgenes automáticos */
+  padding: 20px; /* Relleno interno */
+  background: #77dce4; /* Fondo blanco para el contenedor */
+  border-radius: 0; /* Sin bordes redondeados */
+  box-shadow: none; /* Sin sombra */
+}
+
+/* Content Area */
+.content {
+  flex: 3; /* Flex para asignar el espacio de contenido */
+  margin-left: 20px; /* Margen izquierdo para separar del sidebar */
+}
+
+/* Form Styles */
+.post-form, .comments-section {
+  margin-bottom: 20px; /* Espacio debajo de los formularios */
+  background: #f9f9f9; /* Fondo gris claro para formularios */
+  padding: 15px; /* Relleno interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  color: #333; /* Color del texto en el formulario */
+}
+
+.post-form h2, .comments-section h4 {
+  margin-bottom: 15px; /* Espacio debajo de los encabezados */
+  font-size: 1.4rem; /* Tamaño de fuente ligeramente mayor */
+  color: #0079d3; /* Color azul para los títulos */
+}
+
+.post-form label, .comments-section label {
+  display: block; /* Cada etiqueta en su propia línea */
+  margin: 10px 0 5px; /* Espacio arriba y abajo de las etiquetas */
+  color: #000; /* Color negro para las etiquetas */
+}
+
+.post-form input, .post-form textarea,
+.comments-section textarea {
+  width: 100%; /* Ancho completo del contenedor */
+  padding: 12px; /* Relleno interno de los campos de entrada */
+  margin-bottom: 10px; /* Espacio debajo de los campos de entrada */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluye relleno y borde en el ancho total */
+  color: #000; /* Color negro para el texto dentro de los campos */
+}
+
+.post-form button, .comments-section button {
+  padding: 12px 18px; /* Relleno interno de los botones */
+  border: none; /* Sin borde en los botones */
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #0079d3; /* Fondo azul para los botones */
+  color: white; /* Color del texto en los botones */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  font-size: 1rem; /* Tamaño de fuente del botón */
+}
+
+.post-form button:hover, .comments-section button:hover {
+  background-color: #0056a1; /* Fondo azul oscuro al pasar el cursor */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  flex: 0.5; /* Flex para asignar el espacio del sidebar */
+  background: #f1f1f1; /* Fondo gris claro para el sidebar */
+  padding: 20px; /* Relleno interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.sidebar h2 {
+  margin-top: 0; /* Sin margen superior */
+  font-size: 1.6rem; /* Tamaño de fuente mayor para encabezados del sidebar */
+  margin-bottom: 15px; /* Espacio debajo del encabezado */
+  color: #0079d3; /* Color azul para los títulos del sidebar */
+}
+
+.sidebar ul {
+  list-style-type: none; /* Sin puntos en la lista */
+  padding: 0; /* Sin relleno interno */
+  margin: 0; /* Sin márgenes */
+}
+
+.sidebar li {
+  margin-bottom: 10px; /* Espacio debajo de cada ítem de la lista */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  padding: 10px; /* Relleno interno */
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo blanco para los ítems de la lista */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+}
+
+.sidebar li:hover {
+  background-color: #0079d3; /* Fondo azul para ítems de lista al pasar el cursor */
+  color: white; /* Color del texto blanco al pasar el cursor */
+}

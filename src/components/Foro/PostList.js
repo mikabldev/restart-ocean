@@ -1,11 +1,19 @@
-// src/components/PostList.js
 import React, { useState, useEffect } from 'react';
+import './PostList.css'; // Archivo CSS para estilos específicos de PostList
 
 const PostList = ({ posts, addComment, editPost, deletePost }) => {
   const [comment, setComment] = useState('');
   const [editingPostId, setEditingPostId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(2); // Número de posts por página
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   const handleCommentChange = (e) => setComment(e.target.value);
 
@@ -40,11 +48,11 @@ const PostList = ({ posts, addComment, editPost, deletePost }) => {
   }, [editingPostId, posts]);
 
   return (
-    <div>
-      <h2>Posts</h2>
+    <div className="post-list">
+      <h1 className="post-list-title">Posts</h1>
       <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
+        {currentPosts.map((post) => (
+          <li key={post.id} className="post-item">
             {editingPostId === post.id ? (
               <div>
                 <input
@@ -63,6 +71,7 @@ const PostList = ({ posts, addComment, editPost, deletePost }) => {
               </div>
             ) : (
               <div>
+                {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.title}</h3>
                 <p>{post.content}</p>
                 <span className="post-author">Autor: {post.author}</span>
@@ -91,7 +100,30 @@ const PostList = ({ posts, addComment, editPost, deletePost }) => {
           </li>
         ))}
       </ul>
+      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
     </div>
+  );
+};
+
+const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <nav>
+      <ul className='pagination'>
+        {pageNumbers.map(number => (
+          <li key={number} className='page-item'>
+            <button onClick={() => paginate(number)} className='page-link'>
+              {number}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import './PostForm.css'; // Asegúrate de importar los estilos
 
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && content && author) {
-      addPost({ title, content, author });
+      addPost({ title, content, author, imageUrl });
       setTitle('');
       setContent('');
       setAuthor('');
+      setImageUrl('');
     }
   };
 
@@ -44,9 +47,19 @@ const PostForm = ({ addPost }) => {
           onChange={(e) => setAuthor(e.target.value)}
         />
       </div>
+      <div>
+        <label htmlFor="imageUrl">URL de la Imagen:</label>
+        <input
+          type="text"
+          id="imageUrl"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+        />
+      </div>
       <button type="submit">Añadir Post</button>
     </form>
   );
 };
 
 export default PostForm;
+
