@@ -7,6 +7,7 @@ import Calendar1 from './Views/Calendar1';
 import Navba from './components/Navbar';
 import CardsNosotros from './components/cardsNosotros/CardsNosotros';
 import NotFound from './Views/NotFound.js'
+import Colaboradores from './Views/Colaboradores.js';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/donaciones" element={<Donaciones />} />
                 <Route path="/calendario" element={<Calendar1/>} />
                 <Route path="/quienes-somos" element={<CardsNosotros/>} />
+                <Route path="/colaboradores" element={<Colaboradores />} />
                 <Route path="/*" element={<NotFound />} />
 
 
