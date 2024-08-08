@@ -19,8 +19,9 @@ const Calendar1 = () => {
   const [fechaInicio, setFechaInicio] = useState(null)
   const [fechaFinal, setFechaFinal] = useState(null)
   const [tituloEvento, setTituloEvento] = useState('')
-  const [eventoSeleccionado, setEventoSelenccionado] = useState(null)
+  const [eventoSeleccionado, setEventoSeleccionado] = useState(null)
   const [descripcion, setDescripcion] = useState('')
+  const [modalEvento, setModalEvento] = useState(false);
 
   const manejadorEventos = ({ start, end }) => {
     setMostrarModal(true);
@@ -30,6 +31,7 @@ const Calendar1 = () => {
   const guardarEvento = () => {
     if (tituloEvento && fechaInicio && fechaFinal && descripcion) {
       const eventoNuevo = {
+        id: new Date().getTime(), // Genera un ID único para el evento
         title: tituloEvento,
         start: fechaInicio,
         end: fechaFinal,
@@ -41,14 +43,23 @@ const Calendar1 = () => {
       setDescripcion('')
     }
   }
-  const abrirModalEliminar = (event) => {
-    setEventoSelenccionado(event);
+  const abrirModalEvento = (event) => {
+    setEventoSeleccionado(event);
+    setModalEvento(true);
+  };
+  const cerrarModalEvento = () => {
+    setModalEvento(false);
+    setEventoSeleccionado(null);
+  };
+  const abrirModalEliminar = () => {
     setModalEliminar(true);
-  }
+    setModalEvento(false)
+  };
   const eliminarEvento = () => {
-    setEventos(eventos.filter(event => event !== eventoSeleccionado));
+    setEventos(eventos.filter(event => event.id !== eventoSeleccionado.id));
+    cerrarModalEvento();
     setModalEliminar(false);
-    setEventoSelenccionado(null)
+    setEventoSeleccionado(null);
   };
   const Event = ({ event }) => (
     <div>
@@ -78,7 +89,7 @@ const Calendar1 = () => {
         views={["month", "week", "day"]}
         selectable
         onSelectSlot={manejadorEventos}
-        onSelectEvent={abrirModalEliminar}
+        onSelectEvent={abrirModalEvento}
         components={{
           event: Event
         }}
@@ -115,7 +126,29 @@ const Calendar1 = () => {
           </div>
         </div>
       )}
-      {modalEliminar &&
+      {modalEvento && (
+        <div className="modal" style={{ display: 'block', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Detalles del evento</h5>
+                <button type="button" className="btn-close" onClick={() => setModalEvento(false)}></button>
+              </div>
+              <div className="modal-body">
+                <p>Título: {eventoSeleccionado?.title}</p>
+                <p>Descripción: {eventoSeleccionado?.description}</p>
+                <p>Fecha de inicio: {moment(eventoSeleccionado?.start).format('DD-MM-YYYY HH:mm')} hrs. </p>
+                <p>Fecha final: {moment(eventoSeleccionado?.end).format('DD-MM-YYYY HH:mm')} hrs.</p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
+                <button type="button" onClick={() => setModalEvento(false)} className="btn btn-secondary">Cerrar ventana</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {modalEliminar &&(
         <div className="modal" style={{ display: 'block', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
           <div className="modal-dialog">
             <div className="modal-content">
@@ -133,7 +166,7 @@ const Calendar1 = () => {
             </div>
           </div>
         </div>
-      }
+      )}
     </div>
   );
 }
