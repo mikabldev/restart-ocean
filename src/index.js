@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from './App';
+import Footer from "./components/Footer/Footer"
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App/>
+      <Footer/>
     </BrowserRouter>
   </React.StrictMode>
 );
