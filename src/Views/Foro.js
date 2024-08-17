@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PostList from '../components/Foro/PostList';
 import PostForm from '../components/Foro/PostForm';
 import '../components/Foro/Foro.css';
-import Sidebar from '../../Foro/components/Left-Sidebar/LSidebar';
+import Sidebar from '../components/Foro/Right-Sidebar/RSidebar';
 
 function Foro() {
   const [posts, setPosts] = useState([]);

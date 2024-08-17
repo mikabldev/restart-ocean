@@ -10,7 +10,7 @@ import {
     MDBCardText,
     MDBBtn,
     MDBIcon
-} from 'mdbreact';
+} from "mdb-react-ui-kit";
 
 const SidebarDerecho = () => {
     return (
