@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PostList from '../components/Foro/PostList';
 import PostForm from '../components/Foro/PostForm';
-import Sidebar from '../components/Foro/sidebar'; 
 import '../components/Foro/Foro.css';
+import Sidebar from '../../Foro/components/Sidebar/Sidebar';
 
 function Foro() {
   const [posts, setPosts] = useState([]);
@@ -32,7 +32,7 @@ function Foro() {
 
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar/>
       <div className="content">
         <PostForm addPost={addPost} />
         <PostList posts={posts} addComment={addComment} editPost={editPost} deletePost={deletePost} />
