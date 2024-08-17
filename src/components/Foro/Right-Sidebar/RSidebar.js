@@ -12,7 +12,7 @@ import {
     MDBIcon
 } from "mdb-react-ui-kit";
 
-const SidebarDerecho = () => {
+const RSidebar = () => {
     return (
         <MDBContainer className="sidebar-derecho">
 
@@ -91,4 +91,4 @@ const SidebarDerecho = () => {
     );
 };
 
-export default SidebarDerecho;
+export default RSidebar;
