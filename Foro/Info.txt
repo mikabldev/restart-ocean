@@ -1,0 +1,5 @@
+## Información
+
+Este es un archivo en el que escribiré todo lo útil para el proyecto de Restart Ocean
+
+Además de utilizarlo de ejemplo cuando leo archivos a través de variables.
