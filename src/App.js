@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import HomeForo from './Views/HomeForo'
+import HomeForo from './Views/HomeForo.js'
 import Donaciones from './Views/Donaciones';
 import Inicio from './Views/Inicio';
 import Calendar1 from './Views/Calendar1';

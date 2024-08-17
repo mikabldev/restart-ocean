@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PostList from '../components/Foro/PostList';
 import PostForm from '../components/Foro/PostForm';
 import '../components/Foro/Foro.css';
-import SidebarDerecho from './Right-Sidebar/RSidebar';
+import LSidebar from './Left-Sidebar/LSidebar.js';
 
 function LogicaForo() {
     const [posts, setPosts] = useState([]);
@@ -32,7 +32,7 @@ function LogicaForo() {
 
     return (
         <div className="App">
-            <SidebarDerecho />
+            <LSidebar />
             <div className="content">
                 <PostForm addPost={addPost} />
                 <PostList posts={posts} addComment={addComment} editPost={editPost} deletePost={deletePost} />
