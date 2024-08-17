@@ -1,7 +1,7 @@
 import React from "react";
 import LSidebar from "../components/Foro/Left-Sidebar/LSidebar"
 
-const Foro = () => {
+const HomeForo = () => {
   return (
       <div>
           <LSidebar />
@@ -13,4 +13,4 @@ const Foro = () => {
   );
 };
 
-export default Foro;
+export default HomeForo;

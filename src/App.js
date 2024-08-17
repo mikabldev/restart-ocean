@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Foro from './Views/Foro'
+import HomeForo from './Views/HomeForo'
 import Donaciones from './Views/Donaciones';
 import Inicio from './Views/Inicio';
 import Calendar1 from './Views/Calendar1';
@@ -16,7 +16,7 @@ function App() {
         <Navba/>
             <Routes>
                 <Route path="/" element={<Inicio />} />
-                <Route path="/foro" element={<Foro />} />
+                <Route path="/foro" element={<HomeForo />} />
                 <Route path="/donaciones" element={<Donaciones />} />
                 <Route path="/calendario" element={<Calendar1/>} />
                 <Route path="/quienes-somos" element={<CardsNosotros/>} />
