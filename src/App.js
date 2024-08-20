@@ -12,7 +12,7 @@ import Colaboradores from './Views/Colaboradores.js';
 
 function App() {
     return (
-        <>
+        <> 
         <Navba/>
             <Routes>
                 <Route path="/" element={<Inicio />} />
@@ -20,6 +20,7 @@ function App() {
                 <Route path="/donaciones" element={<Donaciones />} />
                 <Route path="/calendario" element={<Calendar1/>} />
                 <Route path="/quienes-somos" element={<CardsNosotros/>} />
+                <Route path="/colaboradores" element={<Colaboradores />} />
                 <Route path="/colaboradores" element={<Colaboradores />} />
                 <Route path="/*" element={<NotFound />} />
 
