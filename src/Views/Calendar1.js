@@ -12,8 +12,8 @@ const Calendar1 = () => {
   const [eventos, setEventos] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false)
-  const [fechaInicio, setFechaInicio] = useState(null)
-  const [fechaFinal, setFechaFinal] = useState(null)
+  const [fechaInicio, setFechaInicio] = useState('')
+  const [fechaFinal, setFechaFinal] = useState('')
   const [tituloEvento, setTituloEvento] = useState('')
   const [eventoSeleccionado, setEventoSeleccionado] = useState(null)
   const [descripcion, setDescripcion] = useState('')
@@ -36,7 +36,9 @@ const Calendar1 = () => {
       setEventos([...eventos, eventoNuevo]);
       setMostrarModal(false);
       setTituloEvento('');
-      setDescripcion('')
+      setDescripcion('');
+      setFechaInicio('');
+      setFechaFinal('');
     }
   }
   const abrirModalEvento = (event) => {
@@ -114,6 +116,20 @@ const Calendar1 = () => {
                   value={descripcion}
                   onChange={(e) => setDescripcion(e.target.value)}
                 />
+                <label>Horario de inicio</label>
+                <input
+                type='datetime-local'
+                className='form-control'
+                value={moment(fechaInicio).format('YYYY-MM-DDTHH:mm')}
+                onChange={(e)=> setFechaInicio(new Date(e.target.value))}
+                />
+                <label>Horario de fin</label>
+                <input
+                  type='datetime-local'
+                  className='form-control'
+                  value={moment(fechaFinal).format('YYYY-MM-DDTHH:mm')}
+                  onChange={(e) => setFechaFinal(new Date(e.target.value))}
+                />
               </div>
               <div class="modal-footer">
                 <button type="button" onClick={guardarEvento} className='btn btn-primary'>Guardar Evento</button>
@@ -133,12 +149,11 @@ const Calendar1 = () => {
               <div className="modal-body">
                 <p><b>Título:</b> {eventoSeleccionado?.title}</p>
                 <p><b>Descripción:</b> {eventoSeleccionado?.description}</p>
-                <p><b>Fecha de inicio:</b>{moment(eventoSeleccionado?.start).format('DD-MM-YYYY HH:mm')} hrs. </p>
-                <p><b>Fecha final:</b> {moment(eventoSeleccionado?.end).format('DD-MM-YYYY HH:mm')} hrs.</p>
+                <p><b>Fecha del evento: </b>{moment(eventoSeleccionado?.start).format('DD-MM-YYYY')} </p>
+                <p><b>Horario del evento: </b>{moment(eventoSeleccionado?.start).format('HH:mm')} hrs. - {moment(eventoSeleccionado?.end).format('HH:mm')} hrs.</p>
               </div>
               <div className="modal-footer">
                 <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
-                <button type="button" onClick={() => setModalEvento(false)} className="btn btn-secondary">Cerrar ventana</button>
               </div>
             </div>
           </div>
