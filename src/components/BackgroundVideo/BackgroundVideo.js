@@ -1,12 +1,12 @@
 // src/components/BackgroundVideo.js
-import React from 'react';
 import './BackgroundVideo.css';
 
 const BackgroundVideo = () => {
+
   return (
     <div className="video-container">
       <video autoPlay loop muted>
-        <source src="/videos/background.mp4" type="video/mp4" />
+        <source src="./videos/background.mp4" type="video/mp4" />
         No se puede mostrar este video en tu navegador
       </video>
 
@@ -22,4 +22,4 @@ const BackgroundVideo = () => {
   );
 };
 
-export default BackgroundVideo;
+export default BackgroundVideo
