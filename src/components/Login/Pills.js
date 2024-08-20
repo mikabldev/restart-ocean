@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 import {
   MDBTabs,
   MDBTabsItem,
   MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane
-} from 'mdb-react-ui-kit';
-import Login from './Login';
-import CheckIn from './CheckIn';
+} from 'mdb-react-ui-kit'
+import Login from './Login'
+import Register from './Register'
 
-export default function Pills() {
-  const [basicActive, setBasicActive] = useState('iniciar sesion');
+export default function Pills () {
+  const [basicActive, setBasicActive] = useState('iniciar sesion')
 
   const handleBasicClick = (value) => {
     if (value === basicActive) {
-      return;
+      return
     }
 
-    setBasicActive(value);
-  };
+    setBasicActive(value)
+  }
 
   return (
     <>
@@ -37,8 +37,8 @@ export default function Pills() {
 
       <MDBTabsContent>
         <MDBTabsPane open={basicActive === 'iniciar sesion'}><Login /> </MDBTabsPane>
-        <MDBTabsPane open={basicActive === 'registrate'}><CheckIn /> </MDBTabsPane>
+        <MDBTabsPane open={basicActive === 'registrate'}><Register /> </MDBTabsPane>
       </MDBTabsContent>
     </>
-  );
+  )
 }

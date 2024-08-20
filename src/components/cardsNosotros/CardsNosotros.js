@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './cardsNosotros.css'
 
 const CardsNosotros = () => {
+  const getData = async () => {
+    try {
+      const res = await fetch('./nosotros.json')
+      const data = await res.json()
+      console.log(data);
+    } catch (error) {
+      console.error('Tienes un error en el consumo de la API')
+    }
+  }
+
+useEffect(() => {
+  getData()
+},[])
+
+
   return (
     <div className='contentCardNosotros'>
       <div className="card constanza">
@@ -128,7 +143,7 @@ const CardsNosotros = () => {
       </div>
     </div>
 
-    
+
   )
 }
 

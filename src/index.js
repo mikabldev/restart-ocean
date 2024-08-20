@@ -9,16 +9,15 @@ import App from './App';
 import Footer from "./components/Footer/Footer"
 import { BrowserRouter } from 'react-router-dom';
 
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
+        <App />
     <BrowserRouter>
       <App/>
       <Footer/>
     </BrowserRouter>
   </React.StrictMode>
-);
+)
 
-reportWebVitals();
+reportWebVitals()
