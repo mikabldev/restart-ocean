@@ -1,12 +1,19 @@
 * {
-    margin: 0;
+    margin: 5px;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    margin-bottom: 100px;
+}
+
+.titulo {
+    margin-top: 50px;
+    color: #fff;
+    text-align: center;
 }
 
 .wrapper {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     max-width: 80rem;
 }
@@ -23,8 +30,10 @@
 }
 
 .col {
-    width: calc(30% - 2rem);
+    width: calc(32% - 2rem);
     margin: 1rem;
+    margin-left: 25px;
+    margin-right: 25px;
     cursor: pointer;
 }
 
@@ -49,7 +58,7 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     text-align: center;
-    min-height: 280px;
+    min-height: 360px;
     height: auto;
     border-radius: 10px;
     color: #fff;
@@ -61,7 +70,7 @@
     background: -webkit-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: -o-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: linear-gradient(45deg, #cedce7 0%, #596a72 100%);
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -104,7 +113,7 @@
     position: absolute;
     left: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: 1px solid transparent;
@@ -146,7 +155,7 @@
 
 .front .inner p {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
 }
 
@@ -167,6 +176,11 @@
     color: rgba(255, 255, 255, 0.7);
     font-family: 'Montserrat';
     font-weight: 300;
+}
+
+.colaboradores {
+    color: #000;
+    text-align: center;
 }
 
 @media screen and (max-width: 64rem) {

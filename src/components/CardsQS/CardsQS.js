@@ -12,6 +12,9 @@ const CardsQS = () => {
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.titulo}>
+                <h1>Nuestra razón de ser</h1>
+            </div>
             <div className={styles.cols}>
 
                 {/* Primer card (Misión) */}
@@ -52,7 +55,7 @@ const CardsQS = () => {
                         </div>
                         <div className={styles.back}>
                             <div className={styles.inner}>
-                                <p>En Restart Ocean creemos que juntos podemos marcar la diferencia. Aquí, tanto empresas como individuos pueden compartir sus proyectos, intercambiar ideas y forjar alianzas que impulsen un cambio real y duradero.</p>
+                                <p>En Restart Ocean creemos que juntos podemos marcar la diferencia. Aquí, organizaciones, fundaciones, empresas como también individuos pueden compartir sus proyectos, intercambiar ideas y forjar alianzas que impulsen un cambio real y duradero.</p>
                             </div>
                         </div>
                     </div>
