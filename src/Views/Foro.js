@@ -4,7 +4,7 @@ import PostList from "../components/Foro/PostList"
 import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
 import PostForm from "../components/Foro/PostForm"
 
-function HomeForo() {
+function Foro() {
   // Aquí comienza la lógica del post list más el contenedor donde comenzar a escribir un post
   
   const [posts, setPosts] = useState([]);
@@ -48,4 +48,4 @@ function HomeForo() {
   );
 };
 
-export default HomeForo;
+export default Foro;
