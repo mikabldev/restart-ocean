@@ -1,0 +1,42 @@
+[
+  {
+    "nombre":"Constanza",
+    "Apellido":"Pérez",
+    "cargo":"Desarrolladora Full Stack",
+    "linkedin":"https://www.linkedin.com/in/cvperezol/",
+    "github":"https://github.com/constanzaperez0215",
+    "img":""
+  },
+  {
+    "nombre":"Evelyn",
+    "Apellido":"Abarca",
+    "cargo":"Desarrolladora Full Stack",
+    "linkedin":"https://www.linkedin.com/in/evelyn-abarca-valenzuela/",
+    "github":"https://github.com/EvelynFAV",
+    "img":""
+  },
+  {
+    "nombre":"Camila",
+    "Apellido":"Bravo",
+    "cargo":"Desarrolladora Full Stack",
+    "linkedin":"https://www.linkedin.com/in/camilajbl/",
+    "github":"https://github.com/camilafolks",
+    "img":""
+  },
+  {
+    "nombre":"Felipe",
+    "Apellido":"Molina",
+    "cargo":"Desarrollador Full Stack",
+    "linkedin":"",
+    "github":"",
+    "img":""
+  },
+  {
+    "nombre":"Chary",
+    "Apellido":"Nuñez",
+    "cargo":"Desarrollador Full Stack",
+    "linkedin":"",
+    "github":"",
+    "img":""
+  }
+]

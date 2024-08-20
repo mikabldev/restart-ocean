@@ -3,9 +3,10 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  flex-wrap: nowrap;
+  gap: 20px;
   align-items: center;
-  background-image: url('/public/img/backgroundNosotros.jpg');
+  background-image: url('/public/img/7.jpg');
   background-position: center;
   background-size: cover;
 }
