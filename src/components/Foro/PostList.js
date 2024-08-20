@@ -7,7 +7,7 @@ const PostList = ({ posts, addComment, editPost, deletePost }) => {
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(2); // Número de posts por página
+  const [postsPerPage] = useState(4); // Número de posts por página// 
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
