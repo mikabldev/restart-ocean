@@ -30,7 +30,7 @@
 }
 
 .col {
-    width: calc(32% - 2rem);
+    width: calc(30% - 2rem);
     margin: 1rem;
     margin-left: 25px;
     margin-right: 25px;
