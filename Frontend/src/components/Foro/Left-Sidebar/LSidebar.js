@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import "LSidebar.module.css"
+import "./LSidebar.module.css"
 
 const LSidebar = () => {
   const [openSections, setOpenSections] = useState({
     home: false,
-    dashboard: true,
-    orders: true,
-    account: true,
+    dashboard: false,
+    orders: false,
+    account: false,
   });
 
   const toggleSection = (section) => {
