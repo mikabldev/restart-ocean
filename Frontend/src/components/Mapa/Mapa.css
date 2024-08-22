@@ -1,0 +1,80 @@
+.svgContainer {
+    position: relative; /* Esto es importante para que el pop-up se posicione correctamente */
+    margin-left: 0; /* Alinea el SVG hacia la izquierda */
+    max-width: 1500px; /* Ajusta según el tamaño del SVG */
+    display: flex;
+    justify-content: flex-start; /* Alinea el mapa hacia la izquierda */
+    background-color: #D5D1D0;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    padding-left: 0; /* Elimina cualquier espacio a la izquierda, si es necesario */
+}
+.svgContainer svg {
+    width: 100%; /* Ajusta el tamaño al contenedor */
+    height: auto; /* Mantiene la proporción */
+}
+.svgContainer path{
+    fill:#5899a3;
+    stroke: #013F56;
+    stroke-width: 1.5px; /* Grosor del borde */
+}
+.svgContainer path:hover{
+    fill: #a7bcbd;
+}
+.infoPopup {
+    background-color: #013F56;
+    border: solid #D5D1D0;
+    padding: 10px;
+    border-radius: 10px;
+    pointer-events: auto;
+    z-index: 1000;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: calc(100vh - 2cm); /* Margen de 2 cm en cada lado */
+    max-width: calc(100vw - 2cm);  /* Margen de 2 cm en cada lado */
+    width: 80vw;  /* Asegura que el ancho se ajuste al contenido */
+    height: auto; /* Asegura que la altura se ajuste al contenido */
+}
+
+.infoPopup h2 {
+    font-size: 16px;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #1E90FF;
+}
+
+.infoPopup p {
+    font-size: 14px;
+    margin: 5px 0;
+    text-justify: distribute;
+    overflow:auto;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.infoPopup img {
+    max-width: 40%;
+    max-height: 60%;
+    border-radius: 30px;
+    display: block;
+    margin: 10px auto;
+}
+.closeButton {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: #013F56;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    width: 30px; /* Ancho fijo para hacer el botón más cuadrado */
+    height: 30px; /* Altura fija para hacer el botón más cuadrado */
+    text-align: center; /* Centrar el contenido */
+    line-height: 20px; /* Ajustar la altura de la línea para centrar el texto verticalmente */
+}
