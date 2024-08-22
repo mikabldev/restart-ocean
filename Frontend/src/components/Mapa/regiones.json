@@ -1,0 +1,159 @@
+{
+    "CLAP": {
+        "id": "CLAP",
+        "nombre": "Arica y parinacota",
+        "areas": [
+            {
+                "proteccion": "Reserva Marina",
+                "localidad": "La Puntilla de Playa Chinchorro",
+                "objetivo": "Su objetivo es proteger, conservar y manejar la única colonia residente de Tortuga verde (Chelonia mydas), así como también su hábitat y su área de alimentación y descanso. Por otro lado, también se busca proteger el adecuado manejo de la flora y fauna marina representativa de la zona.",
+                "imagen": "./img/mapa/AricaYparinacota.jpg"
+            }
+        ]
+    },
+    "CLAN": {
+        "id": "CLAN",
+        "nombre":"Antofagasta",
+        "areas": [
+            {
+                "proteccion":"Reserva Marina",
+                "localidad":"La Rinconada",
+                "objetivo":"Proteger los bancos naturales de ostión del norte más importantes del país, tanto tn tamaño como en diversidad genética. El ostión es una especia muy relevante a nivel económico para el país, sin embargo ha sido sobreexplotado.",
+                "imagen":"./img/mapa/LaRinconadaAntofagasta.jpg"
+            }   
+        ]
+    },
+    "CLAT": {
+        "id": "CLAT",
+        "nombre": "Atacama",
+        "areas": [
+            {
+                "proteccion":"Reserva Marina",
+                "localidad":"Isla Chañaral",
+                "objetivo":"Proteger las poblaciones de delfines nariz de botella y los pingüinos de Humboldt que nifican en este lugar. Además, busca proteger los recursos pesqueros de interés para la pesca artesanal, como los locos, lapas y erizos. Por último, cabe mencionar que este lugar es una área de tránsito de varias especiaes de ballena.",
+                "imagen":"./img/mapa/IslaChañaralAtacama.jpg"
+            },
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad": "Punta Morro e Isla Grande De Atacama",
+                "objetivo": "Proteger los hábitats de las especies tales como el Delfín nariz de botella, el pingüino de Humboldt, el chungungo, el lobo marino común y diversas especies de aves marinas. Este es uno de los ecosistemas más productivos del mundo, pues existe un movimiento vertical de agua fría y rica en nutrientes hacia la superficie.",
+                "imagen":"./img/mapa/PuntaMorroAtacama.jpg"
+            },
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Coral Nui Nui, Motu Tuatara y Hanga Oteo",
+                "objetivo":"Proteger la fauna endémica, que sólo habita en esa zona, asocieada a arrecifes de coral, tales como esponjas marinas, moluscos, crustáceos y peces. El relieve submarino de esta zona protegida conforma cavernas profundas, grandes arcos y acantilados únicos en el mundo.",
+                "imagen":"./img/mapa/Coral.jpg"
+            }
+        ]    
+    },
+    "CLCO": {
+        "id": "CLCO",
+        "nombre":"Coquimbo",
+        "areas":[
+            {
+                "proteccion":"Reserva Marina",
+                "localidad":"Islas Choros - Damas",
+                "objetivo":"Protege las comunidades marinas costeras de la zona y su hábitat. Este ambiente provee hábitat para vertebrados acuáticos, como el delfín nariz de botella, el chungungo y el pingüino de Humboldt.",
+                "imagen":"./img/mapa/IslaDamas.jpg"
+            }
+        ]
+    },
+    "CLVS": {
+        "id":"CLVS",
+        "nombre":"Valparaíso",
+        "areas": [
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Las Cruces",
+                "objetivo":"Protege los ecosistemas marinos costeros de la zona central, incluyendo diversas especies (locos, lapas, ericos). Se creó para evaluar la recuperación de poblaciones de invertebrados explotados. Es una de las áreas marina protegidas más antiguas de Chile. ",
+                "imagen":"./img/mapa/LasCruces.jpg"
+            },
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Juan Fernández",
+                "objetivo":"Proteger la biodiversidad característica del ambiente marino del archipiélago, pues alberga hábitats vulnerables como los montes submarinos, y valiosos recursos pesqueros como la langosta de Juan Fernández o el cangrejo dorado. A su vez también protege especies como el lobo fino de Juan Fernández, aves marina, tortugas y otros mamíferos marinos.",
+                "imagen":"./img/mapa/JuanFernandez.jpg"
+            },
+            {
+                "proteccion":"Parque Marino",
+                "localidad":"Moto Motiro Hiva, Islas Salas y Gómez",
+                "objetivo":"Proteger el eccosistema marino característico de estas islas, y aquellos asociados a los montes submarinos que forman parte de la cordillera submarina Salas y Gómez. Aquí se observan grandes depredadores y especies escasas dada la explotación pesquera. Además, protege aves marinas que anidan en la isla, así como también a especies como el jurel, el tiburón de Galápagos, la langosta enana, entre otros. ",
+                "imagen":"./img/mapa/MotoMotiroIslasSalas.jpg"
+            },
+            {
+                "proteccion":"Parque Marino",
+                "localidad":"Nazca - Desventuradas (Islas San Félix y San Ambrosio)",
+                "objetivo":"Proteger las características biogeográficas y ecológicas únicas de la zona, considerando el importante endemismo de especies en conservación, tales como peces, mamíferos, aves y tortugas marinas. Además protege parte del área de distribución de especies comerciales como el jurel y el pez espada.",
+                "imagen":"./img/mapa/NazcaDesventuradas.jpg"
+            }
+
+        ]
+    },
+    "CLLI": {
+        "id":"CLLI",
+        "nombre":"Libertador General Bernardo O'Higgins",
+        "areas":[
+            {
+                "proteccion":"Santuario de la Naturaleza",
+                "localidad":"Bosque de Calabacillo de Navidad",
+                "objetivo":"Proteger el único bosque de macroalgas de esta zona, así como también la gran diversidad de invertebrados y peces asociados, en una zona explotada. Además, protege un banco natural de choro zapato, un recurso casi ausente en la región.",
+                "imagen":"./img/mapa/BosqueDeCalabacillo.jpg"
+            }
+        ]
+    },
+    "CLLL": {
+        "id": "CLLL",
+        "nombre":"Los Lagos",
+        "areas":[
+            {
+                "proteccion":"Reserva Marina",
+                "localidad":"Pullinque, Estero de Quetalmahue",
+                "objetivo":"Protege uno de los últimos bancos naturales de ostra chilena, para mantener, recuperar y potenciar a esta especia nativa, afectada por la explotación ilegal.",
+                "imagen":"./img/mapa/Pullinque.jpg"
+            },
+            {
+                "proteccion":"Reserva Marina",
+                "localidad":"Putemún, Estero de Castro",
+                "objetivo":"Protege la población de Choro Zapato, recurso que ha sufrido explotación ilegal y que además tuvo una gran afectación de su hábitat natural luego del terremoto de Valdivia en 1960.",
+                "imagen":"./img/mapa/PutemunCastro.jpg"
+            },
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Lafken Mapu Lahual",
+                "objetivo":"Protege la biodiversidad de la zona, constituida por áreas marinas estuarias (desembocaduras de ríos). Además en esta área se encuentra la colonia de anidación más austral del Gaviotín sudamericano, y también se observan otras especies, tales como el pingüino de Magallanes, el chungungo, el delfín austral y el lobo marino común. Por otro lado, también protege bosques de macroalgas y hábitats de recursos pesqueros.",
+                "imagen":"./img/mapa/LafkenMapu.jpg"
+            },
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Fiordo Comau, dentro del Estero Comau.",
+                "objetivo":"Proteger ecosistemas y hábitats de los fiordos de la zona norte de la Patagonia, los cuales tienen una alta biodiversidad de invertebrados marinos, como corales, esponjas marinas, choros y cholgas. A su vez, se encuentran lobos, delfines,  ballenas, aves y pingüinos. ",
+                "imagen":"./img/mapa//FiordoComau.jpg"
+            }
+        ]
+    },
+    "CLAI": {
+        "id":"CLAI",
+        "nombre":"Aysén",
+        "areas":[
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Patipalena - Añihue",
+                "objetivo":"Proteger ecosistemas de fiordos del sur de Chile, destacando lo prístino, la alta biodiversidad, el buen estado de conservación y la alta productividad pesquera. En esta zona se encuentran especies como esponjas, actinias, colares de agua fría, delfín chileno, delfín austral, pingüino de Magallanes, cormoranes, lobos, nutrias, ballenas y orcas.",
+                "imagen":"./img/mapa/Patipalena.jpg"
+            }
+        ]
+    },
+    "CLMA": {
+        "id":"CLMA",
+        "nombre":"Magallanes",
+        "areas":[
+            {
+                "proteccion":"Area Marina Costera Protegida de Múltiples Usos",
+                "localidad":"Francisco Coloane, Isla Carlos III y fiordos adyacentes del Estrecho de Magallanes.",
+                "objetivo":"Proteger el sistema de fiordos y canales australes y el Estrecho de Magallanes, los cuales tienen una gran importancia regional y global, así como también una variada diversidad biológica de invertebrados, algas y vertebrados marinos. Protege el área de mayor importancia para la alimentación de la ballena jorobada.",
+                "imagen":"./img/mapa/FranciscoColoane.jpg"
+            }
+        ]        
+    }
+}
