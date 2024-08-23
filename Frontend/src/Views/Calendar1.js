@@ -49,7 +49,7 @@ const Calendar1 = () => {
       });
     }
   }
-  
+
   const abrirModalEvento = (event) => {
     setEstadoModal({
       ...estadoModal,
@@ -64,7 +64,7 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
-  
+
   const abrirModalEliminar = () => {
     setEstadoModal({
       ...estadoModal,
@@ -72,7 +72,7 @@ const Calendar1 = () => {
       modalEvento: false
     });
   }
-  
+
   const eliminarEvento = () => {
     setEventos(eventos.filter(event => event.id !== estadoModal.eventoSeleccionado.id));
     cerrarModalEvento();
@@ -82,13 +82,17 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
+
   const Event = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
       <p> Descripción: {event.description}</p>
     </div>
-  );
+  )
+
   return (
+    <div>
+      <h2 className='tituloCalendario'>Revisa los próximos eventos</h2>
     <div className="calendar-container">
       <Calendar
         messages={{
@@ -200,6 +204,7 @@ const Calendar1 = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
