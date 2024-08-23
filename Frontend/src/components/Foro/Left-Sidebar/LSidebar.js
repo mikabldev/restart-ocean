@@ -3,9 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
-import './LSidebar.css';
+import './LSidebar.module.css';
 import 'boxicons/css/boxicons.min.css';
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Stack from 'react-bootstrap/Stack';
 
 const LSidebar = () => {
   return (
@@ -14,10 +18,10 @@ const LSidebar = () => {
         <div className="col-auto col-sm-2 bg-dark d-flex flex-column justify-content-between min-vh-100" role="button">
           <div className="mt-3">
             <a href="!#" className="text-decoration-none ms-4 d-flex align-items-center text-white d-none d-sm-inline">
-              <i class='bx bx-water'></i>
+              <i className='bx bx-water' style={{ marginRight: '5px' }}></i>
               <span className="f5-4" >Restart Ocean</span>
             </a>
-            <hr className="text-white d-none d-sm-block bg-dark"></hr>
+            <hr className="text-white d-none d-sm-block"></hr>
             <ul className="nav nav-pills flex-column mt-2 mt-sm-0" id="parentM">
               <li className="nav-item my-1 py-2 py-sm-0">
                 <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
@@ -61,19 +65,47 @@ const LSidebar = () => {
                   <span className="ms-2 d-none d-sm-inline">Customers</span>
                 </a>
               </li>
-
             </ul>
+          </div>
 
-          </div>
-          <div className="dropdown open">
-            <a href="!#" className="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="bi bi-person f5-4"></i><span className="fs-5 ms-3 d-none d-sm-inline">Usuario</span>
-            </a>
-            <div className="dropdown-menu" aria-labelledby="triggerId">
-              <a className="dropdown-item" href="!#">Perfil</a>
-              <a className="dropdown-item" href="!#">Configuraciones</a>
+          {/* Aquí empieza el menú dropdown */}
+          <Dropdown as={ButtonGroup}>
+            <Button variant="secondary">Mi perfil</Button>
+            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <Stack className="dropdown open" data-bs-theme="dark">
+            <div direction="horizontal" gap={3} >
+              <DropdownButton id="dropdown-button-dark"
+                title="Ola, Mika"
+                className="mt-2"
+                data-bs-theme="dark">
+                <Dropdown.Item href="#/action-1" active>
+                  <i className="bi bi-person f5-4" style={{ marginRight: '5px' }}></i>
+                  Mi perfil
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">
+                  <i class='bx bx-book' style={{ marginRight: '5px' }}></i>
+                  Mi actividad
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                  <i class='bx bx-cog' style={{ marginRight: '5px' }}></i>
+                  Ajustes
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item href="#/action-4">
+                  <i class='bx bx-log-out' style={{ marginRight: '5px' }}></i>
+                  Cerrar sesión
+                </Dropdown.Item>
+              </DropdownButton>
             </div>
-          </div>
+          </Stack>
 
         </div>
       </div>
