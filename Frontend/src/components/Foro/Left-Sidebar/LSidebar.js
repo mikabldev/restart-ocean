@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
-import './LSidebar.module.css';
-import 'boxicons/css/boxicons.min.css';
+import './LSidebar.module.css'; // Asegúrate de que el archivo CSS esté importado
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Button from 'react-bootstrap/Button';
@@ -16,11 +15,11 @@ const LSidebar = () => {
   return (
     <Container fluid>
       <div className="row">
-        <div className="col-auto col-sm-2 bg-dark d-flex flex-column justify-content-between min-vh-100" role="button">
+        <div className="col-auto col-sm-2 sidebar d-flex flex-column justify-content-between min-vh-100" role="button">
           <div className="mt-3">
             <a href="!#" className="text-decoration-none ms-4 d-flex align-items-center text-white d-none d-sm-inline">
               <i className='bx bx-water' style={{ marginRight: '5px' }}></i>
-              <span className="f5-4" >Restart Ocean</span>
+              <span className="f5-4">Restart Ocean</span>
             </a>
             <hr className="text-white d-none d-sm-block"></hr>
             <ul className="nav nav-pills flex-column mt-2 mt-sm-0" id="parentM">
@@ -82,7 +81,7 @@ const LSidebar = () => {
           </Dropdown>
 
           <Stack className="dropdown open" data-bs-theme="dark">
-            <div direction="horizontal" gap={3} >
+            <div direction="horizontal" gap={3}>
               <DropdownButton id="dropdown-button-dark"
                 title="Ola, Mika"
                 className="mt-2"
@@ -92,16 +91,16 @@ const LSidebar = () => {
                   Mi perfil
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-2">
-                  <i class='bx bx-book' style={{ marginRight: '5px' }}></i>
+                  <i className='bx bx-book' style={{ marginRight: '5px' }}></i>
                   Mi actividad
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-3">
-                  <i class='bx bx-cog' style={{ marginRight: '5px' }}></i>
+                  <i className='bx bx-cog' style={{ marginRight: '5px' }}></i>
                   Ajustes
                 </Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item href="#/action-4">
-                  <i class='bx bx-log-out' style={{ marginRight: '5px' }}></i>
+                  <i className='bx bx-log-out' style={{ marginRight: '5px' }}></i>
                   Cerrar sesión
                 </Dropdown.Item>
               </DropdownButton>
