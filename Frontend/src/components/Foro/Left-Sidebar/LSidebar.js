@@ -10,10 +10,11 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Stack from 'react-bootstrap/Stack';
+import Container from 'react-bootstrap/Container';
 
 const LSidebar = () => {
   return (
-    <div className="container-fluid">
+    <Container fluid>
       <div className="row">
         <div className="col-auto col-sm-2 bg-dark d-flex flex-column justify-content-between min-vh-100" role="button">
           <div className="mt-3">
@@ -109,7 +110,7 @@ const LSidebar = () => {
 
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

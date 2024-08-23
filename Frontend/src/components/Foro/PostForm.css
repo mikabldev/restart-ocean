@@ -5,7 +5,7 @@
     padding: 20px; /* Relleno interno */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar el formulario */
-    max-width: 6000px; /* Ancho máximo del formulario */
+    max-width: 600px; /* Ancho máximo del formulario */
     margin: 20px auto; /* Centrando el formulario horizontalmente con margen superior e inferior */
     font-family: 'Arial', sans-serif; /* Tipografía clara y moderna */
 }
@@ -60,4 +60,36 @@
 /* Estilo para el botón al pasar el cursor */
 .post-form button:hover {
     background-color: #0056a1; /* Fondo azul oscuro al pasar el cursor */
+}
+
+/* Estilo para el contenedor del editor */
+.editor-container {
+    border: 1px solid #ccc; /* Borde gris claro alrededor del editor */
+    padding: 10px; /* Relleno interno para el editor */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco para el editor */
+    margin-top: 5px; /* Espacio superior */
+    position: relative;
+}
+
+/* Asegúrate de que el editor de Quill ocupa el 100% del ancho del contenedor */
+.editor-container .ql-container {
+    height: 200px; /* Ajusta la altura del editor según sea necesario */
+}
+
+/* Asegura que la barra de herramientas del editor se vea bien */
+.editor-container .ql-toolbar {
+    border-bottom: 1px solid #ccc; /* Borde inferior para la barra de herramientas */
+}
+
+/* Estilo para el contenedor del textarea y el editor */
+.content-container {
+    position: relative;
+}
+
+/* Estilo para el textarea visible */
+.post-form textarea {
+    height: 200px; /* Ajusta la altura según sea necesario */
+    resize: none; /* Desactiva el cambio de tamaño */
+    background: #f9f9f9; /* Fondo ligeramente gris para el textarea */
 }
