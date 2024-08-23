@@ -11,67 +11,29 @@ const PostForm = ({ addPost }) => {
   const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
   const quillRef = useRef(null);
   const quillInstanceRef = useRef(null);
-  const editorContainerRef = useRef(null);
-  const textareaRef = useRef(null);
 
   useEffect(() => {
     if (showEditor && !quillInstanceRef.current) {
       quillInstanceRef.current = new Quill(quillRef.current, {
         theme: 'snow',
         placeholder: 'Escribe el contenido aquí...',
-        modules: {
-          toolbar: [
-            [{ header: '1' }, { header: '2' }],
-            ['bold', 'italic', 'underline'],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            ['link', 'image'],
-          ],
-        },
       });
 
       quillInstanceRef.current.on('text-change', () => {
         setContent(quillInstanceRef.current.root.innerHTML);
       });
     }
-
-    const handleClickOutside = (event) => {
-      if (
-        editorContainerRef.current &&
-        !editorContainerRef.current.contains(event.target) &&
-        textareaRef.current &&
-        !textareaRef.current.contains(event.target)
-      ) {
-        setShowEditor(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
   }, [showEditor]);
-
-  useEffect(() => {
-    if (quillInstanceRef.current) {
-      quillInstanceRef.current.root.innerHTML = content;
-    }
-  }, [content]);
-
-  const handleTextareaClick = () => {
-    setShowEditor(true);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && content && author) {
       addPost({ title, content, author, imageUrl });
-      // Resetear formulario y estado del editor sin ocultar textarea
       setTitle('');
       setContent('');
       setAuthor('');
       setImageUrl('');
-      // El estado del editor se maneja de manera que el textarea siempre esté disponible
+      // setShowEditor(false); // No restablecer showEditor a false
     }
   };
 
@@ -87,7 +49,7 @@ const PostForm = ({ addPost }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      <div ref={editorContainerRef} className="content-container">
+      <div>
         <label htmlFor="content">Contenido:</label>
         {showEditor ? (
           <div className="editor-container">
@@ -96,9 +58,8 @@ const PostForm = ({ addPost }) => {
         ) : (
           <textarea
             id="content"
-            ref={textareaRef}
             placeholder="Haz clic para agregar contenido..."
-            onClick={handleTextareaClick} // Mostrar editor al hacer clic
+            onClick={() => setShowEditor(true)} // Mostrar editor al hacer clic
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />

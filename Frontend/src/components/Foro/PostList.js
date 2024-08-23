@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './PostList.module.css'; // Archivo CSS para estilos específicos de PostList
+import './PostList.css'; // Archivo CSS para estilos específicos de PostList
 
 const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
   const [comment, setComment] = useState('');
@@ -7,7 +7,7 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4); // Número de posts por página// 
+  const [postsPerPage] = useState(4); // Número de posts por página
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -37,6 +37,12 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
     }
   };
 
+  const handleDelete = (postId) => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este post?")) {
+      deletePost(postId);
+    }
+  };
+
   useEffect(() => {
     if (editingPostId !== null) {
       const postToEdit = posts.find(post => post.id === editingPostId);
@@ -52,9 +58,9 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
       <h1 className="post-list-title">Posts</h1>
       <ul>
         {currentPosts.map((post) => (
-          <li key={post.id} className="post-item">
+          <li key={post.id} className={`post-item ${editingPostId === post.id ? 'editing' : ''}`}>
             {editingPostId === post.id ? (
-              <div>
+              <div className="edit-form">
                 <input
                   type="text"
                   value={editTitle}
@@ -70,13 +76,13 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
                 <button onClick={() => setEditingPostId(null)}>Cancelar</button>
               </div>
             ) : (
-              <div>
+              <div className="post-content">
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.title}</h3>
-                <p>{post.content}</p>
+                <p dangerouslySetInnerHTML={{ __html: post.content }} /> {/* Renderiza contenido HTML */}
                 <span className="post-author">Autor: {post.author}</span>
                 <button onClick={() => setEditingPostId(post.id)}>Editar</button>
-                <button onClick={() => deletePost(post.id)}>Eliminar</button>
+                <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>
             )}
             <div className="comments-section">
@@ -116,7 +122,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     <nav>
       <ul className='pagination'>
         {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
+          <li key={number} className={`page-item ${number === Math.ceil(totalPosts / postsPerPage) ? 'active' : ''}`}>
             <button onClick={() => paginate(number)} className='page-link'>
               {number}
             </button>
@@ -128,3 +134,4 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 };
 
 export default PostList;
+
