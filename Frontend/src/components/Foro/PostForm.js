@@ -1,20 +1,77 @@
-import React, { useState } from 'react';
-import './PostForm.css'; // Asegúrate de importar los estilos
+import React, { useState, useRef, useEffect } from 'react';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
+import './PostForm.css';
 
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
+  const quillRef = useRef(null);
+  const quillInstanceRef = useRef(null);
+  const editorContainerRef = useRef(null);
+  const textareaRef = useRef(null);
+
+  useEffect(() => {
+    if (showEditor && !quillInstanceRef.current) {
+      quillInstanceRef.current = new Quill(quillRef.current, {
+        theme: 'snow',
+        placeholder: 'Escribe el contenido aquí...',
+        modules: {
+          toolbar: [
+            [{ header: '1' }, { header: '2' }],
+            ['bold', 'italic', 'underline'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            ['link', 'image'],
+          ],
+        },
+      });
+
+      quillInstanceRef.current.on('text-change', () => {
+        setContent(quillInstanceRef.current.root.innerHTML);
+      });
+    }
+
+    const handleClickOutside = (event) => {
+      if (
+        editorContainerRef.current &&
+        !editorContainerRef.current.contains(event.target) &&
+        textareaRef.current &&
+        !textareaRef.current.contains(event.target)
+      ) {
+        setShowEditor(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showEditor]);
+
+  useEffect(() => {
+    if (quillInstanceRef.current) {
+      quillInstanceRef.current.root.innerHTML = content;
+    }
+  }, [content]);
+
+  const handleTextareaClick = () => {
+    setShowEditor(true);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && content && author) {
       addPost({ title, content, author, imageUrl });
+      // Resetear formulario y estado del editor sin ocultar textarea
       setTitle('');
       setContent('');
       setAuthor('');
       setImageUrl('');
+      // El estado del editor se maneja de manera que el textarea siempre esté disponible
     }
   };
 
@@ -30,13 +87,22 @@ const PostForm = ({ addPost }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      <div>
+      <div ref={editorContainerRef} className="content-container">
         <label htmlFor="content">Contenido:</label>
-        <textarea
-          id="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+        {showEditor ? (
+          <div className="editor-container">
+            <div ref={quillRef} />
+          </div>
+        ) : (
+          <textarea
+            id="content"
+            ref={textareaRef}
+            placeholder="Haz clic para agregar contenido..."
+            onClick={handleTextareaClick} // Mostrar editor al hacer clic
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        )}
       </div>
       <div>
         <label htmlFor="author">Autor:</label>
@@ -62,4 +128,3 @@ const PostForm = ({ addPost }) => {
 };
 
 export default PostForm;
-

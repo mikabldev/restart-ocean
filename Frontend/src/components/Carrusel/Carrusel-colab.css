@@ -73,6 +73,7 @@ header {
 .content .text-box {
     position: relative;
     width: 900px;
+    margin-right: 50px;
 }
 
 .content .text-box h2 {
@@ -80,11 +81,15 @@ header {
     color: white;
     line-height: 1.2em;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .content .text-box p {
     color: white;
     margin-top: 20px;
+    line-height: 1.6em; 
+    margin-bottom: 30px; 
+    text-align: justify;
 }
 
 .content .text-box a {
@@ -106,6 +111,7 @@ header {
     z-index: 1;
     display: flex;
     justify-content: flex-end;
+    margin-left: 50px;
     
 }
 
@@ -161,7 +167,6 @@ header {
     border-radius: 15px;
 }
 
-/* Responsive Design */
 @media (max-width: 991px) {
     .bg::before {
         display: none;
