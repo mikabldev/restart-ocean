@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LSidebar from "../components/Foro/Left-Sidebar/LSidebar";
 import PostList from "../components/Foro/PostList";
-import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
+// import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
 import PostForm from "../components/Foro/PostForm"; // Asegúrate de importar PostForm si es un componente separado
 
 function Foro() {
