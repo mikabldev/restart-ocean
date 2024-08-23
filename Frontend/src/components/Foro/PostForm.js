@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './PostForm.css'; // Asegúrate de importar los estilos
+import './PostForm.module.css'; // Asegúrate de importar los estilos
 
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');

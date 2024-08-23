@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "boxicons": "^2.1.4",
     "mdb-react-ui-kit": "^8.0.0",
     "mdb-ui-kit": "^7.3.2",
     "quill": "^2.0.2",
@@ -46,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10"
   }
 }

@@ -1,129 +1,82 @@
-import React, { useState } from 'react';
-import "./LSidebar.module.css"
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/dropdown';
+import './LSidebar.css';
+import 'boxicons/css/boxicons.min.css';
+
 
 const LSidebar = () => {
-  const [openSections, setOpenSections] = useState({
-    home: false,
-    dashboard: false,
-    orders: false,
-    account: false,
-  });
-
-  const toggleSection = (section) => {
-    setOpenSections((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
-  };
-
   return (
-    <div className="flex-shrink-0 p-3 bg-white" style={{ width: '280px' }}>
-      <a href="/" className="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-        <svg className="bi me-2" width="30" height="24">
-          <use xlinkHref="Bootstrap" />
-        </svg>
-        <span className="fs-5 fw-semibold">Collapsible</span>
-      </a>
-      <ul className="list-unstyled ps-0">
-        <li className="mb-1">
-          <button
-            className={`btn btn-toggle align-items-center rounded ${openSections.home ? '' : 'collapsed'}`}
-            onClick={() => toggleSection('home')}
-            aria-expanded={openSections.home}
-          >
-            Home
-          </button>
-          <div className={`collapse ${openSections.home ? 'show' : ''}`} id="home-collapse">
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <a href="!#" className="link-dark rounded">Overview</a>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-auto col-sm-2 bg-dark d-flex flex-column justify-content-between min-vh-100" role="button">
+          <div className="mt-3">
+            <a href="!#" className="text-decoration-none ms-4 d-flex align-items-center text-white d-none d-sm-inline">
+              <i class='bx bx-water'></i>
+              <span className="f5-4" >Restart Ocean</span>
+            </a>
+            <hr className="text-white d-none d-sm-block bg-dark"></hr>
+            <ul className="nav nav-pills flex-column mt-2 mt-sm-0" id="parentM">
+              <li className="nav-item my-1 py-2 py-sm-0">
+                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
+                  <i className="bi bi-speedometer2"></i>
+                  <span className="ms-2 d-none d-sm-inline">Dashboard</span>
+                </a>
               </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Updates</a>
+              <li className="nav-item my-1 py-2 py-sm-0">
+                <a href="#submenu" className="nav-link" data-bs-toggle="collapse" aria-current="page">
+                  <i className="bi bi-grid"></i>
+                  <span className="ms-2 d-none d-sm-inline">Products</span>
+                  <i className="bi bi-arrow-down-short ms-0 ms-sm-3"></i>
+                </a>
+                <ul className="nav collapse ms-2" id='submenu' data-bs-parent="#parentM">
+                  <li className="nav-item">
+                    <a className="nav-link text-white" href="!#" aria-current="page">
+                      <span className="d-none d-sm-inline">Item</span> 1
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link text-white" href="!#">
+                      <span className="d-none d-sm-inline">Item</span> 2
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link text-white" href="!#">
+                      <span className="d-none d-sm-inline">Item</span> 3
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Reports</a>
+              <li className="nav-item my-1 py-2 py-sm-0">
+                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
+                  <i className="bi bi-house"></i>
+                  <span className="ms-2 d-none d-sm-inline">House</span>
+                </a>
               </li>
+              <li className="nav-item my-1 py-2 py-sm-0">
+                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
+                  <i className="bi bi-people"></i>
+                  <span className="ms-2 d-none d-sm-inline">Customers</span>
+                </a>
+              </li>
+
             </ul>
+
           </div>
-        </li>
-        <li className="mb-1">
-          <button
-            className={`btn btn-toggle align-items-center rounded ${openSections.dashboard ? '' : 'collapsed'}`}
-            onClick={() => toggleSection('dashboard')}
-            aria-expanded={openSections.dashboard}
-          >
-            Dashboard
-          </button>
-          <div className={`collapse ${openSections.dashboard ? 'show' : ''}`} id="dashboard-collapse">
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <a href="!#" className="link-dark rounded">Overview</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Weekly</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Monthly</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Annually</a>
-              </li>
-            </ul>
+          <div className="dropdown open">
+            <a href="!#" className="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i className="bi bi-person f5-4"></i><span className="fs-5 ms-3 d-none d-sm-inline">Usuario</span>
+            </a>
+            <div className="dropdown-menu" aria-labelledby="triggerId">
+              <a className="dropdown-item" href="!#">Perfil</a>
+              <a className="dropdown-item" href="!#">Configuraciones</a>
+            </div>
           </div>
-        </li>
-        <li className="mb-1">
-          <button
-            className={`btn btn-toggle align-items-center rounded ${openSections.orders ? '' : 'collapsed'}`}
-            onClick={() => toggleSection('orders')}
-            aria-expanded={openSections.orders}
-          >
-            Orders
-          </button>
-          <div className={`collapse ${openSections.orders ? 'show' : ''}`} id="orders-collapse">
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <a href="!#" className="link-dark rounded">New</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Processed</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Shipped</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Returned</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li className="border-top my-3"></li>
-        <li className="mb-1">
-          <button
-            className={`btn btn-toggle align-items-center rounded ${openSections.account ? '' : 'collapsed'}`}
-            onClick={() => toggleSection('account')}
-            aria-expanded={openSections.account}
-          >
-            Account
-          </button>
-          <div className={`collapse ${openSections.account ? 'show' : ''}`} id="account-collapse">
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <a href="!#" className="link-dark rounded">New...</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Profile</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Settings</a>
-              </li>
-              <li>
-                <a href="!#" className="link-dark rounded">Sign out</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+
+        </div>
+      </div>
     </div>
   );
 };

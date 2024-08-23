@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './PostList.css'; // Archivo CSS para estilos específicos de PostList
+import './PostList.module.css'; // Archivo CSS para estilos específicos de PostList
 
 const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
   const [comment, setComment] = useState('');
