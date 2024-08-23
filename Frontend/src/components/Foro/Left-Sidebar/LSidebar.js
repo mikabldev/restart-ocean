@@ -5,8 +5,7 @@ import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
 import './LSidebar.css';
 import 'boxicons/css/boxicons.min.css';
-import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack, ListGroup, Badge } from 'react-bootstrap';
-// import Collapse from "react-bootstrap/esm/Collapse";
+import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 const LSidebar = () => {
@@ -16,7 +15,7 @@ const LSidebar = () => {
         <Col xs={12} sm={4} md={3} lg={2} as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
           <Stack gap={3} className="sidebar-links">
             <Nav.Link href="#" className="s-menu">
-              <i className='bx bx-water' style={{ marginRight: '8px' }}></i>
+              <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
               <span>Menú</span>
             </Nav.Link>
 
@@ -43,43 +42,30 @@ const LSidebar = () => {
 
               {/* Categorías del foro */}
               <ListGroup className="f-categorias">
-                <ListGroup.Item>
+                <ListGroupItem>
                   <i class='bx bx-category-alt' style={{ marginRight: '5px' }}></i>
                   <span>Categorías</span>
-                </ListGroup.Item>
-                <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-                  <div className="ms-2 me-auto">
-                    <div className="fw-bold">Subheading</div>
-                    Cras justo odio
-                  </div>
-                  <Badge bg="primary" pill>
-                    14
-                  </Badge>
-                </ListGroup.Item>
-                <ListGroup.Item
-                  as="li"
-                  className="d-flex justify-content-between align-items-start"
-                >
-                  <div className="ms-2 me-auto">
-                    <div className="fw-bold">Subheading</div>
-                    Cras justo odio
-                  </div>
-                  <Badge bg="primary" pill>
-                    14
-                  </Badge>
-                </ListGroup.Item>
-                <ListGroup.Item
-                  as="li"
-                  className="d-flex justify-content-between align-items-start"
-                >
-                  <div className="ms-2 me-auto">
-                    <div className="fw-bold">Subheading</div>
-                    Cras justo odio
-                  </div>
-                  <Badge bg="primary" pill>
-                    14
-                  </Badge>
-                </ListGroup.Item>
+                </ListGroupItem>
+                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema1">
+                    <span className="fw-bold">Conservación Marina: Biodiversidad y Protección</span>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema2">
+                    <div className="fw-bold">Innovación tecnológica e Investigación Científica</div>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema3">
+                    <div className="fw-bold">Educación, Conciencia y Cultura Oceánica</div>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem>
+                  <a className="me-auto" href="#tema4">
+                    <div className="fw-bold">Colaboraciones comunitarias y Activismo</div>
+                  </a>
+                </ListGroupItem>
               </ListGroup>
 
               {/* Separacion interna menu */}
@@ -93,19 +79,19 @@ const LSidebar = () => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="s-multimedia">
                   <Dropdown.Item href="#category1">
-                    <i></i>
+                    <i class='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Documentales</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category2">
-                    <i></i>
+                    <i class='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Tutoriales</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category3">
-                    <i></i>
+                    <i class='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Videos</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category4">
-                    <i></i>
+                    <i class='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Podcasts</span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
