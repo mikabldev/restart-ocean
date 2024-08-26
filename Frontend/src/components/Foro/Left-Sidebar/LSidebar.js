@@ -1,8 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap/js/dist/collapse';
-import 'bootstrap/js/dist/dropdown';
 import './LSidebar.css';
 import 'boxicons/css/boxicons.min.css';
 import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';

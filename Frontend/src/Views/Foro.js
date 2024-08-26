@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import LSidebar from "../components/Foro/Left-Sidebar/LSidebar";
 import PostList from "../components/Foro/PostList";
-// import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
+import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
 import PostForm from "../components/Foro/PostForm"; // Asegúrate de importar PostForm si es un componente separado
+import { Container } from 'react-bootstrap';
 
 function Foro() {
   // Aquí comienza la lógica del post list más el contenedor donde comenzar a escribir un post
@@ -32,7 +33,7 @@ function Foro() {
   };
 
   return (
-    <div>
+    <Container fluid>
       <div className="forum-post-content">
         <LSidebar />
         <PostForm addPost={addPost} />
@@ -42,9 +43,10 @@ function Foro() {
           editPost={editPost}
           deletePost={deletePost}
         />
+        <RSidebar />
       </div>
       
-    </div>
+    </Container>
   );
 }
 
