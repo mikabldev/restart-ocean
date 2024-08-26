@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { MDBInput, MDBCol, MDBRow, MDBCheckbox, MDBBtn, MDBIcon } from 'mdb-react-ui-kit'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -68,7 +69,12 @@ const Register = () => {
 
     axios.post('http://localhost:3005/users', userToSend)
       .then(() => {
-        window.alert('Usuario registrado con éxito')
+        Swal.fire({
+          title: "Good job!",
+          text: "Usuario registrado con éxito!",
+          icon: "success"
+        });
+        // window.alert('Usuario registrado con éxito')
         navigate('/login')
       })
       .catch(error => {
