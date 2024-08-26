@@ -29,10 +29,9 @@ const Calendar1 = () => {
     const obtenerUsuario = async () => {
       try {
         const token = window.sessionStorage.getItem('token');
-        const isAdmin = window.sessionStorage.getItem('admin') === 'true'
         if (!token) throw new Error('Token no encontrado');
 
-        const response = await fetch('http://localhost:3005/users', {
+        const response = await fetch('http://localhost:3005/es-admin', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -42,7 +41,8 @@ const Calendar1 = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-         setUsuario({admin: isAdmin});
+        const { isAdmin } = await response.json()
+         setUsuario({admin: isAdmin });
         }catch (error) {
           console.log('No tienes permiso para abrir el modal');
         }
