@@ -1,12 +1,12 @@
 
 /* Estilo general para el formulario */
 .post-form {
-    min-height: 100vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
+    min-height: 40vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
     margin-left: 250px; /* Espacio para la sidebar */
     background: #ffffff; /* Fondo blanco para el formulario */
     padding: 20px; /* Relleno interno */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar el formulario */
+    box-shadow: 0 2px 6px rgba(88, 153, 163); /* Sombra suave para resaltar el formulario */
     max-width: 600px; /* Ancho máximo del formulario */
     margin: 20px auto; /* Centrando el formulario horizontalmente con margen superior e inferior */
     font-family: 'Arial', sans-serif; /* Tipografía clara y moderna */
@@ -14,7 +14,8 @@
 
 /* Estilo para el título del formulario */
 .post-form h2 {
-    color: #0f588f; /* Color azul para el título */
+
+    color: rgba(88, 153, 163); /* Color azul para el título */
     font-size: 2rem; /* Tamaño de fuente del título */
     margin-bottom: 15px; /* Espacio debajo del título */
     text-align: center; /* Centra el título horizontalmente */
@@ -46,7 +47,7 @@
 
 /* Estilo para el botón de enviar */
 .post-form button {
-    background-color: #0079d3; /* Fondo azul para el botón */
+    background-color:rgba(1, 63, 86); /* Fondo azul para el botón */
     color: white; /* Color del texto en el botón */
     border: none; /* Sin borde en el botón */
     border-radius: 4px; /* Bordes redondeados */
@@ -61,7 +62,7 @@
 
 /* Estilo para el botón al pasar el cursor */
 .post-form button:hover {
-    background-color: Z>#0056a1; /* Fondo azul oscuro al pasar el cursor */
+    background-color: rgba(1, 63, 86); /* Fondo azul oscuro al pasar el cursor */
 }
 
 /* Estilo para el contenedor del editor */
@@ -91,7 +92,7 @@
 
 /* Estilo para el textarea visible */
 .post-form textarea {
-    height: 200px; /* Ajusta la altura según sea necesario */
+    height: 100px; /* Ajusta la altura según sea necesario */
     resize: none; /* Desactiva el cambio de tamaño */
     background: #f9f9f9; /* Fondo ligeramente gris para el textarea */
 }

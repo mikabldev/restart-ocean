@@ -6,8 +6,6 @@ import './PostForm.css';
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [author, setAuthor] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
   const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
   const quillRef = useRef(null);
   const quillInstanceRef = useRef(null);
@@ -27,12 +25,10 @@ const PostForm = ({ addPost }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title && content && author) {
-      addPost({ title, content, author, imageUrl });
+    if (title && content) {
+      addPost({ title, content });
       setTitle('');
       setContent('');
-      setAuthor('');
-      setImageUrl('');
       // setShowEditor(false); // No restablecer showEditor a false
     }
   };
@@ -65,27 +61,10 @@ const PostForm = ({ addPost }) => {
           />
         )}
       </div>
-      <div>
-        <label htmlFor="author">Autor:</label>
-        <input
-          type="text"
-          id="author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="imageUrl">URL de la Imagen:</label>
-        <input
-          type="text"
-          id="imageUrl"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-      </div>
       <button type="submit">Añadir Post</button>
     </form>
   );
 };
 
 export default PostForm;
+
