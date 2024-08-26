@@ -2,15 +2,16 @@ import React from 'react';
 import { Container, ListGroup, Badge, Card, Button, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-// import './RSidebar.css';
+import './RSidebar.css';
 import 'boxicons/css/boxicons.min.css';
 
 const RSidebar = () => {
     return (
-        <Container fluid className="sidebar-derecho">
+        <Container>
             <Row>
+
                 {/* Temas Populares */}
-                <Card className="mb-4">
+                <Card className="mb-3">
                     <Card.Body>
                         <Card.Title>Temas Populares</Card.Title>
                         <ListGroup>

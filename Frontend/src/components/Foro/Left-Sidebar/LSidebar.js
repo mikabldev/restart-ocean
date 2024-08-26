@@ -10,7 +10,7 @@ const LSidebar = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} sm={4} md={3} lg={2} as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
+        <Col as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
           <Stack gap={3} className="sidebar-links">
             <Nav.Item className="s-menu">
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
@@ -98,8 +98,8 @@ const LSidebar = () => {
               {/* Aquí empieza el menú de usuario */}
               <Stack direction="horizontal" gap={3} className="dropdown open">
                 <DropdownButton
-                id="user-btn"
-                title="Ola, Mika"
+                  id="user-btn"
+                  title="Ola, Mika"
                 >
                   <Dropdown.Item href="#/action-1" active>
                     <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
