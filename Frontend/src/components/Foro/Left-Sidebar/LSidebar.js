@@ -5,7 +5,7 @@ import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
 import './LSidebar.css';
 import 'boxicons/css/boxicons.min.css';
-import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
 
 
 const LSidebar = () => {
@@ -14,10 +14,10 @@ const LSidebar = () => {
       <Row>
         <Col xs={12} sm={4} md={3} lg={2} as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
           <Stack gap={3} className="sidebar-links">
-            <Nav.Link href="#" className="s-menu">
+            <Nav.Item className="s-menu">
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
               <span>Menú</span>
-            </Nav.Link>
+            </Nav.Item>
 
             {/* Separación de menú con hr */}
             <hr className="text-white" />
@@ -40,33 +40,30 @@ const LSidebar = () => {
               {/* Separacion interna menu */}
               <hr className="text-white" />
 
-              {/* Categorías del foro */}
-              <ListGroup className="f-categorias">
-                <ListGroupItem>
-                  <i class='bx bx-category-alt' style={{ marginRight: '5px' }}></i>
-                  <span>Categorías</span>
-                </ListGroupItem>
-                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
-                  <a className="me-auto" href="#tema1">
-                    <span className="fw-bold">Conservación Marina: Biodiversidad y Protección</span>
-                  </a>
-                </ListGroupItem>
-                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
-                  <a className="me-auto" href="#tema2">
-                    <div className="fw-bold">Innovación tecnológica e Investigación Científica</div>
-                  </a>
-                </ListGroupItem>
-                <ListGroupItem className="d-flex justify-content-between align-items-start">
-                  <a className="me-auto" href="#tema3">
-                    <div className="fw-bold">Educación, Conciencia y Cultura Oceánica</div>
-                  </a>
-                </ListGroupItem>
-                <ListGroupItem>
-                  <a className="me-auto" href="#tema4">
-                    <div className="fw-bold">Colaboraciones comunitarias y Activismo</div>
-                  </a>
-                </ListGroupItem>
-              </ListGroup>
+              <Dropdown as={Nav.Item}>
+                <Dropdown.Toggle as={Nav.Link} className="s-t-categorias">
+                  <i class='bx bx-customize' style={{ marginRight: '5px' }}></i>
+                  <span className="ms-2">Categorías</span>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="s-categorias">
+                  <Dropdown.Item href="#category1">
+                    <i class='bx bx-shield-plus' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Conservación Marina: Biodiversidad y Protección</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category2">
+                    <i class='bx bx-bulb' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Innovación tecnológica e Investigación Científica</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category3">
+                    <i class='bx bx-book' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Educación, Conciencia y Cultura Oceánica</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category4">
+                    <i class='bx bx-group' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Colaboraciones comunitarias y Activismo</span>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
 
               {/* Separacion interna menu */}
               <hr className="text-white" />
@@ -78,19 +75,19 @@ const LSidebar = () => {
                   <span className="ms-2">Multimedia</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="s-multimedia">
-                  <Dropdown.Item href="#category1">
+                  <Dropdown.Item href="#documentales">
                     <i class='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Documentales</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category2">
+                  <Dropdown.Item href="#tutoriales">
                     <i class='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Tutoriales</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category3">
+                  <Dropdown.Item href="#videos">
                     <i class='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Videos</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category4">
+                  <Dropdown.Item href="#podcasts">
                     <i class='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Podcasts</span>
                   </Dropdown.Item>
@@ -100,16 +97,19 @@ const LSidebar = () => {
               {/* Separacion interna menu */}
               <hr className="text-white" />
 
-              {/* Aquí empieza el menú dropdown */}
+              {/* Aquí empieza el menú de usuario */}
               <Stack direction="horizontal" gap={3} className="dropdown open">
-                <DropdownButton id="user-btn" title="Ola, Mika" data-bs-theme="dark">
+                <DropdownButton
+                id="user-btn"
+                title="Ola, Mika"
+                >
                   <Dropdown.Item href="#/action-1" active>
                     <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
-                    Mi perfil
+                    <span>Mi perfil</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
                     <i className='bx bx-message-rounded-dots' style={{ marginRight: '5px', alignItems: 'center' }}></i>
-                    Mis publicaciones
+                    <span>Mis publicaciones</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#/action-3">
                     <i className='bx bx-cog' style={{ marginRight: '5px', alignItems: 'center' }}></i>
