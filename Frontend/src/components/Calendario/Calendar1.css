@@ -1,6 +1,13 @@
 body {
     background-color: #E5E5E5;
 }
+
+.tituloCalendario{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-shadow: 1px 1px 30px rgb(0, 0, 0);
+}
 .calendar-container {
     margin: 0 auto 40px;
     width: 100%;
@@ -13,8 +20,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     border: 2px solid #013f56;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
 }
 .rbc-calendar {
     width: 100%;

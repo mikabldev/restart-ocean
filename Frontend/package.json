@@ -25,6 +25,7 @@
     "react-quilljs": "^2.0.4",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.12.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
