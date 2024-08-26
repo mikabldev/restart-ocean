@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
-import './PostForm.css'; // Asegúrate de importar los estilos
+import React, { useState, useRef, useEffect } from 'react';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
+import './PostForm.css';
 
 const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
+  const quillRef = useRef(null);
+  const quillInstanceRef = useRef(null);
+
+  useEffect(() => {
+    if (showEditor && !quillInstanceRef.current) {
+      quillInstanceRef.current = new Quill(quillRef.current, {
+        theme: 'snow',
+        placeholder: 'Escribe el contenido aquí...',
+      });
+
+      quillInstanceRef.current.on('text-change', () => {
+        setContent(quillInstanceRef.current.root.innerHTML);
+      });
+    }
+  }, [showEditor]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +33,7 @@ const PostForm = ({ addPost }) => {
       setContent('');
       setAuthor('');
       setImageUrl('');
+      // setShowEditor(false); // No restablecer showEditor a false
     }
   };
 
@@ -32,11 +51,19 @@ const PostForm = ({ addPost }) => {
       </div>
       <div>
         <label htmlFor="content">Contenido:</label>
-        <textarea
-          id="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+        {showEditor ? (
+          <div className="editor-container">
+            <div ref={quillRef} />
+          </div>
+        ) : (
+          <textarea
+            id="content"
+            placeholder="Haz clic para agregar contenido..."
+            onClick={() => setShowEditor(true)} // Mostrar editor al hacer clic
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        )}
       </div>
       <div>
         <label htmlFor="author">Autor:</label>
@@ -62,4 +89,3 @@ const PostForm = ({ addPost }) => {
 };
 
 export default PostForm;
-

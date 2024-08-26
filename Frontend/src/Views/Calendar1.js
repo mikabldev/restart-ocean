@@ -71,7 +71,7 @@ const Calendar1 = () => {
     });
   }
 
-  const abrirModalEliminar = () => { 
+  const abrirModalEliminar = () => {
     setEstadoModal({
       ...estadoModal,
       modalEliminar: true,
@@ -88,13 +88,17 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
+
   const Event = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
       <p> Descripción: {event.description}</p>
     </div>
-  );
+  )
+
   return (
+    <div>
+      <h2 className='tituloCalendario'>Revisa los próximos eventos</h2>
     <div className="calendar-container">
       <Calendar
         messages={{
@@ -208,6 +212,7 @@ const Calendar1 = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

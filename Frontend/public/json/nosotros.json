@@ -5,7 +5,7 @@
     "cargo":"Desarrolladora Full Stack",
     "linkedin":"https://www.linkedin.com/in/cvperezol/",
     "github":"https://github.com/constanzaperez0215",
-    "img":""
+    "img":"../img/constanzaPerez.jpeg"
   },
   {
     "nombre":"Evelyn",
@@ -13,7 +13,7 @@
     "cargo":"Desarrolladora Full Stack",
     "linkedin":"https://www.linkedin.com/in/evelyn-abarca-valenzuela/",
     "github":"https://github.com/EvelynFAV",
-    "img":""
+    "img":"/img/evelynAbarca.jpg"
   },
   {
     "nombre":"Camila",
@@ -21,19 +21,11 @@
     "cargo":"Desarrolladora Full Stack",
     "linkedin":"https://www.linkedin.com/in/camilajbl/",
     "github":"https://github.com/camilafolks",
-    "img":""
+    "img":"/public/img/camilaBravo.jpg"
   },
   {
     "nombre":"Felipe",
     "Apellido":"Molina",
-    "cargo":"Desarrollador Full Stack",
-    "linkedin":"",
-    "github":"",
-    "img":""
-  },
-  {
-    "nombre":"Chary",
-    "Apellido":"Nuñez",
     "cargo":"Desarrollador Full Stack",
     "linkedin":"",
     "github":"",

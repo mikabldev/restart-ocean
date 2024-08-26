@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import LSidebar from "../components/Foro/Left-Sidebar/LSidebar"
-import PostList from "../components/Foro/PostList"
-import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
-import PostForm from "../components/Foro/PostForm"
+import LSidebar from "../components/Foro/Left-Sidebar/LSidebar";
+import PostList from "../components/Foro/PostList";
+// import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
+import PostForm from "../components/Foro/PostForm"; // Asegúrate de importar PostForm si es un componente separado
 
 function Foro() {
   // Aquí comienza la lógica del post list más el contenedor donde comenzar a escribir un post
-  
   const [posts, setPosts] = useState([]);
 
   const addPost = (post) => {
@@ -34,18 +33,19 @@ function Foro() {
 
   return (
     <div>
-      <LSidebar />
       <div className="forum-post-content">
+        <LSidebar />
         <PostForm addPost={addPost} />
         <PostList
           posts={posts}
           addComment={addComment}
           editPost={editPost}
-          deletePost={deletePost} />
+          deletePost={deletePost}
+        />
       </div>
-      <RSidebar />
+      
     </div>
   );
-};
+}
 
 export default Foro;
