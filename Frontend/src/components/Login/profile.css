@@ -1,0 +1,32 @@
+.miPerfil{
+  background-color: 1, 63, 86;
+}
+.cardMiPerfil{
+  background-color: antiquewhite;
+  
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay suficiente espacio */
+  gap: 10px;
+  padding: 0;
+}
+.subtituloPerfil{
+  width: 250px;
+  height: 18px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-wrap: nowrap; /* Mantiene los elementos en una sola línea */
+  }
+}
+
+.contenidoMiPerfil{
+  display: flex;
+}
+
+.imgPerfil{
+  width: 500px;
+}

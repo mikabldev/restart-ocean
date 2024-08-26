@@ -3,6 +3,7 @@ import { MDBInput, MDBBtn, MDBIcon } from 'mdb-react-ui-kit'
 import { useNavigate } from 'react-router-dom'
 import Context from '../../context/Context'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
@@ -38,13 +39,22 @@ const Login = () => {
     axios.post('http://localhost:3005/login', user)
       .then(({ data }) => {
         window.sessionStorage.setItem('token', data.token)
-        window.alert('Usuario identificado con éxito.')
+        Swal.fire({
+          title: "Genial!",
+          text: "Usuario identificado con éxito.",
+          icon: "success"
+        })
         setNuevoUsuario({})
         navigate('/perfil') // ruta privada del perfil
       })
       .catch(({ response: { data } }) => {
         console.error(data)
-        window.alert(`${data.message}`)
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${data.message}`,
+        })
+        // window.alert(`${data.message}`)
       })
 
     setUser('')

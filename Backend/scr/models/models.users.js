@@ -47,7 +47,7 @@ export const registrarUsuario = async ({ nombre, apellido, email, password }) =>
 
 export const getUser = async (email) => {
   try {
-    const query = 'SELECT nombre, apellido FROM usuarios WHERE email = $1;'
+    const query = 'SELECT nombre, apellido, email FROM usuarios WHERE email = $1;'
     const values = [email]
     const { rows } = await db(query, values)
     return rows

@@ -20,13 +20,19 @@ const Calendar1 = () => {
     descripcion: ''
   });
   const [eventos, setEventos] = useState([]);
+  const [usuario, setUsuario] = useState({ rol: 'admin', id: 1 }); //verificar el nombre del usuario.
+
   const manejadorEventos = ({ start, end }) => {
-    setEstadoModal({
-      ...estadoModal,
-      mostrarModal: true,
-      fechaInicio: start,
-      fechaFinal: end
-    });
+    if (usuario.rol === 'admin') {
+      setEstadoModal({
+        ...estadoModal,
+        mostrarModal: true,
+        fechaInicio: start,
+        fechaFinal: end
+      });
+    } else {
+      return null; //no quiero que aparezca nada si un usuario no admin clickea para agreagar eventos. 
+    }
   }
   const guardarEvento = () => {
     const { tituloEvento, fechaInicio, fechaFinal, descripcion } = estadoModal;
@@ -49,7 +55,7 @@ const Calendar1 = () => {
       });
     }
   }
-  
+
   const abrirModalEvento = (event) => {
     setEstadoModal({
       ...estadoModal,
@@ -64,7 +70,7 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
-  
+
   const abrirModalEliminar = () => {
     setEstadoModal({
       ...estadoModal,
@@ -72,7 +78,7 @@ const Calendar1 = () => {
       modalEvento: false
     });
   }
-  
+
   const eliminarEvento = () => {
     setEventos(eventos.filter(event => event.id !== estadoModal.eventoSeleccionado.id));
     cerrarModalEvento();
@@ -82,13 +88,17 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
+
   const Event = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
       <p> Descripción: {event.description}</p>
     </div>
-  );
+  )
+
   return (
+    <div>
+      <h2 className='tituloCalendario'>Revisa los próximos eventos</h2>
     <div className="calendar-container">
       <Calendar
         messages={{
@@ -176,7 +186,9 @@ const Calendar1 = () => {
                 <p><b>Horario del evento: </b>{moment(estadoModal.eventoSeleccionado?.start).format('HH:mm')} hrs. - {moment(estadoModal.eventoSeleccionado?.end).format('HH:mm')} hrs.</p>
               </div>
               <div className="modal-footer">
-                <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
+                {user.role === 'admin' && estadoModal.eventoSeleccionado?.user_id === user.id && (
+                  <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
+                )}  {/*verificar si se ve el boton solo si eres admin */}
               </div>
             </div>
           </div>
@@ -200,6 +212,7 @@ const Calendar1 = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

@@ -7,9 +7,11 @@
 }
 
 .titulo {
-    margin-top: 50px;
+    margin-top: 80px;
+    margin-bottom: 50px;
     color: #fff;
     text-align: center;
+    text-shadow: 1px 1px 20px rgb(0, 0, 0);
 }
 
 .wrapper {
@@ -42,6 +44,7 @@
     transform-style: preserve-3d;
     -webkit-perspective: 1000px;
     perspective: 1000px;
+    margin-bottom: 80px;
 }
 
 .front,

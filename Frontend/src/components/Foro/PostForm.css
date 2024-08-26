@@ -14,6 +14,7 @@
 
 /* Estilo para el título del formulario */
 .post-form h2 {
+
     color: rgba(88, 153, 163); /* Color azul para el título */
     font-size: 2rem; /* Tamaño de fuente del título */
     margin-bottom: 15px; /* Espacio debajo del título */

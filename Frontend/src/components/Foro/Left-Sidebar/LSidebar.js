@@ -3,114 +3,130 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
-import './LSidebar.module.css'; // Asegúrate de que el archivo CSS esté importado
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Stack from 'react-bootstrap/Stack';
-import Container from 'react-bootstrap/Container';
+import './LSidebar.css';
+import 'boxicons/css/boxicons.min.css';
+import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack, ListGroup, ListGroupItem } from 'react-bootstrap';
+
 
 const LSidebar = () => {
   return (
     <Container fluid>
-      <div className="row">
-        <div className="col-auto col-sm-2 sidebar d-flex flex-column justify-content-between min-vh-100" role="button">
-          <div className="mt-3">
-            <a href="!#" className="text-decoration-none ms-4 d-flex align-items-center text-white d-none d-sm-inline">
-              <i className='bx bx-water' style={{ marginRight: '5px' }}></i>
-              <span className="f5-4">Restart Ocean</span>
-            </a>
-            <hr className="text-white d-none d-sm-block"></hr>
-            <ul className="nav nav-pills flex-column mt-2 mt-sm-0" id="parentM">
-              <li className="nav-item my-1 py-2 py-sm-0">
-                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
-                  <i className="bi bi-speedometer2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Dashboard</span>
-                </a>
-              </li>
-              <li className="nav-item my-1 py-2 py-sm-0">
-                <a href="#submenu" className="nav-link" data-bs-toggle="collapse" aria-current="page">
-                  <i className="bi bi-grid"></i>
-                  <span className="ms-2 d-none d-sm-inline">Products</span>
-                  <i className="bi bi-arrow-down-short ms-0 ms-sm-3"></i>
-                </a>
-                <ul className="nav collapse ms-2" id='submenu' data-bs-parent="#parentM">
-                  <li className="nav-item">
-                    <a className="nav-link text-white" href="!#" aria-current="page">
-                      <span className="d-none d-sm-inline">Item</span> 1
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-white" href="!#">
-                      <span className="d-none d-sm-inline">Item</span> 2
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-white" href="!#">
-                      <span className="d-none d-sm-inline">Item</span> 3
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item my-1 py-2 py-sm-0">
-                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
-                  <i className="bi bi-house"></i>
-                  <span className="ms-2 d-none d-sm-inline">House</span>
-                </a>
-              </li>
-              <li className="nav-item my-1 py-2 py-sm-0">
-                <a href="!#" className="nav-link text-white text-center text-sm-start" aria-current="page">
-                  <i className="bi bi-people"></i>
-                  <span className="ms-2 d-none d-sm-inline">Customers</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <Row>
+        <Col xs={12} sm={4} md={3} lg={2} as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
+          <Stack gap={3} className="sidebar-links">
+            <Nav.Link href="#" className="s-menu">
+              <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+              <span>Menú</span>
+            </Nav.Link>
 
-          {/* Aquí empieza el menú dropdown */}
-          <Dropdown as={ButtonGroup}>
-            <Button variant="secondary">Mi perfil</Button>
-            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+            {/* Separación de menú con hr */}
+            <hr className="text-white" />
 
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+            {/* Menú del Foro */}
+            <Nav defaultActiveKey="#home" className="flex-column">
+              <Nav.Item>
+                <Nav.Link to="/foro" className="s-principal">
+                  <i class='bx bx-book-open'></i>
+                  <span className="ms-2">Principal</span>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/posts-recientes" className="s-reciente">
+                  <i class='bx bx-time-five'></i>
+                  <span className="ms-2">Reciente</span>
+                </Nav.Link>
+              </Nav.Item>
 
-          <Stack className="dropdown open" data-bs-theme="dark">
-            <div direction="horizontal" gap={3}>
-              <DropdownButton id="dropdown-button-dark"
-                title="Ola, Mika"
-                className="mt-2"
-                data-bs-theme="dark">
-                <Dropdown.Item href="#/action-1" active>
-                  <i className="bi bi-person f5-4" style={{ marginRight: '5px' }}></i>
-                  Mi perfil
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-2">
-                  <i className='bx bx-book' style={{ marginRight: '5px' }}></i>
-                  Mi actividad
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">
-                  <i className='bx bx-cog' style={{ marginRight: '5px' }}></i>
-                  Ajustes
-                </Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="#/action-4">
-                  <i className='bx bx-log-out' style={{ marginRight: '5px' }}></i>
-                  Cerrar sesión
-                </Dropdown.Item>
-              </DropdownButton>
-            </div>
+              {/* Separacion interna menu */}
+              <hr className="text-white" />
+
+              {/* Categorías del foro */}
+              <ListGroup className="f-categorias">
+                <ListGroupItem>
+                  <i class='bx bx-category-alt' style={{ marginRight: '5px' }}></i>
+                  <span>Categorías</span>
+                </ListGroupItem>
+                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema1">
+                    <span className="fw-bold">Conservación Marina: Biodiversidad y Protección</span>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem as="li" className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema2">
+                    <div className="fw-bold">Innovación tecnológica e Investigación Científica</div>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem className="d-flex justify-content-between align-items-start">
+                  <a className="me-auto" href="#tema3">
+                    <div className="fw-bold">Educación, Conciencia y Cultura Oceánica</div>
+                  </a>
+                </ListGroupItem>
+                <ListGroupItem>
+                  <a className="me-auto" href="#tema4">
+                    <div className="fw-bold">Colaboraciones comunitarias y Activismo</div>
+                  </a>
+                </ListGroupItem>
+              </ListGroup>
+
+              {/* Separacion interna menu */}
+              <hr className="text-white" />
+
+              {/* Menú desplegable para Multimedia */}
+              <Dropdown as={Nav.Item}>
+                <Dropdown.Toggle as={Nav.Link} className="s-t-multimedia">
+                  <i class='bx bx-category-alt'></i>
+                  <span className="ms-2">Multimedia</span>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="s-multimedia">
+                  <Dropdown.Item href="#category1">
+                    <i class='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Documentales</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category2">
+                    <i class='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Tutoriales</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category3">
+                    <i class='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Videos</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#category4">
+                    <i class='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <span>Podcasts</span>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              {/* Separacion interna menu */}
+              <hr className="text-white" />
+
+              {/* Aquí empieza el menú dropdown */}
+              <Stack direction="horizontal" gap={3} className="dropdown open">
+                <DropdownButton id="user-btn" title="Ola, Mika" data-bs-theme="dark">
+                  <Dropdown.Item href="#/action-1" active>
+                    <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
+                    Mi perfil
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    <i className='bx bx-message-rounded-dots' style={{ marginRight: '5px', alignItems: 'center' }}></i>
+                    Mis publicaciones
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    <i className='bx bx-cog' style={{ marginRight: '5px', alignItems: 'center' }}></i>
+                    Ajustes
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item href="#/action-4" className='logout'>
+                    <i className='bx bx-log-out' style={{ marginRight: '5px', alignItems: 'center' }}></i>
+                    Cerrar sesión
+                  </Dropdown.Item>
+                </DropdownButton>
+              </Stack>
+            </Nav>
           </Stack>
-
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
   );
 };
-
 export default LSidebar;
