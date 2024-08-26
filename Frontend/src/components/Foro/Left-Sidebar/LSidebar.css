@@ -11,13 +11,14 @@
 }
 
 .s-menu:hover {
-    color: rgb(91, 91, 245);
+    color: azure;
 }
 
 .s-menu,
 .s-principal,
 .s-reciente,
-.s-t-categorias {
+.s-t-categorias,
+.s-t-multimedia {
     align-items: center;
     margin-left: 10px;
     color: azure;
@@ -37,4 +38,5 @@
     margin-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
+    background-color: rgb(44, 165, 169)
 }
