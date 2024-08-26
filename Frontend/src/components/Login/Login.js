@@ -38,7 +38,8 @@ const Login = () => {
 
     axios.post('http://localhost:3005/login', user)
       .then(({ data }) => {
-        window.sessionStorage.setItem('token', data.token)
+        window.sessionStorage.setItem('token', data.token);
+        window.sessionStorage.setItem('admin', data.admin) //esto lo agregó la eve
         Swal.fire({
           title: "Genial!",
           text: "Usuario identificado con éxito.",

@@ -2,8 +2,16 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { jwtSign, jwtDecode } from '../utils/jwt/jwt.js'
-import { verificarCredenciales, registrarUsuario, getUser } from '../models/models.users.js'
+import { verificarCredenciales, registrarUsuario, getUser, isAdmin } from '../models/models.users.js'
 import { authToken } from '../middlewares/authToken.js'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import calendarioRoutes from './calendarioRoutes.js'
+import { verifyAdmin } from '../middlewares/verifyAdmin.js'
+
+// Crear __filename y __dirname manualmente
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT ?? 3005
@@ -58,7 +66,21 @@ app.get('/users', authToken, async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error })
   }
-})
+});
+
+app.get('/es-admin', authToken, verifyAdmin,  async (req, res) => {
+  try {
+    const userId = req.usuario.userId; // Suponiendo que tienes el email del usuario en req.usuario
+    const admin = await isAdmin(userId);
+
+    res.json({ admin });
+  } catch (error) {
+    console.error('Error al obtener el usuario:', error);
+    res.status(500).json({ message: 'Error interno del servidor' });
+  }
+});
+
+app.use('/calendario', calendarioRoutes)//AGREGUÉ ESTO
 
 app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })

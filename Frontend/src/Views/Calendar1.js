@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from 'moment';
 import 'moment/locale/es';
 import '../components/Calendario/Calendar1.css';
+
 
 moment.locale('es');
 const localizer = momentLocalizer(moment);
@@ -20,21 +21,52 @@ const Calendar1 = () => {
     descripcion: ''
   });
   const [eventos, setEventos] = useState([]);
-  const [usuario, setUsuario] = useState({ rol: 'admin', id: 1 }); //verificar el nombre del usuario.
+  const [usuario, setUsuario] = useState({ admin: false}); //verificar el nombre del usuario.
 
-  const manejadorEventos = ({ start, end }) => {
-    if (usuario.rol === 'admin') {
-      setEstadoModal({
-        ...estadoModal,
-        mostrarModal: true,
-        fechaInicio: start,
-        fechaFinal: end
-      });
-    } else {
-      return null; //no quiero que aparezca nada si un usuario no admin clickea para agreagar eventos. 
+  useEffect(() => {
+    obtenerUsuario();
+  }, []);
+    const obtenerUsuario = async () => {
+      try {
+        const token = window.sessionStorage.getItem('token');
+        const isAdmin = window.sessionStorage.getItem('admin') === 'true'
+        if (!token) throw new Error('Token no encontrado');
+
+        const response = await fetch('http://localhost:3005/users', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+         setUsuario({admin: isAdmin});
+        }catch (error) {
+          console.log('No tienes permiso para abrir el modal');
+        }
+      }; 
+  const manejadorEventos = async ({ start, end }) => {
+    console.log('Evento clickeado');
+    try {
+      if (usuario.admin){
+        console.log('Usuario administrador!')
+        setEstadoModal({
+          ...estadoModal,
+          mostrarModal: true,
+          fechaInicio: start,
+          fechaFinal: end,
+        });
+      } else {
+        console.log('Usuario no es administrador');
+      }
+    } catch (error) {
+      console.error('Error al manejar el evento', error);
     }
-  }
-  const guardarEvento = () => {
+  };
+
+  const guardarEvento = async () => {
     const { tituloEvento, fechaInicio, fechaFinal, descripcion } = estadoModal;
     if (tituloEvento && fechaInicio && fechaFinal && descripcion) {
       const eventoNuevo = {
@@ -44,18 +76,33 @@ const Calendar1 = () => {
         end: fechaFinal,
         description: descripcion,
       };
-      setEventos([...eventos, eventoNuevo]);
-      setEstadoModal({
-        ...estadoModal,
-        mostrarModal: false,
-        tituloEvento: '',
-        descripcion: '',
-        fechaInicio: '',
-        fechaFinal: ''
-      });
+      try {
+        const response = await fetch('http://localhost:3005/calendario/eventos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${localStorage.getItem('token')}`
+          },
+          body: JSON.stringify(eventoNuevo)
+        });
+        if (response.ok) {
+          setEventos([...eventos, eventoNuevo]);
+          setEstadoModal({
+            ...estadoModal,
+            mostrarModal: false,
+            tituloEvento: '',
+            descripcion: '',
+            fechaInicio: '',
+            fechaFinal: ''
+          });
+        } else {
+          console.error('Error al guardar el evento', await response.text());
+        }
+      } catch (error) {
+        console.error('Error al guardar el evento', error.message);
+      }
     }
-  }
-
+  };
   const abrirModalEvento = (event) => {
     setEstadoModal({
       ...estadoModal,
@@ -88,7 +135,6 @@ const Calendar1 = () => {
       eventoSeleccionado: null
     });
   }
-
   const Event = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
@@ -186,7 +232,7 @@ const Calendar1 = () => {
                 <p><b>Horario del evento: </b>{moment(estadoModal.eventoSeleccionado?.start).format('HH:mm')} hrs. - {moment(estadoModal.eventoSeleccionado?.end).format('HH:mm')} hrs.</p>
               </div>
               <div className="modal-footer">
-                {user.role === 'admin' && estadoModal.eventoSeleccionado?.user_id === user.id && (
+                {usuario.admin && usuario.id === estadoModal.eventoSeleccionado.id_usuario && (
                   <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
                 )}  {/*verificar si se ve el boton solo si eres admin */}
               </div>
