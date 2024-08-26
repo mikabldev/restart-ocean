@@ -2,10 +2,11 @@ import jwt from 'jsonwebtoken'
 
 const JWT_KEY = process.env.JWT_KEY
 
-export const jwtSign = (payload) => {
-  console.log(payload, 'desde jwtSing')
-  return jwt.sign(payload, JWT_KEY, { expiresIn: '1h' })
-}
+export const jwtSign = (userId, admin) => {
+  const payload = { userId, admin }; // Iagregué userId y admin en el payload
+  console.log(payload, 'desde jwtSign');
+  return jwt.sign(payload, JWT_KEY, { expiresIn: '1h' });
+};
 
 export const jwtVerify = (token) => {
   try {

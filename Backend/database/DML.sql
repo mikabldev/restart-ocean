@@ -13,14 +13,13 @@ CREATE TABLE usuarios (
 
 SELECT * FROM usuarios;
 
-CREATE TABLE calendario(
+CREATE TABLE calendario (
   id SERIAL PRIMARY KEY,
-  titulo_evento VARCHAR (100),
+  titulo_evento VARCHAR (100) NOT NULL,
   descripcion TEXT,
-  fecha_inicio TIMESTAMP,
-  fecha_final TIMESTAMP,
-  id_usuario INT NOT NULL,
-  FOREIGN KEY (id_usuario) REFERENCES usuarios (id) ON DELETE CASCADE,
+  fecha_inicio TIMESTAMP NOT NULL,
+  fecha_final TIMESTAMP NOT NULL,
+  usuario_id INTEGER REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
 SELECT * FROM calendario; 
