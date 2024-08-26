@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './PostList.css'; // Archivo CSS para estilos específicos de PostList
+import './PostList.css'; 
 
-const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
+const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, deleteComment }) => {
   const [comment, setComment] = useState('');
   const [editingPostId, setEditingPostId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4); // Número de posts por página
+  const [editingCommentIndex, setEditingCommentIndex] = useState(null);
+  const [editCommentContent, setEditCommentContent] = useState('');
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -40,6 +42,20 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
   const handleDelete = (postId) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este post?")) {
       deletePost(postId);
+    }
+  };
+
+  const handleEditCommentSubmit = (postId, commentIndex) => {
+    if (editCommentContent.trim()) {
+      editComment(postId, commentIndex, editCommentContent);
+      setEditingCommentIndex(null);
+      setEditCommentContent('');
+    }
+  };
+
+  const handleDeleteComment = (postId, commentIndex) => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este comentario?")) {
+      deleteComment(postId, commentIndex);
     }
   };
 
@@ -80,7 +96,7 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.title}</h3>
                 <p dangerouslySetInnerHTML={{ __html: post.content }} /> {/* Renderiza contenido HTML */}
-                <span className="post-author">Autor: {post.author}</span>
+                <span className="post-author"> {post.author}</span>
                 <button onClick={() => setEditingPostId(post.id)}>Editar</button>
                 <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>
@@ -90,7 +106,28 @@ const PostList = ({ posts = [], addComment, editPost, deletePost }) => {
               {post.comments && post.comments.length > 0 ? (
                 <ul>
                   {post.comments.map((comment, idx) => (
-                    <li key={idx}>{comment}</li>
+                    <li key={idx}>
+                      {editingCommentIndex === idx ? (
+                        <div>
+                          <textarea
+                            value={editCommentContent}
+                            onChange={(e) => setEditCommentContent(e.target.value)}
+                            placeholder="Edita tu comentario..."
+                          />
+                          <button onClick={() => handleEditCommentSubmit(post.id, idx)}>Guardar</button>
+                          <button onClick={() => setEditingCommentIndex(null)}>Cancelar</button>
+                        </div>
+                      ) : (
+                        <div>
+                          {comment}
+                          <button onClick={() => {
+                            setEditingCommentIndex(idx);
+                            setEditCommentContent(comment);
+                          }}>Editar</button>
+                          <button onClick={() => handleDeleteComment(post.id, idx)}>Eliminar</button>
+                        </div>
+                      )}
+                    </li>
                   ))}
                 </ul>
               ) : (
