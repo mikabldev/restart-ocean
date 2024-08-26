@@ -86,14 +86,6 @@ app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })
 })
 
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'build')))
-
-// Ruta catch-all para manejar todas las rutas de frontend
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../build', 'index.html'))
-})
-
 app.listen(PORT, () => console.log('Conectados al servidor 3000'))
 
 export default app

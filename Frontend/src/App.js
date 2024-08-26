@@ -13,6 +13,7 @@ import Profile from './components/Login/Profile.js';
 import Pills from './components/Login/Pills.js'
 import Context from './context/Context'
 import useDeveloper from './context/hooks/useDeveloper.js'
+import Footer from './components/Footer/Footer.js';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
 
                 </Routes>
+                <Footer />
             </BrowserRouter>
         </Context.Provider>
     );

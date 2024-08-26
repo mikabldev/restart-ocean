@@ -15,6 +15,10 @@ video {
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
+    mask-image: linear-gradient(
+        black 90%,
+        transparent
+    );
 }
 
 .contentBG {
@@ -36,4 +40,17 @@ video {
     font-size: 100px;
     color: white;
     z-index: 3;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    text-shadow: 1px 1px 20px rgb(0, 0, 0);
+}
+
+.subTitulo{
+    font-family: "Rock Salt", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    text-shadow: 1px 2px 20px rgb(0, 0, 0);
 }

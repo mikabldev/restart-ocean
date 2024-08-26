@@ -23,9 +23,13 @@ const Calendar1 = () => {
   const [eventos, setEventos] = useState([]);
   const [usuario, setUsuario] = useState({ admin: false}); //verificar el nombre del usuario.
 
+  useEffect(() => {
+    obtenerUsuario();
+  }, []);
     const obtenerUsuario = async () => {
       try {
         const token = window.sessionStorage.getItem('token');
+        const isAdmin = window.sessionStorage.getItem('admin') === 'true'
         if (!token) throw new Error('Token no encontrado');
 
         const response = await fetch('http://localhost:3005/users', {
@@ -38,17 +42,16 @@ const Calendar1 = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const data = await response.json();
-        setUsuario({ admin: data.admin });
-      } catch (error) {
-        console.log('Error al obtener el usuario', error);
-      }
-    };
+         setUsuario({admin: isAdmin});
+        }catch (error) {
+          console.log('No tienes permiso para abrir el modal');
+        }
+      }; 
   const manejadorEventos = async ({ start, end }) => {
     console.log('Evento clickeado');
     try {
-      await obtenerUsuario();
-      if (usuario.admin) {
+      if (usuario.admin){
+        console.log('Usuario administrador!')
         setEstadoModal({
           ...estadoModal,
           mostrarModal: true,
@@ -123,37 +126,25 @@ const Calendar1 = () => {
     });
   }
 
-  const eliminarEvento = async () => {
-    try {
-      const response = await fetch(`http://localhost:3005/calendario/${estadoModal.eventoSeleccionado.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `${localStorage.getItem('token')}`
-        }
-      });
-      if (response.ok) {
-        setEventos(eventos.filter(event => event.id !== estadoModal.eventoSeleccionado.id));
-        cerrarModalEvento();
-        setEstadoModal({
-          ...estadoModal,
-          modalEliminar: false,
-          eventoSeleccionado: null
-        });
-      } else {
-        console.error('Error eliminando el evento', await response.text());
-      }
-    } catch (error) {
-      console.error('Error eliminando el evento', error.message);
-    }
-  };
-
+  const eliminarEvento = () => {
+    setEventos(eventos.filter(event => event.id !== estadoModal.eventoSeleccionado.id));
+    cerrarModalEvento();
+    setEstadoModal({
+      ...estadoModal,
+      modalEliminar: false,
+      eventoSeleccionado: null
+    });
+  }
   const Event = ({ event }) => (
     <div>
       <strong>{event.title}</strong>
       <p> Descripción: {event.description}</p>
     </div>
-  );
+  )
+
   return (
+    <div>
+      <h2 className='tituloCalendario'>Revisa los próximos eventos</h2>
     <div className="calendar-container">
       <Calendar
         messages={{
@@ -267,6 +258,7 @@ const Calendar1 = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

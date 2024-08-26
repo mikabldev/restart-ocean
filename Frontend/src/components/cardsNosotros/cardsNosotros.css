@@ -1,17 +1,32 @@
+.nosotros{
+  background-image: url('/public/img/7.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.tituloNosotros{
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  /* filter: drop-shadow(1px 1px 20px rgba(0, 0, 0, 0.705)) */
+  text-shadow: 1px 1px 20px rgb(0, 0, 0);
+}
+
 /* From Uiverse.io by Daniel1227k */
 .contentCardNosotros {
-  height: 100vh;
+  margin: 40px 0px 0px 0px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
   gap: 20px;
   align-items: center;
-  background-image: url('/public/img/7.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
-.card {
+.cardNosotros {
   position: relative;
   width: 250px;
   height: 350px;
@@ -22,7 +37,7 @@
   border-radius: 15px;
 }
 
-.card::before {
+.cardNosotros::before {
   content: '';
   position: absolute;
   top: 0;
@@ -33,7 +48,7 @@
   border-radius: 15px;
 }
 
-.card::after {
+.cardNosotros::after {
   content: '';
   position: absolute;
   top: 0;
@@ -45,7 +60,7 @@
   border-radius: 15px;
 }
 
-.card b {
+.cardNosotros b {
   position: absolute;
   inset: 6px;
   background: rgba(0, 0, 0, 0.6);
@@ -61,7 +76,7 @@
   display: inline-block;
 }
 
-.eve b {
+.evelyn b {
   background-Image: url(/public/img/evelynAbarca.jpg);
   background-Size: 280px;
   background-Position: 'center';
@@ -73,10 +88,9 @@
   background-Size: 500px;
   background-position-x: center;
   background-position-y:bottom;
-  
 }
 
-.card .content {
+.cardNosotros .content {
   position: absolute;
   z-index: 3;
   bottom: 0;
@@ -87,7 +101,7 @@
   transition: 0.5s;
 }
 
-.card:hover .content {
+.cardNosotros:hover .content {
   transform: scale(1);
   bottom: 25px;
 }

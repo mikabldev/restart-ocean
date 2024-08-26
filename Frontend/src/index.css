@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-clip: ; */
 }
 
 code {
@@ -14,7 +17,7 @@ code {
 }
 
 
-/* From Uiverse.io by Praashoo7 */ 
+/* From Uiverse.io by Praashoo7 */
 /* Design Inspired by one of Stefan Devai's Design on Dribble */
 
 .containerNotFound{
@@ -244,7 +247,7 @@ code {
   }
 }
 
-/* Another Error Screen to Use 
+/* Another Error Screen to Use */
 
 .screen {
   width: 13em;
