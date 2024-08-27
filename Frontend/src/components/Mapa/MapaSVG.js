@@ -13,7 +13,7 @@ const MapaSVG = () => {
 
     const regionInfo = regiones[regionId];
     if (regionInfo) {
-      setHoveredRegionId(regionId); 
+      setHoveredRegionId(regionId);
       setShowPopUp(true);
     }
   };
@@ -27,25 +27,39 @@ const MapaSVG = () => {
 
   return (
     <div className='MapContainer'>
-      <div className="svgContainer">
-        <ChileSVG
-          onClick={handleClick}
-        />
-        {showPopUp && regionInfo && (
-          <div
-            className="infoPopup">
-            <button className="closeButton" onClick={handleClosePopup}>X</button>
-            <h2>{regionInfo.nombre}</h2>
-            {regionInfo.areas.map((area, index) => (
-              <div key={index}>
-                <h5><u>Localidad: {area.localidad}</u></h5>
-                <p><strong>Tipo de Protección:</strong> {area.proteccion || 'N/A'}</p>
-                <p><strong>Objetivo:</strong> {area.objetivo}</p>
-                {area.imagen && <img src={`/${area.imagen}`} alt={`Imagen del área ${area.localidad}`} />}
-              </div>
-            ))}
-          </div>
-        )}
+      <div className='tituloMapa'>
+        <h6>Áreas Marinas Protegidas</h6>
+      </div>
+      <div className='mainContent'>
+        <div className='infoMapaContainer'>
+          <p>INFORMACIÓN AQUÍ</p>
+        </div>
+        <div className="svgContainer">
+          <ChileSVG
+            onClick={handleClick}
+          />
+          {showPopUp && regionInfo && (
+            <div
+              className="infoPopup">
+              <button className="closeButton" onClick={handleClosePopup}>X</button>
+              <h2>{regionInfo.nombre}</h2>
+              {regionInfo.areas.map((area, index) => (
+                <div key={index} className='areaContainer'>
+                  <div className='textContainer'>
+                    <h5><u>Localidad: {area.localidad}</u></h5>
+                    <p><strong>Tipo de Protección:</strong> {area.proteccion || 'N/A'}</p>
+                    <p><strong>Objetivo:</strong> {area.objetivo}</p>
+                  </div>
+                  {area.imagen && (
+                    <div className='imagenContainer'>
+                      <img src={`/${area.imagen}`} alt={`Imagen del área ${area.localidad}`} />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
