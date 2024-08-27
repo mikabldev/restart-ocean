@@ -1,18 +1,18 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './LSidebar.css';
+import styles from './LSidebar.module.css';
 import 'boxicons/css/boxicons.min.css';
 import {  Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
 
 
 const LSidebar = () => {
   return (
-    <div className="Lside-container">
-      <div className="row-styles">
-        <Col as="aside" className="s-columna">
-          <Stack gap={2} className="sidebar-links">
-            <Nav.Item className="s-menu">
+    <div className={styles.LsideContainer}>
+      <div className={styles.row-styles}>
+        <Col as="aside" className={styles.sColumna}>
+          <Stack gap={2} className={styles.sidebarLinks}>
+            <Nav.Item className={styles.sMenu}>
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
               <span>Menú Foro</span>
             </Nav.Item>
@@ -23,13 +23,13 @@ const LSidebar = () => {
             {/* Menú del Foro */}
             <Nav defaultActiveKey="#home" className="flex-column">
               <Nav.Item>
-                <Nav.Link to="/foro" className="s-principal">
+                <Nav.Link to="/foro" className={styles.sPrincipal}>
                   <i class='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Principal</span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/posts-recientes" className="s-reciente">
+                <Nav.Link href="/posts-recientes" className={styles.sReciente}>
                   <i class='bx bx-time-five' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Reciente</span>
                 </Nav.Link>
@@ -39,11 +39,11 @@ const LSidebar = () => {
               <hr className="text-black" />
 
               <Dropdown as={Nav.Item}>
-                <Dropdown.Toggle as={Nav.Link} className="s-t-categorias">
+                <Dropdown.Toggle as={Nav.Link} className={styles.stCategorias}>
                   <i className='bx bx-customize' style={{ marginRight: '8px' }}></i>
-                  <span className="t-categorias">Categorías</span>
+                  <span className={styles.tCategorias}>Categorías</span>
                 </Dropdown.Toggle>
-                <Dropdown.Menu className="s-categorias">
+                <Dropdown.Menu className={styles.sCategorias}>
                   <Dropdown.Item href="#category1">
                     <i className='bx bx-shield-plus' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Conservación Marina: Biodiversidad y Protección</span>
@@ -68,11 +68,11 @@ const LSidebar = () => {
 
               {/* Menú desplegable para Multimedia */}
               <Dropdown as={Nav.Item}>
-                <Dropdown.Toggle as={Nav.Link} className="s-t-multimedia">
+                <Dropdown.Toggle as={Nav.Link} className={styles.stMultimedia}>
                   <i className='bx bx-category-alt' style={{ marginRight: '8px', alignItems: 'center' }}></i>
-                  <span className="t-multimedia">Multimedia</span>
+                  <span className={styles.tMultimedia}>Multimedia</span>
                 </Dropdown.Toggle>
-                <Dropdown.Menu className="s-multimedia">
+                <Dropdown.Menu className={styles.sMultimedia}>
                   <Dropdown.Item href="#documentales">
                     <i className='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Documentales</span>
@@ -98,8 +98,8 @@ const LSidebar = () => {
               {/* Aquí empieza el menú de usuario */}
               <Stack direction="horizontal" className="dropdownOpen">
                 <DropdownButton
-                  id="user-btn"
-                  title="Ola, Mika"
+                  id={styles.userBtn}
+                  title="Menú Perfil"
                 >
                   <Dropdown.Item href="#/action-1">
                     <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
