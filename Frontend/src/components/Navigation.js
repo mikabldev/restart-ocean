@@ -39,6 +39,7 @@ const Navigation = () => {
           <Nav className='me-auto my-2 my-lg-0' style={{ maxHeight: '100px' }} navbarScroll>
             <Nav.Link as={Link} to='/calendario'>Calendario</Nav.Link>
             <Nav.Link as={Link} to='/foro'>Foro</Nav.Link>
+            <Nav.Link as={Link} to='/mapa'>Zonas marinas protegidas</Nav.Link>
             <Nav.Link as={Link} to='/donaciones'>Donaciones</Nav.Link>
             <NavDropdown title='Conócenos más' id='basic-nav-dropdown'>
               <NavDropdown.Item as={Link} to='/quienes-somos'>Quienes somos</NavDropdown.Item>

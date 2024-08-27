@@ -14,6 +14,7 @@ import Pills from './components/Login/Pills.js'
 import Context from './context/Context'
 import useDeveloper from './context/hooks/useDeveloper.js'
 import Footer from './components/Footer/Footer.js';
+import MapaSVG from './components/Mapa/MapaSVG.js'
 
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
                     <Route path='/registrarse' element={<Register />} />
                     <Route path='/login' element={<Pills />} />
                     <Route path='/perfil' element={<Profile />} />
+                    <Route path='/mapa' element={<MapaSVG/>} />
                     <Route path="*" element={<NotFound />} />
+                
 
 
                 </Routes>
