@@ -2,16 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { jwtSign, jwtDecode } from '../utils/jwt/jwt.js'
-import { verificarCredenciales, registrarUsuario, getUser, isAdmin } from '../models/models.users.js'
+import { verificarCredenciales, registrarUsuario, getUser } from '../models/models.users.js'
 import { authToken } from '../middlewares/authToken.js'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { registrarComentario } from '../models/models.foro.js'
 import calendarioRoutes from '../calendar/calendarioRoutes.js'
 import bodyParser from 'body-parser'
 
-// Crear __filename y __dirname manualmente
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT ?? 3005
@@ -66,7 +62,20 @@ app.get('/users', authToken, async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error })
   }
-});
+})
+
+app.post('/foro', async (req, res) => {
+  try {
+    const { title, content } = req.body
+    console.log(title, content)
+    // obtengo los datos del formulario desde el body
+    await registrarComentario({ title, content })
+    res.status(201).json({ status: true, message: 'Comentario registrado con éxito' })
+  } catch (error) {
+    res.status(error.code || 500).json({ message: 'Error en la conexión', error })
+  }
+})
+
 app.use(bodyParser.json()); 
 app.use('/calendario', calendarioRoutes)
 app.all('*', async (req, res) => {

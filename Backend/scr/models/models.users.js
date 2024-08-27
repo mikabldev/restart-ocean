@@ -56,19 +56,3 @@ export const getUser = async (email) => {
     throw newError
   }
 }
-
-export const isAdmin = async (userId) => { //agregué la función para verificar si es admin o no. Esta se usa en verifyAdmin
-  try {
-   
-    const query = 'SELECT admin FROM usuarios WHERE id = $1;';
-    const values = [userId];
-    const { rows } = await db(query, values);
-    if (rows.length === 0) {
-      throw new Error('Usuario no encontrado');
-    }
-    return rows[0].admin;
-  } catch (error) {
-    console.error('Error al obtener valor de admin', error);
-    throw error;
-  }
-};
