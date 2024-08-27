@@ -1,25 +1,49 @@
-.svgContainer {
-    position: relative; /* Esto es importante para que el pop-up se posicione correctamente */
-    margin-left: 0; /* Alinea el SVG hacia la izquierda */
-    max-width: 1500px; /* Ajusta según el tamaño del SVG */
-    display: flex;
-    justify-content: flex-start; /* Alinea el mapa hacia la izquierda */
+.MapContainer{
     background-color: #D5D1D0;
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
-    padding-left: 0; /* Elimina cualquier espacio a la izquierda, si es necesario */
+    padding-top: 40px;
+    
 }
+.MapContainer h6 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mainContent {
+    display: flex;
+    flex-direction: row; /* Organiza los elementos en una fila */
+    align-items: flex-start; /* Alinea los elementos al principio verticalmente */
+    margin-top: 20px; /* Espacio superior para separar del título */
+    position: relative;
+}
+.infoMapaContainer {
+    position: absolute; /* Posiciona este contenedor sobre el SVG */
+    top: 0; /* Alinea el contenedor en la parte superior */
+    left: 0; /* Alinea el contenedor en la parte izquierda */
+    z-index: 10; /* Asegura que esté por encima del SVG */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente opcional para ver el SVG detrás */
+    padding: 20px; /* Espaciado interno para el contenido */
+    width: 45%; /* Ajusta el ancho del contenedor según sea necesario */
+    height: 100%; /* Ajusta la altura para cubrir todo el SVG, si es necesario */
+}
+.svgContainer {
+    position: relative;
+    overflow: hidden; /* Evita que el contenido desborde */
+}
+
 .svgContainer svg {
-    width: 100%; /* Ajusta el tamaño al contenedor */
-    height: auto; /* Mantiene la proporción */
+    height: auto; /* Mantiene la proporción del SVG */
+    max-width: 120%; /* Limita el tamaño máximo del SVG al tamaño del contenedor */
 }
-.svgContainer path{
-    fill:#5899a3;
+.svgContainer path {
+    fill: #5899a3;
     stroke: #013F56;
     stroke-width: 1.5px; /* Grosor del borde */
 }
-.svgContainer path:hover{
+
+.svgContainer path:hover {
     fill: #a7bcbd;
 }
+
 .infoPopup {
     background-color: #013F56;
     border: solid #D5D1D0;
@@ -34,34 +58,40 @@
     transform: translate(-50%, -50%);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    max-height: calc(100vh - 2cm); /* Margen de 2 cm en cada lado */
-    max-width: calc(100vw - 2cm);  /* Margen de 2 cm en cada lado */
-    width: 80vw;  /* Asegura que el ancho se ajuste al contenido */
-    height: auto; /* Asegura que la altura se ajuste al contenido */
+    width: 180vh; /* Tamaño fijo del ancho del pop-up */
+    height: 80vh; /* Tamaño fijo de la altura del pop-up */
+    display: flex;
+    flex-direction: column;
 }
 
 .infoPopup h2 {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
     padding-bottom: 5px;
     border-bottom: 1px solid #1E90FF;
 }
 
 .infoPopup p {
-    font-size: 14px;
+    font-size: 18px;
     margin: 5px 0;
-    text-justify: distribute;
-    overflow:auto;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    text-align: justify; /* Justifica el texto */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.imagenContainer {
+    flex-shrink: 0; /* Evita que el contenedor de la imagen se reduzca, pero no lo expande innecesariamente */
+    width: 50%; /* Limita el ancho máximo del contenedor de la imagen */
+    display: flex; /* Usa flexbox para centrar la imagen dentro del contenedor */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center;
 }
 
-.infoPopup img {
-    max-width: 40%;
-    max-height: 60%;
-    border-radius: 30px;
-    display: block;
-    margin: 10px auto;
+.imagenContainer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    align-items: center;
 }
+
 .closeButton {
     position: absolute;
     top: 3px;
@@ -78,3 +108,23 @@
     text-align: center; /* Centrar el contenido */
     line-height: 20px; /* Ajustar la altura de la línea para centrar el texto verticalmente */
 }
+
+.areaContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    height: 90vh;
+}
+
+.textContainer {
+    flex: 1;
+    padding-right: 10px;
+    width: 50%;
+}
+
+

@@ -4,8 +4,10 @@ import morgan from 'morgan'
 import { jwtSign, jwtDecode } from '../utils/jwt/jwt.js'
 import { verificarCredenciales, registrarUsuario, getUser } from '../models/models.users.js'
 import { authToken } from '../middlewares/authToken.js'
-import calendarioRoutes from './calendarioRoutes.js'
 import { registrarComentario } from '../models/models.foro.js'
+import calendarioRoutes from '../calendar/calendarioRoutes.js'
+import bodyParser from 'body-parser'
+
 
 const app = express()
 const PORT = process.env.PORT ?? 3005
@@ -62,8 +64,6 @@ app.get('/users', authToken, async (req, res) => {
   }
 })
 
-app.use('/calendario', calendarioRoutes) // AGREGUÉ ESTO
-
 app.post('/foro', async (req, res) => {
   try {
     const { title, content } = req.body
@@ -76,6 +76,8 @@ app.post('/foro', async (req, res) => {
   }
 })
 
+app.use(bodyParser.json()); 
+app.use('/calendario', calendarioRoutes)
 app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })
 })

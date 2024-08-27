@@ -2,7 +2,7 @@
 /* Estilo general para el formulario */
 .post-form {
     min-height: 40vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
-    margin-left: 250px; /* Espacio para la sidebar */
+    margin-left: 0px; /* Espacio para la sidebar */
     background: #ffffff; /* Fondo blanco para el formulario */
     padding: 20px; /* Relleno interno */
     border-radius: 8px; /* Bordes redondeados */

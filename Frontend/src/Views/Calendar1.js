@@ -11,98 +11,28 @@ const localizer = momentLocalizer(moment);
 
 const Calendar1 = () => {
   const [estadoModal, setEstadoModal] = useState({
-    mostrarModal: false,
-    modalEliminar: false,
     modalEvento: false,
     eventoSeleccionado: null,
-    fechaInicio: '',
-    fechaFinal: '',
-    tituloEvento: '',
-    descripcion: ''
   });
   const [eventos, setEventos] = useState([]);
-  const [usuario, setUsuario] = useState({ admin: false}); //verificar el nombre del usuario.
 
   useEffect(() => {
-    obtenerUsuario();
+    obtenerEventos();
   }, []);
-    const obtenerUsuario = async () => {
+    const obtenerEventos = async () => {
       try {
-        const token = window.sessionStorage.getItem('token');
-        if (!token) throw new Error('Token no encontrado');
-
-        const response = await fetch('http://localhost:3005/es-admin', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const { isAdmin } = await response.json()
-         setUsuario({admin: isAdmin });
-        }catch (error) {
-          console.log('No tienes permiso para abrir el modal');
-        }
-      }; 
-  const manejadorEventos = async ({ start, end }) => {
-    console.log('Evento clickeado');
-    try {
-      if (usuario.admin){
-        console.log('Usuario administrador!')
-        setEstadoModal({
-          ...estadoModal,
-          mostrarModal: true,
-          fechaInicio: start,
-          fechaFinal: end,
-        });
-      } else {
-        console.log('Usuario no es administrador');
+        const response = await fetch('http://localhost:3005/calendario/eventos');
+        const eventos = await response.json();
+        const eventosConvertidos = eventos.map(evento => ({
+            ... evento, 
+            start: new Date(evento.start),
+            end: new Date(evento.end)
+          }))
+          setEventos(eventosConvertidos)
+      }catch (error) {
+        console.error('Error al obtener Eventos en front');
       }
-    } catch (error) {
-      console.error('Error al manejar el evento', error);
-    }
-  };
-
-  const guardarEvento = async () => {
-    const { tituloEvento, fechaInicio, fechaFinal, descripcion } = estadoModal;
-    if (tituloEvento && fechaInicio && fechaFinal && descripcion) {
-      const eventoNuevo = {
-        id: new Date().getTime(), // Genera un ID único para el evento
-        title: tituloEvento,
-        start: fechaInicio,
-        end: fechaFinal,
-        description: descripcion,
-      };
-      try {
-        const response = await fetch('http://localhost:3005/calendario/eventos', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `${localStorage.getItem('token')}`
-          },
-          body: JSON.stringify(eventoNuevo)
-        });
-        if (response.ok) {
-          setEventos([...eventos, eventoNuevo]);
-          setEstadoModal({
-            ...estadoModal,
-            mostrarModal: false,
-            tituloEvento: '',
-            descripcion: '',
-            fechaInicio: '',
-            fechaFinal: ''
-          });
-        } else {
-          console.error('Error al guardar el evento', await response.text());
-        }
-      } catch (error) {
-        console.error('Error al guardar el evento', error.message);
-      }
-    }
-  };
+    }        
   const abrirModalEvento = (event) => {
     setEstadoModal({
       ...estadoModal,
@@ -114,24 +44,6 @@ const Calendar1 = () => {
     setEstadoModal({
       ...estadoModal,
       modalEvento: false,
-      eventoSeleccionado: null
-    });
-  }
-
-  const abrirModalEliminar = () => {
-    setEstadoModal({
-      ...estadoModal,
-      modalEliminar: true,
-      modalEvento: false
-    });
-  }
-
-  const eliminarEvento = () => {
-    setEventos(eventos.filter(event => event.id !== estadoModal.eventoSeleccionado.id));
-    cerrarModalEvento();
-    setEstadoModal({
-      ...estadoModal,
-      modalEliminar: false,
       eventoSeleccionado: null
     });
   }
@@ -165,58 +77,11 @@ const Calendar1 = () => {
         events={eventos}
         views={["month", "week", "day"]}
         selectable
-        onSelectSlot={manejadorEventos}
         onSelectEvent={abrirModalEvento}
         components={{
           event: Event
         }}
       />
-      {estadoModal.mostrarModal && (
-        <div class="modal" style={{ display: 'block', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Guarda tu evento</h5>
-                <button type="button" class="btn-close" onClick={() => setEstadoModal({ ...estadoModal, mostrarModal: false })}></button>
-              </div>
-              <div class="modal-body">
-                <label>Título del Evento</label>
-                <input
-                  type='text'
-                  className='form-control'
-                  id='tituloEvento'
-                  value={estadoModal.tituloEvento}
-                  onChange={(e) => setEstadoModal({ ...estadoModal, tituloEvento: e.target.value })}
-                />
-                <label>Descripción del evento</label>
-                <input
-                  type='text'
-                  className='form-control'
-                  value={estadoModal.descripcion}
-                  onChange={(e) => setEstadoModal({ ...estadoModal, descripcion: e.target.value })}
-                />
-                <label>Horario de inicio</label>
-                <input
-                  type='datetime-local'
-                  className='form-control'
-                  value={moment(estadoModal.fechaInicio).format('YYYY-MM-DDTHH:mm')}
-                  onChange={(e) => setEstadoModal({ ...estadoModal, fechaInicio: new Date(e.target.value) })}
-                />
-                <label>Horario de fin</label>
-                <input
-                  type='datetime-local'
-                  className='form-control'
-                  value={moment(estadoModal.fechaFinal).format('YYYY-MM-DDTHH:mm')}
-                  onChange={(e) => setEstadoModal({ ...estadoModal, fechaFinal: new Date(e.target.value) })}
-                />
-              </div>
-              <div class="modal-footer">
-                <button type="button" onClick={guardarEvento} className='btn btn-primary'>Guardar Evento</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
       {estadoModal.modalEvento && (
         <div className="modal" style={{ display: 'block', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
           <div className="modal-dialog">
@@ -232,35 +97,15 @@ const Calendar1 = () => {
                 <p><b>Horario del evento: </b>{moment(estadoModal.eventoSeleccionado?.start).format('HH:mm')} hrs. - {moment(estadoModal.eventoSeleccionado?.end).format('HH:mm')} hrs.</p>
               </div>
               <div className="modal-footer">
-                {usuario.admin && usuario.id === estadoModal.eventoSeleccionado.id_usuario && (
-                  <button type="button" onClick={abrirModalEliminar} className="btn btn-danger">Eliminar Evento</button>
-                )}  {/*verificar si se ve el boton solo si eres admin */}
               </div>
             </div>
           </div>
         </div>
       )}
-      {estadoModal.modalEliminar && (
-        <div className="modal" style={{ display: 'block', position: 'fixed', top: 0, bottom: 0, left: 0, right: 0 }}>
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Eliminar Evento</h5>
-                <button type="button" className="btn-close" onClick={() => setEstadoModal({ ...estadoModal, modalEliminar: false })}></button>
-              </div>
-              <div className="modal-body">
-                <p>¿Estás seguro de que quieres eliminar el evento "{estadoModal.eventoSeleccionado?.title}"?</p>
-              </div>
-              <div className="modal-footer">
-                <button type="button" onClick={eliminarEvento} className="btn btn-danger">Eliminar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+     </div>
     </div>
   );
-}
+}; 
+
 
 export default Calendar1;
