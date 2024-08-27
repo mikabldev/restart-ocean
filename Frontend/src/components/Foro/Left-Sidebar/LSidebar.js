@@ -11,7 +11,7 @@ const LSidebar = () => {
     <Container fluid>
       <Row>
         <Col as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
-          <Stack gap={3} className="sidebar-links">
+          <Stack gap={1} className="sidebar-links">
             <Nav.Item className="s-menu">
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
               <span>Menú</span>

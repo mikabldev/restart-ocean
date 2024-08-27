@@ -1,0 +1,27 @@
+.foroContainer {
+    display: grid;
+    grid-template-columns: 1.1fr 1.8fr 1.2fr;
+    grid-template-rows: 6.7fr 0.1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+}
+
+.PostList {
+    display: grid;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.side-bar-derecho {
+    display: grid;
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.LSidebar {
+    display: grid;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.RSidebar {
+    display: grid;
+    grid-area: 1 / 3 / 2 / 4;
+}
