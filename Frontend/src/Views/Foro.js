@@ -3,7 +3,6 @@ import LSidebar from "../components/Foro/Left-Sidebar/LSidebar";
 import PostList from "../components/Foro/PostList";
 import RSidebar from "../components/Foro/Right-Sidebar/RSidebar";
 import PostForm from "../components/Foro/PostForm"; // Asegúrate de importar PostForm si es un componente separado
-import { Container, Row, Col } from 'react-bootstrap';
 import styles from "../../src/components/Foro/Foro.module.css"
 
 function Foro() {
@@ -37,12 +36,12 @@ function Foro() {
 
   return (
     <>
-      <Container className={styles.foroContainer}>
-        <Row>
-          <Col className={styles.LSidebar}>
+      <div className={styles.foroContainer}>
+        <div>
+          <div className={styles.LSidebar}>
             <LSidebar />
-          </Col>
-          <Col className={styles.PostList}>
+          </div>
+          <div className={styles.PostList}>
             <PostForm addPost={addPost} />
             <PostList
               posts={posts}
@@ -50,12 +49,12 @@ function Foro() {
               editPost={editPost}
               deletePost={deletePost}
             />
-          </Col>
-          <Col className={styles.RSidebar}>
+          </div>
+          <div className={styles.RSidebar}>
             <RSidebar />
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

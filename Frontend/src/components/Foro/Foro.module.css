@@ -1,26 +1,27 @@
 .foroContainer {
-    display: flex;
-    grid-template-columns: 1fr 1.9fr 1.2fr;
-    grid-template-rows: 6.9fr 0.1fr 2.3fr;
+    display: grid;
+    grid-template-columns: 0.7fr 1.4fr 0.9fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    margin-left: 0;
-    margin-right: -20px;
+    grid-template-areas:
+        "LSidebar PostForm RSidebar"
+        "LSidebar PostList RSidebar"
+        "LSidebar PostList RSidebar";
 }
 
 .LSidebar {
-    grid-area: 1 / 1 / 2 / 2;
-    margin-top: 0px;
-}
-
-.RSidebar {
-    grid-area: 1 / 3 / 2 / 4;
+    grid-area: LSidebar;
 }
 
 .PostForm {
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: PostForm;
 }
 
 .PostList {
-    grid-area: 3 / 2 / 4 / 3;
+    grid-area: PostList;
+}
+
+.RSidebar {
+    grid-area: RSidebar;
 }

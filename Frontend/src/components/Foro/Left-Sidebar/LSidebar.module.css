@@ -1,21 +1,21 @@
-.s-principal,
-.s-reciente,
-.s-t-categorias,
-.s-t-multimedia {
+.sPrincipal,
+.sReciente,
+.stCategorias,
+.stMultimedia {
     align-items: center;
     margin-left: 10px;
     color: #011b25;
     display: flex;
 }
 
-.s-principal:hover,
-.s-reciente:hover,
-.s-t-categorias:hover,
-.s-t-multimedia:hover {
+.sPrincipal:hover,
+.sReciente:hover,
+.stCategorias:hover,
+.stMultimedia:hover {
     color: #02E8DC;
 }
 
-.s-menu {
+.sMenu {
     margin-top: 30px;
     margin-left: 20px;
     align-items: center;
@@ -23,7 +23,7 @@
     color: #011b25;
 }
 
-.s-categorias {
+.sCategorias {
     max-width: auto;
 }
 
@@ -31,15 +31,15 @@
     color: tomato;
 }
 
-#user-btn {
-    margin-left: 30px;
+#userBtn {
+    margin-left: 20px;
     margin-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
     background-color: rgb(44, 165, 169)
 }
 
-.s-columna {
+.sColumna {
     background-color: white;
     flex-direction: row;
     justify-content: space-between;
@@ -48,7 +48,7 @@
     max-width: 62%;
 }
 
-.row-styles {
+.rowStyles {
     margin: 0;
     position: absolute;
 }
