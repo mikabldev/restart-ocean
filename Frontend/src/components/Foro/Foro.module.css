@@ -10,6 +10,7 @@
 
 .LSidebar {
     grid-area: 1 / 1 / 2 / 2;
+    margin-top: 0px;
 }
 
 .RSidebar {

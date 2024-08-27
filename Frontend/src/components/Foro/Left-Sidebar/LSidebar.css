@@ -7,6 +7,7 @@
     color: #011b25;
     display: flex;
 }
+
 .s-principal:hover,
 .s-reciente:hover,
 .s-t-categorias:hover,
@@ -31,7 +32,7 @@
 }
 
 #user-btn {
-    margin-left: 10px;
+    margin-left: 30px;
     margin-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
@@ -39,9 +40,15 @@
 }
 
 .s-columna {
-    display: flex;
     background-color: white;
     flex-direction: row;
     justify-content: space-between;
     min-height: 100vh;
+    min-width: 250px;
+    max-width: 62%;
+}
+
+.row-styles {
+    margin: 0;
+    position: absolute;
 }
