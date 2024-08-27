@@ -3,15 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './LSidebar.css';
 import 'boxicons/css/boxicons.min.css';
-import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
+import {  Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
 
 
 const LSidebar = () => {
   return (
-    <Container className="LSidebarContainer">
-      <Row>
+    <div className="Lside-container">
+      <div className="row-styles">
         <Col as="aside" className="s-columna">
-          <Stack gap={1} className="sidebar-links">
+          <Stack gap={2} className="sidebar-links">
             <Nav.Item className="s-menu">
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
               <span>Menú Foro</span>
@@ -96,7 +96,7 @@ const LSidebar = () => {
               <hr className="text-black" />
 
               {/* Aquí empieza el menú de usuario */}
-              <Stack direction="horizontal"  className="dropdownOpen">
+              <Stack direction="horizontal" className="dropdownOpen">
                 <DropdownButton
                   id="user-btn"
                   title="Ola, Mika"
@@ -123,8 +123,8 @@ const LSidebar = () => {
             </Nav>
           </Stack>
         </Col>
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 };
 
