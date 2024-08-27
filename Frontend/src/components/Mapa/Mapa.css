@@ -6,7 +6,7 @@
 .MapContainer h6 {
     text-align: center;
     font-size: 40px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 .mainContent {
     display: flex;
@@ -20,14 +20,22 @@
     top: 0; /* Alinea el contenedor en la parte superior */
     left: 0; /* Alinea el contenedor en la parte izquierda */
     z-index: 10; /* Asegura que esté por encima del SVG */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente opcional para ver el SVG detrás */
-    padding: 20px; /* Espaciado interno para el contenido */
-    width: 45%; /* Ajusta el ancho del contenedor según sea necesario */
+    padding: 30px; /* Espaciado interno para el contenido */
+    width: 55%; /* Ajusta el ancho del contenedor según sea necesario */
     height: 100%; /* Ajusta la altura para cubrir todo el SVG, si es necesario */
+}
+.infoMapaContainer p {
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px;
+}
+.infoMapaContainer h4 {
+    font-size: 22px;
 }
 .svgContainer {
     position: relative;
     overflow: hidden; /* Evita que el contenido desborde */
+    margin-left: 200px;
 }
 
 .svgContainer svg {
@@ -76,6 +84,7 @@
     margin: 5px 0;
     text-align: justify; /* Justifica el texto */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
 }
 .imagenContainer {
     flex-shrink: 0; /* Evita que el contenedor de la imagen se reduzca, pero no lo expande innecesariamente */
