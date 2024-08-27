@@ -6,8 +6,8 @@ import { verificarCredenciales, registrarUsuario, getUser, isAdmin } from '../mo
 import { authToken } from '../middlewares/authToken.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import calendarioRoutes from './calendarioRoutes.js'
-import { verifyAdmin } from '../middlewares/verifyAdmin.js'
+import calendarioRoutes from '../calendar/calendarioRoutes.js'
+import bodyParser from 'body-parser'
 
 // Crear __filename y __dirname manualmente
 const __filename = fileURLToPath(import.meta.url)
@@ -38,10 +38,10 @@ app.post('/login', async (req, res) => {
 
 app.post('/users', async (req, res) => {
   try {
-    const { nombre, apellido, email, password } = req.body
+    const { nombre, apellido, email, password, admin } = req.body
     console.log(nombre, apellido, email, password)
     // obtengo los datos del formulario desde el body
-    await registrarUsuario({ nombre, apellido, email, password })
+    await registrarUsuario({ nombre, apellido, email, password, admin })
     res.status(201).json({ status: true, message: 'Usuario registrado con éxito' })
   } catch (error) {
     res.status(error.code || 500).json({ message: 'Error en la conexión', error })
@@ -67,21 +67,8 @@ app.get('/users', authToken, async (req, res) => {
     res.status(400).json({ message: error })
   }
 });
-
-app.get('/es-admin', authToken, verifyAdmin,  async (req, res) => {
-  try {
-    const userId = req.usuario.userId; // Suponiendo que tienes el email del usuario en req.usuario
-    const admin = await isAdmin(userId);
-
-    res.json({ admin });
-  } catch (error) {
-    console.error('Error al obtener el usuario:', error);
-    res.status(500).json({ message: 'Error interno del servidor' });
-  }
-});
-
-app.use('/calendario', calendarioRoutes)//AGREGUÉ ESTO
-
+app.use(bodyParser.json()); 
+app.use('/calendario', calendarioRoutes)
 app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })
 })
