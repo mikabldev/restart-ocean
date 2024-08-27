@@ -8,100 +8,100 @@ import { Container, Row, Col, Nav, Dropdown, DropdownButton, Stack } from 'react
 
 const LSidebar = () => {
   return (
-    <Container fluid>
+    <Container className="LSidebarContainer">
       <Row>
-        <Col as="aside" className="bg-dark d-flex flex-column justify-content-between min-vh-100">
+        <Col as="aside" className="s-columna">
           <Stack gap={1} className="sidebar-links">
             <Nav.Item className="s-menu">
               <i className='bx bx-water' style={{ marginRight: '8px', alignItems: 'center' }}></i>
-              <span>Menú</span>
+              <span>Menú Foro</span>
             </Nav.Item>
 
             {/* Separación de menú con hr */}
-            <hr className="text-white" />
+            <hr className="text-black" />
 
             {/* Menú del Foro */}
             <Nav defaultActiveKey="#home" className="flex-column">
               <Nav.Item>
                 <Nav.Link to="/foro" className="s-principal">
-                  <i class='bx bx-book-open'></i>
-                  <span className="ms-2">Principal</span>
+                  <i class='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                  <span>Principal</span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="/posts-recientes" className="s-reciente">
-                  <i class='bx bx-time-five'></i>
-                  <span className="ms-2">Reciente</span>
+                  <i class='bx bx-time-five' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                  <span>Reciente</span>
                 </Nav.Link>
               </Nav.Item>
 
               {/* Separacion interna menu */}
-              <hr className="text-white" />
+              <hr className="text-black" />
 
               <Dropdown as={Nav.Item}>
                 <Dropdown.Toggle as={Nav.Link} className="s-t-categorias">
-                  <i class='bx bx-customize' style={{ marginRight: '5px' }}></i>
-                  <span className="ms-2">Categorías</span>
+                  <i className='bx bx-customize' style={{ marginRight: '8px' }}></i>
+                  <span className="t-categorias">Categorías</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="s-categorias">
                   <Dropdown.Item href="#category1">
-                    <i class='bx bx-shield-plus' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-shield-plus' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Conservación Marina: Biodiversidad y Protección</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category2">
-                    <i class='bx bx-bulb' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-bulb' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Innovación tecnológica e Investigación Científica</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category3">
-                    <i class='bx bx-book' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-book' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Educación, Conciencia y Cultura Oceánica</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#category4">
-                    <i class='bx bx-group' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-group' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Colaboraciones comunitarias y Activismo</span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
               {/* Separacion interna menu */}
-              <hr className="text-white" />
+              <hr className="text-black" />
 
               {/* Menú desplegable para Multimedia */}
               <Dropdown as={Nav.Item}>
                 <Dropdown.Toggle as={Nav.Link} className="s-t-multimedia">
-                  <i class='bx bx-category-alt'></i>
-                  <span className="ms-2">Multimedia</span>
+                  <i className='bx bx-category-alt' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                  <span className="t-multimedia">Multimedia</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="s-multimedia">
                   <Dropdown.Item href="#documentales">
-                    <i class='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Documentales</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#tutoriales">
-                    <i class='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Tutoriales</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#videos">
-                    <i class='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Videos</span>
                   </Dropdown.Item>
                   <Dropdown.Item href="#podcasts">
-                    <i class='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                    <i className='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Podcasts</span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
               {/* Separacion interna menu */}
-              <hr className="text-white" />
+              <hr className="text-black" />
 
               {/* Aquí empieza el menú de usuario */}
-              <Stack direction="horizontal" gap={3} className="dropdown open">
+              <Stack direction="horizontal"  className="dropdownOpen">
                 <DropdownButton
                   id="user-btn"
                   title="Ola, Mika"
                 >
-                  <Dropdown.Item href="#/action-1" active>
+                  <Dropdown.Item href="#/action-1">
                     <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     <span>Mi perfil</span>
                   </Dropdown.Item>

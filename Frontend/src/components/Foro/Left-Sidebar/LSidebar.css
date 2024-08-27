@@ -1,28 +1,25 @@
-#parentM li a:hover {
-    background-color: blue;
-}
-
-#dropdown-open {
-    background-color: rgb(11, 15, 53);
-}
-
-.s-menu {
-    margin-top: 30px;
-}
-
-.s-menu:hover {
-    color: azure;
-}
-
-.s-menu,
 .s-principal,
 .s-reciente,
 .s-t-categorias,
 .s-t-multimedia {
     align-items: center;
     margin-left: 10px;
-    color: azure;
+    color: #011b25;
     display: flex;
+}
+.s-principal:hover,
+.s-reciente:hover,
+.s-t-categorias:hover,
+.s-t-multimedia:hover {
+    color: #02E8DC;
+}
+
+.s-menu {
+    margin-top: 30px;
+    margin-left: 20px;
+    align-items: center;
+    display: flex;
+    color: #011b25;
 }
 
 .s-categorias {
@@ -39,4 +36,12 @@
     padding-left: 50px;
     padding-right: 50px;
     background-color: rgb(44, 165, 169)
+}
+
+.s-columna {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 100vh;
 }
