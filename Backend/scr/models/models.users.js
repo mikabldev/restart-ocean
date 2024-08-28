@@ -56,4 +56,3 @@ export const getUser = async (email) => {
     throw newError
   }
 }
-

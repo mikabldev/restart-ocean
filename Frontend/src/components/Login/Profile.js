@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Context from '../../context/Context'
 import axios from 'axios'
 import './profile.css'
-import { MDBCard, MDBCardHeader, MDBRipple, MDBCardSubTitle, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit'
+import { MDBCard, MDBCardHeader, MDBCardSubTitle, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit'
 
 const Profile = () => {
   const navigate = useNavigate()
@@ -65,13 +65,11 @@ const Profile = () => {
           </div>
         </MDBCard>
 
-        <MDBRipple className='m-5'>
           <img
             src='/img/3.jpg'
             className='imgPerfil img-fluid rounded'
             alt='example'
           />
-        </MDBRipple>
 
       </div>
     </div>

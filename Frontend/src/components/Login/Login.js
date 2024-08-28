@@ -54,7 +54,6 @@ const Login = () => {
           title: "Oops...",
           text: `${data.message}`,
         })
-        // window.alert(`${data.message}`)
       })
 
     setUser('')
