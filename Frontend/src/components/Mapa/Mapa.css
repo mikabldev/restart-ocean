@@ -39,14 +39,14 @@
 }
 
 .infoMapaContainer p {
-    font-size: 14px;
+    font-size: 18px;
     text-align: justify;
     padding: 10px;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .infoMapaContainer h4 {
-    font-size: 16px;
+    font-size: 19px;
 }
 
 .svgContainer {
@@ -79,7 +79,7 @@
     border: solid #D5D1D0;
     padding: 10px;
     border-radius: 10px;
-    pointer-events: auto;
+    pointer-events: auto; 
     z-index: 1000;
     color: white;
     position: fixed;
@@ -88,9 +88,9 @@
     transform: translate(-50%, -50%);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    width: 180vh;
+    width: 90%;
     /* Tamaño fijo del ancho del pop-up */
-    height: 80vh;
+    height: 90%;
     /* Tamaño fijo de la altura del pop-up */
     display: flex;
     flex-direction: column;
