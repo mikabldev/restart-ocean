@@ -86,6 +86,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 10px;
 }
+.infoPopup h5 {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .imagenContainer {
     flex-shrink: 0; /* Evita que el contenedor de la imagen se reduzca, pero no lo expande innecesariamente */
     width: 50%; /* Limita el ancho máximo del contenedor de la imagen */
