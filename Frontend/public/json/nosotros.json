@@ -27,8 +27,8 @@
     "nombre":"Felipe",
     "Apellido":"Molina",
     "cargo":"Desarrollador Full Stack",
-    "linkedin":"",
-    "github":"",
-    "img":""
+    "linkedin":"https://www.linkedin.com/in/felipe-molina-73a84b317/",
+    "github":"https://github.com/FelipeMolF",
+    "img":"/public/img/felipeMolina.jpg"
   }
 ]
