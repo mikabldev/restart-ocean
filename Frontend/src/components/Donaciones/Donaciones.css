@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center; 
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: #013F56; 
     padding: 60px; 
     border-radius: 20px;
@@ -12,7 +12,8 @@
     margin: 30px auto;
     color: white;
     position: relative;
-    min-height: 600px; 
+    min-height: 600px;
+    padding-bottom: 180px;
 }
 
 .text-and-button {
@@ -51,7 +52,7 @@
     padding: 15px 25px; 
     border-radius: 15px; 
     position: absolute;
-    bottom: 30px; 
+    bottom: 20px; 
     left: 30px; 
     right: 30px; 
     height: auto; 
