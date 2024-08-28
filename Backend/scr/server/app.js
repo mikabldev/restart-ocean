@@ -8,7 +8,6 @@ import { registrarComentario } from '../models/models.foro.js'
 import calendarioRoutes from '../calendar/calendarioRoutes.js'
 import bodyParser from 'body-parser'
 
-
 const app = express()
 const PORT = process.env.PORT ?? 3005
 
@@ -34,7 +33,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/users', async (req, res) => {
   try {
-    const { nombre, apellido, email, password} = req.body
+    const { nombre, apellido, email, password } = req.body
     console.log(nombre, apellido, email, password)
     // obtengo los datos del formulario desde el body
     await registrarUsuario({ nombre, apellido, email, password })
@@ -76,7 +75,7 @@ app.post('/foro', async (req, res) => {
   }
 })
 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json())
 app.use('/calendario', calendarioRoutes)
 app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })
