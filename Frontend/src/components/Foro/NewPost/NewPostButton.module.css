@@ -1,0 +1,10 @@
+.npostBtn {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -20px;
+    background-color: #013F56;
+}
+
+.npostBtn:hover {
+    background-color: rgb(4, 78, 105)
+}

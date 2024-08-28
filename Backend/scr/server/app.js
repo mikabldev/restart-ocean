@@ -33,10 +33,10 @@ app.post('/login', async (req, res) => {
 
 app.post('/users', async (req, res) => {
   try {
-    const { nombre, apellido, email, password, admin } = req.body
+    const { nombre, apellido, email, password } = req.body
     console.log(nombre, apellido, email, password)
     // obtengo los datos del formulario desde el body
-    await registrarUsuario({ nombre, apellido, email, password, admin })
+    await registrarUsuario({ nombre, apellido, email, password })
     res.status(201).json({ status: true, message: 'Usuario registrado con éxito' })
   } catch (error) {
     res.status(error.code || 500).json({ message: 'Error en la conexión', error })

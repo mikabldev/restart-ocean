@@ -3,13 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import styles from './LSidebar.module.css';
 import 'boxicons/css/boxicons.min.css';
-import {  Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
+import { Col, Nav, Dropdown, DropdownButton, Stack } from 'react-bootstrap';
+import NewPostButton from "../NewPost/NewPostButton";
+
 
 
 const LSidebar = () => {
   return (
     <div className={styles.LsideContainer}>
-      <div className={styles.row-styles}>
+      <div className={styles.row - styles}>
         <Col as="aside" className={styles.sColumna}>
           <Stack gap={2} className={styles.sidebarLinks}>
             <Nav.Item className={styles.sMenu}>
@@ -38,6 +40,7 @@ const LSidebar = () => {
               {/* Separacion interna menu */}
               <hr className="text-black" />
 
+              {/* Categorías del foro */}
               <Dropdown as={Nav.Item}>
                 <Dropdown.Toggle as={Nav.Link} className={styles.stCategorias}>
                   <i className='bx bx-customize' style={{ marginRight: '8px' }}></i>
@@ -114,12 +117,15 @@ const LSidebar = () => {
                     Ajustes
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="#/action-4" className='logout'>
+                  <Dropdown.Item href="/logout" className={styles.logout}>
                     <i className='bx bx-log-out' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     Cerrar sesión
                   </Dropdown.Item>
                 </DropdownButton>
               </Stack>
+
+              {/* Botón de Nuevo Post */}
+              <NewPostButton />
             </Nav>
           </Stack>
         </Col>

@@ -1,0 +1,139 @@
+/* Estilo general para el formulario */
+.post-form {
+    min-height: 60vh;
+    height: auto;
+    /* Asegura que el contenido ocupe toda la altura de la pantalla */
+    background: #ffffff;
+    /* Fondo blanco para el formulario */
+    padding: 20px;
+    /* Relleno interno */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 6px rgba(88, 153, 163);
+    /* Sombra suave para resaltar el formulario */
+    width: 150vh;
+    /* Ancho máximo del formulario */
+    font-family: 'Arial', sans-serif;
+    /* Tipografía clara y moderna */
+}
+
+/* Estilo para el título del formulario */
+.titulonewpost {
+    color: rgba(88, 153, 163);
+    /* Color azul para el título */
+    font-size: 2rem;
+    /* Tamaño de fuente del título */
+    margin-bottom: 15px;
+    /* Espacio debajo del título */
+    text-align: center;
+    /* Centra el título horizontalmente */
+}
+
+/* Estilo para los campos del formulario */
+.post-form div {
+    margin-bottom: 15px;
+    /* Espacio debajo de cada campo */
+}
+
+/* Estilo para las etiquetas de los campos */
+.post-form label {
+    display: block;
+    /* Etiquetas en su propia línea */
+    margin-bottom: 5px;
+    /* Espacio debajo de las etiquetas */
+    color: #333;
+    /* Color del texto de las etiquetas */
+    font-weight: 600;
+    /* Negrita para las etiquetas */
+}
+
+/* Estilo para los campos de entrada de texto */
+.post-form input[type="text"],
+.post-form textarea {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    padding: 12px;
+    /* Relleno interno */
+    border: 1px solid #ccc;
+    /* Borde gris claro */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    box-sizing: border-box;
+    /* Incluye relleno y borde en el ancho total */
+    font-size: 1rem;
+    /* Tamaño de fuente del texto */
+}
+
+/* Estilo para el botón de enviar */
+.post-form button {
+    background-color: rgba(1, 63, 86);
+    /* Fondo azul para el botón */
+    color: white;
+    /* Color del texto en el botón */
+    border: none;
+    /* Sin borde en el botón */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    padding: 12px 20px;
+    /* Relleno interno */
+    font-size: 1rem;
+    /* Tamaño de fuente del botón */
+    cursor: pointer;
+    /* Cambia el cursor a puntero */
+    display: block;
+    /* Bloque para centrado en el formulario */
+    width: 100%;
+    /* Ancho completo del contenedor */
+    margin-top: 10px;
+    /* Espacio superior */
+    transition: background-color 0.3s;
+    /* Transición suave para el color de fondo */
+}
+
+/* Estilo para el botón al pasar el cursor */
+.post-form button:hover {
+    background-color: rgba(1, 63, 86);
+    /* Fondo azul oscuro al pasar el cursor */
+}
+
+/* Estilo para el contenedor del editor */
+.editor-container {
+    border: 1px solid #ccc;
+    /* Borde gris claro alrededor del editor */
+    padding: 10px;
+    /* Relleno interno para el editor */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    background-color: #fff;
+    /* Fondo blanco para el editor */
+    margin-top: 5px;
+    /* Espacio superior */
+    position: relative;
+}
+
+/* Asegúrate de que el editor de Quill ocupa el 100% del ancho del contenedor */
+.editor-container .ql-container {
+    height: 200px;
+    /* Ajusta la altura del editor según sea necesario */
+}
+
+/* Asegura que la barra de herramientas del editor se vea bien */
+.editor-container .ql-toolbar {
+    border-bottom: 1px solid #ccc;
+    /* Borde inferior para la barra de herramientas */
+}
+
+/* Estilo para el contenedor del textarea y el editor */
+.content-container {
+    position: relative;
+}
+
+/* Estilo para el textarea visible */
+.post-form textarea {
+    height: 100px;
+    /* Ajusta la altura según sea necesario */
+    resize: none;
+    /* Desactiva el cambio de tamaño */
+    background: #f9f9f9;
+    /* Fondo ligeramente gris para el textarea */
+}

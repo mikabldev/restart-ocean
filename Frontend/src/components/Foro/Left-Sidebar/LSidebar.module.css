@@ -36,7 +36,11 @@
     margin-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
-    background-color: rgb(44, 165, 169)
+    background-color: #2ca5a9
+}
+
+#userBtn:hover {
+    background-color: #279296
 }
 
 .sColumna {

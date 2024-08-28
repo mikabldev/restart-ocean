@@ -89,6 +89,14 @@
   background-position-x: center;
   background-position-y:bottom;
 }
+.felipe b {
+  background-Image: url(/public/img/felipeMolina.jpg);
+  background-Size: 250px;
+  background-position-x: fill;
+  background-position-y:uper;
+}
+
+
 
 .cardNosotros .content {
   position: absolute;
