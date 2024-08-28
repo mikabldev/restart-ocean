@@ -36,8 +36,8 @@ export default function Pills () {
       </MDBTabs>
 
       <MDBTabsContent>
-        <MDBTabsPane open={basicActive === 'iniciar sesion'}><Login /> </MDBTabsPane>
-        <MDBTabsPane open={basicActive === 'registrate'}><Register /> </MDBTabsPane>
+        <MDBTabsPane open={basicActive === 'iniciar sesion'}><Login setBasicActive={setBasicActive} /> </MDBTabsPane>
+        <MDBTabsPane open={basicActive === 'registrate'}><Register setBasicActive={setBasicActive} /> </MDBTabsPane>
       </MDBTabsContent>
     </>
   )
