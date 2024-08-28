@@ -1,12 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
 import './NewPostForm.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Context from '../../context/Context'
 
 const NewPostForm = ({ addPost, setPosts }) => {
-    const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
+    const { getNuevoUsuario } = useContext(Context)
+    console.log(getNuevoUsuario.id)
+
+    const [showEditor, setShowEditor] = useState(true); // Controlar cuándo mostrar el editor
     const quillRef = useRef(null);
     const quillInstanceRef = useRef(null);
     const [post, setPost] = useState({
@@ -43,7 +47,13 @@ const NewPostForm = ({ addPost, setPosts }) => {
         if (post.title && post.content) {
             addPost(post)
 
-            axios.post('http://localhost:3005/foro', post)
+            const sendPost = {
+                title: post.title,
+                content: post.content,
+                usuarioId: getNuevoUsuario.id
+            }
+            axios.post('http://localhost:3005/foro', sendPost)
+
                 .then(() => {
                     Swal.fire({
                         title: "Genial!",
@@ -90,6 +100,7 @@ const NewPostForm = ({ addPost, setPosts }) => {
             setShowEditor(false)
         }
     }
+
     return (
         <form onSubmit={handleSubmit} className="post-form">
             <h2 className='titulonewpost'>Nuevo Post</h2>
