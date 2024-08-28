@@ -50,7 +50,7 @@ const PostForm = ({ addPost, setPosts }) => {
       const sendPost = {
         title: post.title,
         content: post.content,
-        usuario_id: getNuevoUsuario.id
+        usuarioId: getNuevoUsuario.id
       }
       axios.post('http://localhost:3005/foro', sendPost)
 

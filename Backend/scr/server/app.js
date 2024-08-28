@@ -66,10 +66,10 @@ app.get('/users', authToken, async (req, res) => {
 
 app.post('/foro', async (req, res) => {
   try {
-    const { title, content, usuario_id } = req.body
-    console.log(title, content, usuario_id)
+    const { title, content, usuarioId } = req.body
+    console.log(title, content, usuarioId)
     // obtengo los datos del formulario desde el body
-    await registrarComentario({ title, content, usuario_id })
+    await registrarComentario({ title, content, usuarioId })
     res.status(201).json({ status: true, message: 'Comentario registrado con éxito' })
   } catch (error) {
     res.status(error.code || 500).json({ message: 'Error en la conexión', error })
