@@ -19,7 +19,6 @@ function NewPost() {
                 <div className='LSidebar'>
                     <LSidebar />
                 </div>
-
                 <div className='newpostform'>
                     <NewPostForm addPost={addPost} />
                 </div>

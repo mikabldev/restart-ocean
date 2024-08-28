@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import './PostList.css'; 
+import './PostList.css';
 
-const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, deleteComment }) => {
-  const [comment, setComment] = useState('');
+const PostList = ({ posts = [], editPost, deletePost }) => {
   const [editingPostId, setEditingPostId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4); // Número de posts por página
-  const [editingCommentIndex, setEditingCommentIndex] = useState(null);
-  const [editCommentContent, setEditCommentContent] = useState('');
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
-
-  const handleCommentChange = (e) => setComment(e.target.value);
-
-  const handleCommentSubmit = (postId) => {
-    if (comment.trim()) {
-      addComment(postId, comment);
-      setComment('');
-    }
-  };
 
   const handleEditTitleChange = (e) => setEditTitle(e.target.value);
 
@@ -57,30 +45,6 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
     });
   };
 
-  const handleEditCommentSubmit = (postId, commentIndex) => {
-    if (editCommentContent.trim()) {
-      editComment(postId, commentIndex, editCommentContent);
-      setEditingCommentIndex(null);
-      setEditCommentContent('');
-    }
-  };
-
-  const handleDeleteComment = (postId, commentIndex) => {
-    Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar este comentario?',
-      text: 'Esta acción no se puede deshacer.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        deleteComment(postId, commentIndex);
-      }
-    });
-  };
 
   useEffect(() => {
     if (editingPostId !== null) {
@@ -94,7 +58,7 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
 
   return (
     <div className="post-list">
-      <h1 className="post-list-title">Posts</h1>
+      <h1 className="post-list-title">Posts Recientes</h1>
       <ul>
         {currentPosts.map((post) => (
           <li key={post.id} className={`post-item ${editingPostId === post.id ? 'editing' : ''}`}>
@@ -115,6 +79,7 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
                 <button onClick={() => setEditingPostId(null)}>Cancelar</button>
               </div>
             ) : (
+              // Contenido del Post
               <div className="post-content">
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.title}</h3>
@@ -124,45 +89,6 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
                 <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>
             )}
-            <div className="comments-section">
-              <h4>Comentarios</h4>
-              {post.comments && post.comments.length > 0 ? (
-                <ul>
-                  {post.comments.map((comment, idx) => (
-                    <li key={idx}>
-                      {editingCommentIndex === idx ? (
-                        <div>
-                          <textarea
-                            value={editCommentContent}
-                            onChange={(e) => setEditCommentContent(e.target.value)}
-                            placeholder="Edita tu comentario..."
-                          />
-                          <button onClick={() => handleEditCommentSubmit(post.id, idx)}>Guardar</button>
-                          <button onClick={() => setEditingCommentIndex(null)}>Cancelar</button>
-                        </div>
-                      ) : (
-                        <div>
-                          {comment}
-                          <button onClick={() => {
-                            setEditingCommentIndex(idx);
-                            setEditCommentContent(comment);
-                          }}>Editar</button>
-                          <button onClick={() => handleDeleteComment(post.id, idx)}>Eliminar</button>
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No hay comentarios aún.</p>
-              )}
-              <textarea
-                value={comment}
-                onChange={handleCommentChange}
-                placeholder="¿Qué ideas te gustaría agregar? Comenta aquí..."
-              />
-              <button onClick={() => handleCommentSubmit(post.id)}>Añadir Comentario</button>
-            </div>
           </li>
         ))}
       </ul>

@@ -4,7 +4,7 @@ import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
 import './NewPostForm.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import Context from '../../context/Context'
+import Context from '../../../context/Context'
 
 const NewPostForm = ({ addPost, setPosts }) => {
     const { getNuevoUsuario } = useContext(Context)
