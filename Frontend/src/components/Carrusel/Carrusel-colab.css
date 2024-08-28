@@ -36,7 +36,8 @@ section {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(10px); /* Ajusta el desenfoque según tus necesidades */
+    filter: blur(10px);
+    /* Ajusta el desenfoque según tus necesidades */
     z-index: -1;
     transition: 0.5s;
 }
@@ -87,8 +88,8 @@ header {
 .content .text-box p {
     color: white;
     margin-top: 20px;
-    line-height: 1.6em; 
-    margin-bottom: 30px; 
+    line-height: 1.6em;
+    margin-bottom: 30px;
     text-align: justify;
 }
 
@@ -112,7 +113,7 @@ header {
     display: flex;
     justify-content: flex-end;
     margin-left: 50px;
-    
+
 }
 
 .content .imageBox img {
@@ -137,11 +138,11 @@ header {
     height: 150px;
     background: rgba(173, 29, 29, 0.1);
     padding: 5px;
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid rgba(255, 255, 255, 0.25);
 }
 
 .thumb li.active {
-    border: 2px solid rgba(255,255,255,1);
+    border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 15px;
 }
 
@@ -261,5 +262,17 @@ header {
         background-size: 30px;
         background-position: center;
         background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Ajustes para pantallas pequeñas */
+    .content .text-box h2 {
+        font-size: 2em;
+    }
+
+    .content .imageBox img {
+        max-width: 100%;
     }
 }
