@@ -38,8 +38,9 @@ const MapaSVG = () => {
           mantener la biodiversidad, proporcionar refugio a especies comerciales y/o en peligro de
           extinción, proteger hábitats críticos y de reproducción, y construir resiliencia contra 
           el cambio climático.</p>
-          <p>¡En esta sección podrás conocer cuáles son las <strong>Áreas Marinas Protegidas de Chile! </strong> 
-          Para ello, haz <strong>CLICK</strong> en cada región, y podrás visualizarlas.</p>
+          <p>¡En esta sección encontrarás un mapa de Chile en el cual podrás conocer cuáles son las
+            <strong> Áreas Marinas Protegidas del país!. </strong> Para ello, haz <strong>CLICK </strong> 
+            en cada región del Mapa, así podrás visualizarlas y conocer más sobre ellas.</p>
           <p>En Chile, existen cuatro tipos de AMP:</p>
       <ol>
         <li>

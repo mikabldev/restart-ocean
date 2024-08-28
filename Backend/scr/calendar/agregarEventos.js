@@ -2,10 +2,10 @@ import fetch from 'node-fetch';
 
 async function agregarEventos() {
   const nuevoEvento = {
-    title: "Limpieza de playa",
-    description: "Reunión de equipo de voluntario en playa las cruces",
-    start: "2024-09-01T15:00:00",
-    end: "2024-09-01T17:00:00",
+    title: "Encuentro anual 'Pesca sostenible en la V región'",
+    description: "Encuentro realizado a partir de expertos, para entregar a la comunidad la importancia sobre la pesca sostenible, y su aporte económico y ecológico para la zona.",
+    start: "2024-09-28T11:00:00",
+    end: "2024-09-28T12:00:00",
     usuario_id: 1
   };
 

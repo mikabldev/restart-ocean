@@ -48,9 +48,15 @@ const Calendar1 = () => {
     });
   }
   const Event = ({ event }) => (
-    <div>
+    <div style={{
+      height: 'auto',
+      fontSize: '12px',
+      width: '60%',
+      padding:'5px',
+      margin: '2px',
+      height: 'auto',
+    }}>
       <strong>{event.title}</strong>
-      <p> Descripción: {event.description}</p>
     </div>
   )
 

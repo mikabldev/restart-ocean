@@ -1,51 +1,73 @@
-.MapContainer{
+.MapContainer {
     background-color: #D5D1D0;
     padding-top: 40px;
-    
+
 }
+
 .MapContainer h6 {
     text-align: center;
     font-size: 40px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
+
 .mainContent {
     display: flex;
-    flex-direction: row; /* Organiza los elementos en una fila */
-    align-items: flex-start; /* Alinea los elementos al principio verticalmente */
-    margin-top: 20px; /* Espacio superior para separar del título */
+    flex-direction: row;
+    /* Organiza los elementos en una fila */
+    align-items: flex-start;
+    /* Alinea los elementos al principio verticalmente */
+    margin-top: 20px;
+    /* Espacio superior para separar del título */
     position: relative;
 }
+
 .infoMapaContainer {
-    position: absolute; /* Posiciona este contenedor sobre el SVG */
-    top: 0; /* Alinea el contenedor en la parte superior */
-    left: 0; /* Alinea el contenedor en la parte izquierda */
-    z-index: 10; /* Asegura que esté por encima del SVG */
-    padding: 30px; /* Espaciado interno para el contenido */
-    width: 55%; /* Ajusta el ancho del contenedor según sea necesario */
-    height: 100%; /* Ajusta la altura para cubrir todo el SVG, si es necesario */
+    position: absolute;
+    /* Posiciona este contenedor sobre el SVG */
+    top: 0;
+    /* Alinea el contenedor en la parte superior */
+    left: 0;
+    /* Alinea el contenedor en la parte izquierda */
+    z-index: 10;
+    /* Asegura que esté por encima del SVG */
+    padding: 30px;
+    /* Espaciado interno para el contenido */
+    width: 55%;
+    /* Ajusta el ancho del contenedor según sea necesario */
+    height: 100%;
+    /* Ajusta la altura para cubrir todo el SVG, si es necesario */
 }
+
 .infoMapaContainer p {
-    font-size: 20px;
+    font-size: 14px;
     text-align: justify;
     padding: 10px;
+    line-height: 1.2;
 }
+
 .infoMapaContainer h4 {
-    font-size: 22px;
+    font-size: 16px;
 }
+
 .svgContainer {
     position: relative;
-    overflow: hidden; /* Evita que el contenido desborde */
+    overflow: hidden;
+    /* Evita que el contenido desborde */
     margin-left: 200px;
 }
 
 .svgContainer svg {
-    height: auto; /* Mantiene la proporción del SVG */
-    max-width: 120%; /* Limita el tamaño máximo del SVG al tamaño del contenedor */
+    height: auto;
+    /* Mantiene la proporción del SVG */
+    max-width: 120%;
+    /* Limita el tamaño máximo del SVG al tamaño del contenedor */
 }
+
 .svgContainer path {
     fill: #5899a3;
     stroke: #013F56;
-    stroke-width: 1.5px; /* Grosor del borde */
+    stroke-width: 1.5px;
+    /* Grosor del borde */
 }
 
 .svgContainer path:hover {
@@ -66,8 +88,10 @@
     transform: translate(-50%, -50%);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    width: 180vh; /* Tamaño fijo del ancho del pop-up */
-    height: 80vh; /* Tamaño fijo de la altura del pop-up */
+    width: 180vh;
+    /* Tamaño fijo del ancho del pop-up */
+    height: 80vh;
+    /* Tamaño fijo de la altura del pop-up */
     display: flex;
     flex-direction: column;
 }
@@ -82,19 +106,26 @@
 .infoPopup p {
     font-size: 18px;
     margin: 5px 0;
-    text-align: justify; /* Justifica el texto */
+    text-align: justify;
+    /* Justifica el texto */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 10px;
 }
+
 .infoPopup h5 {
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .imagenContainer {
-    flex-shrink: 0; /* Evita que el contenedor de la imagen se reduzca, pero no lo expande innecesariamente */
-    width: 50%; /* Limita el ancho máximo del contenedor de la imagen */
-    display: flex; /* Usa flexbox para centrar la imagen dentro del contenedor */
-    justify-content: center; /* Centra la imagen horizontalmente */
+    flex-shrink: 0;
+    /* Evita que el contenedor de la imagen se reduzca, pero no lo expande innecesariamente */
+    width: 50%;
+    /* Limita el ancho máximo del contenedor de la imagen */
+    display: flex;
+    /* Usa flexbox para centrar la imagen dentro del contenedor */
+    justify-content: center;
+    /* Centra la imagen horizontalmente */
     align-items: center;
 }
 
@@ -116,10 +147,14 @@
     cursor: pointer;
     padding: 5px;
     font-size: 16px;
-    width: 30px; /* Ancho fijo para hacer el botón más cuadrado */
-    height: 30px; /* Altura fija para hacer el botón más cuadrado */
-    text-align: center; /* Centrar el contenido */
-    line-height: 20px; /* Ajustar la altura de la línea para centrar el texto verticalmente */
+    width: 30px;
+    /* Ancho fijo para hacer el botón más cuadrado */
+    height: 30px;
+    /* Altura fija para hacer el botón más cuadrado */
+    text-align: center;
+    /* Centrar el contenido */
+    line-height: 20px;
+    /* Ajustar la altura de la línea para centrar el texto verticalmente */
 }
 
 .areaContainer {
@@ -140,4 +175,133 @@
     width: 50%;
 }
 
+@media screen and (max-width: 1200px) {
+    .MapContainer h6 {
+        font-size: 20px;
+        /* Reducir tamaño del texto en tablets */
+    }
 
+    .infoMapaContainer {
+        width: 60%;
+    }
+
+    .infoMapaContainer p {
+        font-size: 14px;
+        margin: 0px;
+        line-height: 1.2;
+    }
+    .infoMapaContainer h4 {
+        font-size: 14px;
+    }
+
+    .infoPopup {
+        width: 80%;
+        /* Reducir el tamaño del pop-up en tablets */
+        height: 80%;
+        /* Ajustar la altura */
+        overflow-y: scroll;
+    }
+
+    .infoPopup p {
+        font-size: 11px;
+    }
+
+    .infoPopup h5 {
+        font-size: 12px;
+    }
+
+    .imagenContainer {
+        width: 60%;
+        /* Ajustar el tamaño de la imagen en tablets */
+    }
+    .svgContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .mainContent {
+        flex-direction: column;
+        /* Cambiar a columna en pantallas pequeñas */
+    }
+
+    .infoMapaContainer {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        /* Reducir el padding */
+    }
+
+    .svgContainer {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .infoPopup {
+        width: 80%;
+        /* Ajustar tamaño para pantallas pequeñas */
+        height: 80%;
+        /* Permitir que la altura crezca según el contenido */
+        overflow-y: scroll;
+    }
+
+    .areaContainer {
+        flex-direction: column;
+        /* Cambiar a columna en pantallas pequeñas */
+    }
+
+    .textContainer {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .imagenContainer {
+        width: 100%;
+        /* Ajustar imagen para pantallas pequeñas */
+        margin-top: 10px;
+    }
+
+    .closeButton {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .MapContainer h6 {
+        font-size: 22px;
+        /* Reducir tamaño del texto en móviles */
+    }
+
+    .infoPopup {
+        width: 90%;
+        /* Usar todo el ancho de la pantalla */
+        height: 80%;
+        padding: 5px;
+        overflow-y: scroll;
+    }
+
+    .infoPopup p,
+    .infoPopup h2,
+    .infoPopup h5 {
+        font-size: 14px;
+        /* Reducir tamaño de las fuentes */
+    }
+
+    .imagenContainer {
+        width: 100%;
+        /* Imagen ocupa todo el ancho */
+    }
+
+    .areaContainer {
+        padding-bottom: 5px;
+    }
+
+    .closeButton {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
