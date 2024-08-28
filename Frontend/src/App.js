@@ -15,6 +15,7 @@ import Context from './context/Context'
 import useDeveloper from './context/hooks/useDeveloper.js'
 import Footer from './components/Footer/Footer.js';
 import MapaSVG from './components/Mapa/MapaSVG.js'
+import NewPost from './Views/NewPost.js';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                     <Route path='/perfil' element={<Profile />} />
                     <Route path='/mapa' element={<MapaSVG/>} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path='/nuevo-post' element={<NewPost/>} />
                 
 
 
