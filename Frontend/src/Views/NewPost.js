@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewPostForm from "../components/Foro/NewPost/NewPostForm";
 import PostList from "../components/Foro/PostList/PostList";
 import LSidebar from "../components/Foro/Left-Sidebar/LSidebar";
+import "../components/Foro/NewPost/NewPost.css"
 
 function NewPost() {
     const [posts, setPosts] = useState([]);
@@ -37,16 +38,17 @@ function NewPost() {
                 </div>
 
                 <div className='newpostform'>
-                    <div className="post-form">
-                        <NewPostForm addPost={addPost} />
-                        <PostList
-                            posts={posts}
-                            addComment={addComment}
-                            editPost={editPost}
-                            deletePost={deletePost} />
-                    </div>
-
+                    <NewPostForm addPost={addPost} />
                 </div>
+
+                <div className="PostList">
+                    <PostList
+                        posts={posts}
+                        addComment={addComment}
+                        editPost={editPost}
+                        deletePost={deletePost} />
+                </div>
+
             </div>
         </>
     );

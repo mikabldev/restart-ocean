@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import './PostList.css'; 
 
 const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, deleteComment }) => {
@@ -40,9 +41,20 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
   };
 
   const handleDelete = (postId) => {
-    if (window.confirm("¿Estás seguro de que deseas eliminar este post?")) {
-      deletePost(postId);
-    }
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar este post?',
+      text: 'Esta acción no se puede deshacer.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deletePost(postId);
+      }
+    });
   };
 
   const handleEditCommentSubmit = (postId, commentIndex) => {
@@ -54,9 +66,20 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
   };
 
   const handleDeleteComment = (postId, commentIndex) => {
-    if (window.confirm("¿Estás seguro de que deseas eliminar este comentario?")) {
-      deleteComment(postId, commentIndex);
-    }
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar este comentario?',
+      text: 'Esta acción no se puede deshacer.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteComment(postId, commentIndex);
+      }
+    });
   };
 
   useEffect(() => {
@@ -136,7 +159,7 @@ const PostList = ({ posts = [], addComment, editPost, deletePost, editComment, d
               <textarea
                 value={comment}
                 onChange={handleCommentChange}
-                placeholder="Escribe un comentario..."
+                placeholder="¿Qué ideas te gustaría agregar? Comenta aquí..."
               />
               <button onClick={() => handleCommentSubmit(post.id)}>Añadir Comentario</button>
             </div>
