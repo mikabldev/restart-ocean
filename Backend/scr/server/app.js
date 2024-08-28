@@ -8,7 +8,6 @@ import { registrarComentario } from '../models/models.foro.js'
 import calendarioRoutes from '../calendar/calendarioRoutes.js'
 import bodyParser from 'body-parser'
 
-
 const app = express()
 const PORT = process.env.PORT ?? 3005
 
@@ -58,6 +57,7 @@ app.get('/users', authToken, async (req, res) => {
     console.log('Email desde GET/users', email)
 
     const user = await getUser(email)
+    console.log(user)
     res.status(200).json(user)
   } catch (error) {
     res.status(400).json({ message: error })
@@ -66,17 +66,17 @@ app.get('/users', authToken, async (req, res) => {
 
 app.post('/foro', async (req, res) => {
   try {
-    const { title, content } = req.body
-    console.log(title, content)
+    const { title, content, usuario_id } = req.body
+    console.log(title, content, usuario_id)
     // obtengo los datos del formulario desde el body
-    await registrarComentario({ title, content })
+    await registrarComentario({ title, content, usuario_id })
     res.status(201).json({ status: true, message: 'Comentario registrado con éxito' })
   } catch (error) {
     res.status(error.code || 500).json({ message: 'Error en la conexión', error })
   }
 })
 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json())
 app.use('/calendario', calendarioRoutes)
 app.all('*', async (req, res) => {
   res.status(404).json({ code: 404, message: 'La ruta consultada no existe' })

@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const Register = () => {
+const Register = ({ setBasicActive }) => {
   const navigate = useNavigate()
+  const state = 'iniciar sesion'
+
   const [user, setUser] = useState({
     nombre: '',
     apellido: '',
@@ -59,6 +61,13 @@ const Register = () => {
     if (user.confirmPassword !== user.password) {
       return window.alert('Las claves deben ser iguales')
     }
+    const handleClick = (valor) =>  {
+      if (valor === 'registrate') {
+        setBasicActive(valor)
+      } else {
+        console.error('Valor inválido del estado en el Login')
+      }
+    }
 
     const userToSend = {
       nombre: user.nombre,
@@ -74,9 +83,9 @@ const Register = () => {
           text: "Usuario registrado con éxito!",
           icon: "success"
         });
-        // window.alert('Usuario registrado con éxito')
-        navigate('/login')
-      })
+
+        state === 'iniciar sesion' ? setBasicActive(state) : console.error("Valor inválido para setBasicActive")
+        })
       .catch(error => {
         // Manejo de error
         if (error.response) {
@@ -122,14 +131,8 @@ const Register = () => {
 
         <MDBInput className='mb-4' type='password' id='confirmPassword' name='confirmPassword' autoComplete='new-password' label='Confirma tu clave' value={user.confirmPassword} onChange={handleUser} />
 
-        <MDBCheckbox
-          wrapperClass='d-flex justify-content-center mb-4'
-          id='form3Example5'
-          label='Recibir noticias'
-          defaultChecked
-        />
 
-        <MDBBtn type='submit' className='mb-4' block>
+        <MDBBtn type='submit' href='' className='mb-4' block>
           Registrar
         </MDBBtn>
 

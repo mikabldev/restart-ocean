@@ -1,11 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
 import './PostForm.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Context from '../../context/Context'
 
 const PostForm = ({ addPost, setPosts }) => {
+  const { getNuevoUsuario } = useContext(Context)
+  console.log(getNuevoUsuario.id)
+
   const [showEditor, setShowEditor] = useState(false); // Controlar cuándo mostrar el editor
   const quillRef = useRef(null);
   const quillInstanceRef = useRef(null);
@@ -43,45 +47,51 @@ const PostForm = ({ addPost, setPosts }) => {
     if (post.title && post.content) {
       addPost(post)
 
-      axios.post('http://localhost:3005/foro', post)
-      .then(() => {
-        Swal.fire({
-          title: "Genial!",
-          text: "Post agregado con éxito!",
-          icon: "success"
-        })
-      })
-      .catch((error => {
-        // Manejo de error
-        if (error.response) {
-          // La solicitud se realizó y el servidor respondió con un código de estado
-          // que no está en el rango de 2xx
-          console.error('Error de respuesta:', error.response.data)
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: `Error: ${error.response.data.message || 'Ocurrió un error'}`,
-          })
+      const sendPost = {
+        title: post.title,
+        content: post.content,
+        usuario_id: getNuevoUsuario.id
+      }
+      axios.post('http://localhost:3005/foro', sendPost)
 
-        } else if (error.request) {
-          // La solicitud se realizó pero no se recibió respuesta
-          console.error('Error de solicitud:', error.request)
+        .then(() => {
           Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: 'Error: No se recibió respuesta del servidor',
+            title: "Genial!",
+            text: "Post agregado con éxito!",
+            icon: "success"
           })
-        } else {
-          // Algo ocurrió al configurar la solicitud
-          console.error('Error:', error.message)
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: `Error: ${error.message}`,
-          })
-        }
-      })
-    )
+        })
+        .catch((error => {
+          // Manejo de error
+          if (error.response) {
+            // La solicitud se realizó y el servidor respondió con un código de estado
+            // que no está en el rango de 2xx
+            console.error('Error de respuesta:', error.response.data)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Error: ${error.response.data.message || 'Ocurrió un error'}`,
+            })
+
+          } else if (error.request) {
+            // La solicitud se realizó pero no se recibió respuesta
+            console.error('Error de solicitud:', error.request)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: 'Error: No se recibió respuesta del servidor',
+            })
+          } else {
+            // Algo ocurrió al configurar la solicitud
+            console.error('Error:', error.message)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Error: ${error.message}`,
+            })
+          }
+        })
+        )
 
       setPost({
         title: '',

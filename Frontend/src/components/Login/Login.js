@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
-const Login = () => {
+const Login = ({ setBasicActive }) => {
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: '',
@@ -22,6 +22,15 @@ const Login = () => {
       [name]: value
     }))
   }
+
+  const handleClick = (valor) => {
+    if (valor === 'registrate') {
+      setBasicActive(valor);
+    } else {
+      console.error("Valor inválido");
+    }
+  }
+
   const handleForm = (e) => {
     e.preventDefault()
 
@@ -33,11 +42,9 @@ const Login = () => {
       return window.alert('Por favor ingresa un email válido')
     }
 
-    console.log(user.email)
-    console.log(user.password)
-
     axios.post('http://localhost:3005/login', user)
       .then(({ data }) => {
+        console.log('data desde el login',data)
         window.sessionStorage.setItem('token', data.token);
         Swal.fire({
           title: "Genial!",
@@ -89,7 +96,13 @@ const Login = () => {
         </MDBBtn>
 
         <div className='text-center'>
-          <p>¿No estás registrado? <a href='#!'>Regístrate</a></p>
+          <p>
+            ¿No estás registrado?
+            <a onClick={() => handleClick('registrate')}>
+              Regístrate
+            </a>
+          </p>
+
           <p>También puedes ingresar con:</p>
 
           <MDBBtn floating color='secondary' className='mx-1'>
