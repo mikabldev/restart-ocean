@@ -6,12 +6,14 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const NewPostForm = () => {
+    const token = window.sessionStorage.getItem('token')
     const userdId = sessionStorage.getItem('userId');
     useEffect(() => {
-        if (userdId) {
+        if (userdId && token) {
             console.log('ID encontrado desde newPostForm:', userdId);
+            console.log('TOKEN encontrado desde newPostForm:', token);
         } else {
-            console.log('No se encontró ningún ID en sessionStorage');
+            console.log('No se encontró ningún ID o no se encontró el TOKEN en sessionStorage');
         }
     }, [])
 
@@ -56,7 +58,10 @@ const NewPostForm = () => {
                 content: post.content,
                 usuarioId: userdId
             }
-            axios.post('http://localhost:3005/foro', sendPost)
+
+
+
+            axios.post('http://localhost:3005/foro', sendPost, { headers: { Authorization: `Bearer ${token}` } })
                 .then(() => {
                     Swal.fire({
                         title: "Genial!",
@@ -68,8 +73,8 @@ const NewPostForm = () => {
                         content: ''
                     })
 
-                     // Vacía el contenido del editor
-                     if (quillInstanceRef.current) {
+                    // Vacía el contenido del editor
+                    if (quillInstanceRef.current) {
                         quillInstanceRef.current.root.innerHTML = '';
                     }
                 })
@@ -82,7 +87,7 @@ const NewPostForm = () => {
                         Swal.fire({
                             icon: "error",
                             title: "Oops...",
-                            text: `Error: ${error.response.data.message || 'Ocurrió un error'}`,
+                            text: 'Debes iniciar sesión para publicar',
                         })
 
                     } else if (error.request) {
