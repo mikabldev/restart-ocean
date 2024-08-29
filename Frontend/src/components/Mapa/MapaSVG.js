@@ -94,7 +94,7 @@ const MapaSVG = () => {
               <h2>{regionInfo.nombre}</h2>
               {regionInfo.areas.map((area, index) => (
                 <div key={index} className='areaContainer'>
-                  <div className='textContainer'>
+                  <div className='text-Container'>
                     <h5><u>Localidad: {area.localidad}</u></h5>
                     <p><strong>Tipo de Protección:</strong> {area.proteccion || 'N/A'}</p>
                     <p><strong>Objetivo:</strong> {area.objetivo}</p>
