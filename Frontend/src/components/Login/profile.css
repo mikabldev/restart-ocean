@@ -3,7 +3,6 @@
 }
 .cardMiPerfil{
   background-color: antiquewhite;
-  
 }
 
 .container {
@@ -28,5 +27,7 @@
 }
 
 .imgPerfil{
-  width: 500px;
+  margin-top: 1rem;
+  width: 26rem;
+  height: 20rem;
 }

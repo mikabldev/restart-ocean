@@ -25,13 +25,13 @@ const LSidebar = () => {
             {/* Menú del Foro */}
             <Nav defaultActiveKey="#home" className="flex-column">
               <Nav.Item>
-                <Nav.Link to="/foro" className={styles.sPrincipal}>
+                <Nav.Link href="/foro" className={styles.sPrincipal}>
                   <i class='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Principal</span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/posts-recientes" className={styles.sReciente}>
+                <Nav.Link href="/foro" className={styles.sReciente}>
                   <i class='bx bx-time-five' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Reciente</span>
                 </Nav.Link>
@@ -47,19 +47,19 @@ const LSidebar = () => {
                   <span className={styles.tCategorias}>Categorías</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className={styles.sCategorias}>
-                  <Dropdown.Item href="#category1">
+                  <Dropdown.Item href="#conservacion-marina-biodiversidad-y-proteccion">
                     <i className='bx bx-shield-plus' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Conservación Marina: Biodiversidad y Protección</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category2">
+                  <Dropdown.Item href="#innovacion-tecnologica-e-investigacion-cientifica">
                     <i className='bx bx-bulb' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Innovación tecnológica e Investigación Científica</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category3">
+                  <Dropdown.Item href="#educacion-conciencia-y-cultura-oceanica">
                     <i className='bx bx-book' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Educación, Conciencia y Cultura Oceánica</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#category4">
+                  <Dropdown.Item href="#colaboraciones-comunitarias-y-activismo">
                     <i className='bx bx-group' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Colaboraciones comunitarias y Activismo</span>
                   </Dropdown.Item>
@@ -76,19 +76,19 @@ const LSidebar = () => {
                   <span className={styles.tMultimedia}>Multimedia</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className={styles.sMultimedia}>
-                  <Dropdown.Item href="#documentales">
+                  <Dropdown.Item href="#multim-documentales">
                     <i className='bx bx-video-recording' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Documentales</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#tutoriales">
+                  <Dropdown.Item href="#multim-tutoriales">
                     <i className='bx bx-extension' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Tutoriales</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#videos">
+                  <Dropdown.Item href="#multim-videos">
                     <i className='bx bx-video' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Videos</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#podcasts">
+                  <Dropdown.Item href="#multim-podcasts">
                     <i className='bx bx-podcast' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                     <span>Podcasts</span>
                   </Dropdown.Item>
@@ -104,15 +104,15 @@ const LSidebar = () => {
                   id={styles.userBtn}
                   title="Menú Perfil"
                 >
-                  <Dropdown.Item href="#/action-1">
+                  <Dropdown.Item href="/perfil">
                     <i className='bx bx-swim' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     <span>Mi perfil</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
+                  <Dropdown.Item href="/mis-posts">
                     <i className='bx bx-message-rounded-dots' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     <span>Mis publicaciones</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
+                  <Dropdown.Item href="#/perfil">
                     <i className='bx bx-cog' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     Ajustes
                   </Dropdown.Item>

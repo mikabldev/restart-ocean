@@ -1,0 +1,34 @@
+.containerTexto {
+    padding: 2rem;
+    background: linear-gradient(135deg, #001f3f10, #0074d910);
+    border-radius: 15px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tituloColab {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #5899A3;
+}
+
+.textContainer {
+    background-color: #5899A3;
+    display: flex;
+    width: auto;
+    border-radius: 15px;
+
+}
+
+.textoColab {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: azure;
+    text-anchor: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.703);
+    padding: 1.5rem;
+}
+
