@@ -14,6 +14,7 @@ import useDeveloper from './context/hooks/useDeveloper.js'
 import Footer from './components/Footer/Footer.js';
 import MapaSVG from './components/Mapa/MapaSVG.js'
 import NewPost from './Views/NewPost.js';
+import PostList from './components/Foro/PostList/PostList.js';
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
                     <Route path='/mapa' element={<MapaSVG/>} />
                     <Route path="*" element={<NotFound />} />
                     <Route path='/nuevo-post' element={<NewPost/>} />
-                
+                    <Route path='/posts-recientes' element={<PostList/>} />
 
 
                 </Routes>

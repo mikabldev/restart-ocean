@@ -7,7 +7,6 @@ import styles from "../../src/components/Foro/Foro.module.css";
 
 function Foro() {
   return (
-    <>
       <div className={styles.foroContainer}>
           <div className={styles.LSidebar}>
             <LSidebar />
@@ -19,8 +18,7 @@ function Foro() {
             <RSidebar />
           </div>
         </div>
-    </>
-  );
+  )
 }
 
 export default Foro

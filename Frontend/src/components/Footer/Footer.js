@@ -13,11 +13,9 @@ export default function Footer() {
                 <MDBIcon icon="fish" className="me-3" />
                 Restart Ocean
               </h6>
-              <p>
                 <p>
                   Restart Ocean es una iniciativa dedicada a la conservación y cuidado de la vida marina en Chile, sin fines de lucro. Conectamos personas con organizaciones, ambas partes interesadas en proteger, limpiar y mejorar los océanos, promoviendo además proyectos de conservación marina.
                 </p>
-              </p>
             </MDBCol>
 
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>

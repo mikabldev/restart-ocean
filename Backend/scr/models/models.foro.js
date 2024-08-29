@@ -12,3 +12,13 @@ export const registrarComentario = async ({ title, content, usuarioId }) => {
     throw newError
   }
 }
+
+export const getPost = async () => {
+  try {
+    const query = 'SELECT * FROM posts ORDER BY fecha_creacion DESC;'
+    const { rows } = await db(query)
+    return rows
+  } catch (error) {
+    throw new Error('Error al obtener los post')
+  }
+}

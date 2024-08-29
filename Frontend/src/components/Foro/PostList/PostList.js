@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import './PostList.css';
+import axios from 'axios'
 
-const PostList = ({ posts = [], editPost, deletePost }) => {
+const PostList = () => {
+  const [posts, setPosts] = useState([])
   const [editingPostId, setEditingPostId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
@@ -13,7 +15,7 @@ const PostList = ({ posts = [], editPost, deletePost }) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleEditTitleChange = (e) => setEditTitle(e.target.value);
 
@@ -21,7 +23,7 @@ const PostList = ({ posts = [], editPost, deletePost }) => {
 
   const handleEditSubmit = (postId) => {
     if (editTitle.trim() && editContent.trim()) {
-      editPost(postId, editTitle, editContent);
+      // editPost(postId, editTitle, editContent);
       setEditingPostId(null);
       setEditTitle('');
       setEditContent('');
@@ -40,7 +42,7 @@ const PostList = ({ posts = [], editPost, deletePost }) => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        deletePost(postId);
+        // deletePost(postId);
       }
     });
   };
@@ -54,7 +56,24 @@ const PostList = ({ posts = [], editPost, deletePost }) => {
         setEditContent(postToEdit.content);
       }
     }
-  }, [editingPostId, posts]);
+  }, [editingPostId, posts])
+
+  useEffect(() => {
+    axios.get('http://localhost:3005/post')
+      .then(response => {
+        const posts = response.data; // Asume que `response.data` es un array de posts
+        setPosts(posts);
+      })
+      .catch(error => {
+        if (error.response) {
+          console.error('Error de respuesta:', error.response.data);
+        } else if (error.request) {
+          console.error('Error de solicitud:', error.request);
+        } else {
+          console.error('Error:', error.message);
+        }
+      });
+  }, []);
 
   return (
     <div className="post-list">
@@ -82,9 +101,9 @@ const PostList = ({ posts = [], editPost, deletePost }) => {
               // Contenido del Post
               <div className="post-content">
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
-                <h3>{post.title}</h3>
-                <p dangerouslySetInnerHTML={{ __html: post.content }} /> {/* Renderiza contenido HTML */}
-                <span className="post-author"> {post.author}</span>
+                <h3>{post.titulo}</h3>
+                <p dangerouslySetInnerHTML={{ __html: post.contenido }} /> {/* Renderiza contenido HTML */}
+                {/* <span className="post-author"> {post.author}</span> */}
                 <button onClick={() => setEditingPostId(post.id)}>Editar</button>
                 <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>
