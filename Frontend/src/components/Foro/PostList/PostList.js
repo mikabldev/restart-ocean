@@ -23,12 +23,27 @@ const PostList = () => {
 
   const handleEditSubmit = (postId) => {
     if (editTitle.trim() && editContent.trim()) {
-      // editPost(postId, editTitle, editContent);
-      setEditingPostId(null);
-      setEditTitle('');
-      setEditContent('');
+      axios.put(`http://localhost:3005/post/${postId}`, {
+        title: editTitle,
+        content: editContent,
+      })
+      .then(response => {
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId
+              ? { ...post, titulo: editTitle, contenido: editContent }
+              : post
+          )
+        );
+        setEditingPostId(null);
+        setEditTitle('');
+        setEditContent('');
+      })
+      .catch(error => console.error('Error al modificar el post:', error));
     }
   };
+
+
 
   const handleDelete = (postId) => {
     Swal.fire({
@@ -42,7 +57,12 @@ const PostList = () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // deletePost(postId);
+        axios.delete(`http://localhost:3005/post/${postId}`)
+          .then(response => {
+            // Elimina el post del estado local
+            setPosts(posts.filter(post => post.id !== postId));
+          })
+          .catch(error => console.error('Error al eliminar el post:', error));
       }
     });
   };
@@ -60,19 +80,8 @@ const PostList = () => {
 
   useEffect(() => {
     axios.get('http://localhost:3005/post')
-      .then(response => {
-        const posts = response.data; // Asume que `response.data` es un array de posts
-        setPosts(posts);
-      })
-      .catch(error => {
-        if (error.response) {
-          console.error('Error de respuesta:', error.response.data);
-        } else if (error.request) {
-          console.error('Error de solicitud:', error.request);
-        } else {
-          console.error('Error:', error.message);
-        }
-      });
+      .then(response => setPosts(response.data))
+      .catch(error => console.error('Error al obtener los posts:', error))
   }, []);
 
   return (

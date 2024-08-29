@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import { jwtSign, jwtDecode } from '../utils/jwt/jwt.js'
 import { verificarCredenciales, registrarUsuario, getUser } from '../models/models.users.js'
 import { authToken } from '../middlewares/authToken.js'
-import { registrarComentario, getPost } from '../models/models.foro.js'
+import { registrarComentario, getPost, updatePost, deletePost } from '../models/models.foro.js'
 import calendarioRoutes from '../calendar/calendarioRoutes.js'
 import bodyParser from 'body-parser'
 
@@ -82,6 +82,27 @@ app.get('/post', async (_, res) => {
     res.status(200).json(posts)
   } catch (error) {
     res.status(404).json({ status: false, message: 'No se ha podido realizar la consulta', error })
+  }
+})
+
+app.put('/post/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { title, content } = req.body
+    await updatePost({ id, title, content })
+    res.status(200).send('Actualización exitosa!')
+  } catch (error) {
+    res.status(500).send('Post no se puso modificar')
+  }
+})
+
+app.delete('/post/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    await deletePost(id)
+    res.status(200).send('Post eliminado')
+  } catch (error) {
+    res.status(500).send('No se encontró el post')
   }
 })
 
