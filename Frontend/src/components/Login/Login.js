@@ -13,7 +13,7 @@ const Login = ({ setBasicActive }) => {
     email: '',
     password: ''
   })
-  const { setNuevoUsuario } = useContext(Context)
+  const { setNuevoUsuario, getNuevoUsuario } = useContext(Context)
 
   const handleUser = (e) => {
     const { name, value } = e.target
@@ -44,7 +44,7 @@ const Login = ({ setBasicActive }) => {
 
     axios.post('http://localhost:3005/login', user)
       .then(({ data }) => {
-        console.log('data desde el login',data)
+        console.log('data desde el login', data)
         window.sessionStorage.setItem('token', data.token);
         Swal.fire({
           title: "Genial!",
@@ -65,6 +65,7 @@ const Login = ({ setBasicActive }) => {
 
     setUser('')
   }
+
 
   return (
     <div className='w-100 mt-4 d-flex justify-content-center align-self-center'>

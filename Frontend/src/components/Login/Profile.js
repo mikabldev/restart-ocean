@@ -25,6 +25,13 @@ const Profile = () => {
         navigate('/')
       })
   }
+  window.sessionStorage.setItem('userId', getNuevoUsuario.id);
+  const storedId = sessionStorage.getItem('userId');
+  if (storedId) {
+    console.log('ID encontrado desde perfil:', storedId);
+  } else {
+    console.log('No se encontró ningún ID en sessionStorage');
+  }
 
   useEffect(getNuevoUsuarioData, [])
 

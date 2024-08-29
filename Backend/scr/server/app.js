@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import { jwtSign, jwtDecode } from '../utils/jwt/jwt.js'
 import { verificarCredenciales, registrarUsuario, getUser } from '../models/models.users.js'
 import { authToken } from '../middlewares/authToken.js'
-import { registrarComentario } from '../models/models.foro.js'
+import { registrarComentario, getPost } from '../models/models.foro.js'
 import calendarioRoutes from '../calendar/calendarioRoutes.js'
 import bodyParser from 'body-parser'
 
@@ -73,6 +73,15 @@ app.post('/foro', async (req, res) => {
     res.status(201).json({ status: true, message: 'Comentario registrado con éxito' })
   } catch (error) {
     res.status(error.code || 500).json({ message: 'Error en la conexión', error })
+  }
+})
+
+app.get('/post', async (_, res) => {
+  try {
+    const posts = await getPost()
+    res.status(200).json(posts)
+  } catch (error) {
+    res.status(404).json({ status: false, message: 'No se ha podido realizar la consulta', error })
   }
 })
 

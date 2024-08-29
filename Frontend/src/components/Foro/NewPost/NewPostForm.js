@@ -1,14 +1,19 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
 import './NewPostForm.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import Context from '../../../context/Context'
 
-const NewPostForm = ({ addPost, setPosts }) => {
-    const { getNuevoUsuario } = useContext(Context)
-    console.log(getNuevoUsuario.id)
+const NewPostForm = () => {
+    const userdId = sessionStorage.getItem('userId');
+    useEffect(() => {
+        if (userdId) {
+            console.log('ID encontrado desde newPostForm:', userdId);
+        } else {
+            console.log('No se encontró ningún ID en sessionStorage');
+        }
+    }, [])
 
     const [showEditor, setShowEditor] = useState(true); // Controlar cuándo mostrar el editor
     const quillRef = useRef(null);
@@ -31,35 +36,42 @@ const NewPostForm = ({ addPost, setPosts }) => {
             quillInstanceRef.current = new Quill(quillRef.current, {
                 theme: 'snow',
                 placeholder: 'Escribe el contenido aquí...',
-            });
+            })
 
             quillInstanceRef.current.on('text-change', () => {
                 setPost(prevPost => ({
                     ...prevPost,
                     content: quillInstanceRef.current.root.innerHTML
                 }))
-            });
+            })
         }
-    }, [showEditor]);
+    }, [showEditor, post.content])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (post.title && post.content) {
-            addPost(post)
 
             const sendPost = {
                 title: post.title,
                 content: post.content,
-                usuarioId: getNuevoUsuario.id
+                usuarioId: userdId
             }
             axios.post('http://localhost:3005/foro', sendPost)
-
                 .then(() => {
                     Swal.fire({
                         title: "Genial!",
                         text: "Post agregado con éxito!",
                         icon: "success"
                     })
+                    setPost({
+                        title: '',
+                        content: ''
+                    })
+
+                     // Vacía el contenido del editor
+                     if (quillInstanceRef.current) {
+                        quillInstanceRef.current.root.innerHTML = '';
+                    }
                 })
                 .catch((error => {
                     // Manejo de error
@@ -93,11 +105,7 @@ const NewPostForm = ({ addPost, setPosts }) => {
                 })
                 )
 
-            setPost({
-                title: '',
-                content: ''
-            })
-            setShowEditor(false)
+
         }
     }
 

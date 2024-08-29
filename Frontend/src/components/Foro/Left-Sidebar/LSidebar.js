@@ -25,14 +25,14 @@ const LSidebar = () => {
             {/* Menú del Foro */}
             <Nav defaultActiveKey="#home" className="flex-column">
               <Nav.Item>
-                <Nav.Link href="/foro" className={styles.sPrincipal}>
-                  <i class='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                <Nav.Link to="/foro" className={styles.sPrincipal}>
+                  <i className='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Principal</span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/foro" className={styles.sReciente}>
-                  <i class='bx bx-time-five' style={{ marginRight: '8px', alignItems: 'center' }}></i>
+                <Nav.Link href="/posts-recientes" className={styles.sReciente}>
+                  <i className='bx bx-time-five' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Reciente</span>
                 </Nav.Link>
               </Nav.Item>
