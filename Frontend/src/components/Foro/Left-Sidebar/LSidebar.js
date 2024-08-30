@@ -25,7 +25,7 @@ const LSidebar = () => {
             {/* Menú del Foro */}
             <Nav defaultActiveKey="#home" className="flex-column">
               <Nav.Item>
-                <Nav.Link to="/foro" className={styles.sPrincipal}>
+                <Nav.Link href="/foro" to="/foro" className={styles.sPrincipal}>
                   <i className='bx bx-book-open' style={{ marginRight: '8px', alignItems: 'center' }}></i>
                   <span>Principal</span>
                 </Nav.Link>

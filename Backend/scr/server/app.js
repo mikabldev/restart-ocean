@@ -64,7 +64,7 @@ app.get('/users', authToken, async (req, res) => {
   }
 })
 
-app.post('/foro', async (req, res) => {
+app.post('/foro', authToken, async (req, res) => {
   try {
     const { title, content, usuarioId } = req.body
     console.log(title, content, usuarioId)
@@ -85,7 +85,7 @@ app.get('/post', async (_, res) => {
   }
 })
 
-app.put('/post/:id', async (req, res) => {
+app.put('/post/:id', authToken, async (req, res) => {
   try {
     const { id } = req.params
     const { title, content } = req.body
@@ -96,7 +96,7 @@ app.put('/post/:id', async (req, res) => {
   }
 })
 
-app.delete('/post/:id', async (req, res) => {
+app.delete('/post/:id', authToken, async (req, res) => {
   try {
     const { id } = req.params
     await deletePost(id)

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import './PostList.css';
 import axios from 'axios'
+import CommentS from './../CommentsSection/CommentS.js'
 
 const PostList = () => {
   const [posts, setPosts] = useState([])
@@ -11,6 +12,7 @@ const PostList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4); // Número de posts por página
 
+  const token = window.sessionStorage.getItem('token')
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
@@ -26,7 +28,7 @@ const PostList = () => {
       axios.put(`http://localhost:3005/post/${postId}`, {
         title: editTitle,
         content: editContent,
-      })
+      }, { headers: { Authorization: `Bearer ${token}` } })
       .then(response => {
         setPosts((prevPosts) =>
           prevPosts.map((post) =>
@@ -39,7 +41,37 @@ const PostList = () => {
         setEditTitle('');
         setEditContent('');
       })
-      .catch(error => console.error('Error al modificar el post:', error));
+      .catch((error => {
+        // Manejo de error
+        if (error.response) {
+            // La solicitud se realizó y el servidor respondió con un código de estado
+            // que no está en el rango de 2xx
+            console.error('Error de respuesta:', error.response.data)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'Debes iniciar sesión para editar',
+            })
+
+        } else if (error.request) {
+            // La solicitud se realizó pero no se recibió respuesta
+            console.error('Error de solicitud:', error.request)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'Error: No se recibió respuesta del servidor',
+            })
+        } else {
+            // Algo ocurrió al configurar la solicitud
+            console.error('Error:', error.message)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `Error: ${error.message}`,
+            })
+        }
+    })
+    )
     }
   };
 
@@ -57,12 +89,42 @@ const PostList = () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3005/post/${postId}`)
+        axios.delete(`http://localhost:3005/post/${postId}`, { headers: { Authorization: `Bearer ${token}` } })
           .then(response => {
             // Elimina el post del estado local
             setPosts(posts.filter(post => post.id !== postId));
           })
-          .catch(error => console.error('Error al eliminar el post:', error));
+          .catch((error => {
+            // Manejo de error
+            if (error.response) {
+                // La solicitud se realizó y el servidor respondió con un código de estado
+                // que no está en el rango de 2xx
+                console.error('Error de respuesta:', error.response.data)
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: 'Debes iniciar sesión para eliminar',
+                })
+
+            } else if (error.request) {
+                // La solicitud se realizó pero no se recibió respuesta
+                console.error('Error de solicitud:', error.request)
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: 'Error: No se recibió respuesta del servidor',
+                })
+            } else {
+                // Algo ocurrió al configurar la solicitud
+                console.error('Error:', error.message)
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `Error: ${error.message}`,
+                })
+            }
+        })
+        )
       }
     });
   };
@@ -112,7 +174,7 @@ const PostList = () => {
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.titulo}</h3>
                 <p dangerouslySetInnerHTML={{ __html: post.contenido }} /> {/* Renderiza contenido HTML */}
-                {/* <span className="post-author"> {post.author}</span> */}
+                <CommentS posts={posts} setPosts={setPosts}/>
                 <button onClick={() => setEditingPostId(post.id)}>Editar</button>
                 <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>

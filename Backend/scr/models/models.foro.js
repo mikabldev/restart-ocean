@@ -23,6 +23,6 @@ export const getPost = async () => {
   }
 }
 
-export const updatePost = async ({title, content, id}) => await db('UPDATE posts SET titulo = $1, contenido = $2 WHERE id = $3 RETURNING *;', [title, content, id])
+export const updatePost = async ({ title, content, id }) => await db('UPDATE posts SET titulo = $1, contenido = $2 WHERE id = $3 RETURNING *;', [title, content, id])
 
 export const deletePost = async (id) => await db('DELETE FROM posts WHERE id = $1 RETURNING *;', [id])
