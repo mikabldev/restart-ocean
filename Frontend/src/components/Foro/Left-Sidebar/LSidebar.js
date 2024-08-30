@@ -11,7 +11,7 @@ import NewPostButton from "../NewPost/NewPostButton";
 const LSidebar = () => {
   return (
     <div className={styles.LsideContainer}>
-      <div className={styles.row - styles}>
+      <div className={styles.rowLsidebar}>
         <Col as="aside" className={styles.sColumna}>
           <Stack gap={2} className={styles.sidebarLinks}>
             <Nav.Item className={styles.sMenu}>
