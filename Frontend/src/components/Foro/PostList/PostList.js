@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import './PostList.css';
 import axios from 'axios'
+import CommentS from './../CommentsSection/CommentS.js'
 
 const PostList = () => {
   const [posts, setPosts] = useState([])
@@ -173,7 +174,7 @@ const PostList = () => {
                 {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="post-image" />}
                 <h3>{post.titulo}</h3>
                 <p dangerouslySetInnerHTML={{ __html: post.contenido }} /> {/* Renderiza contenido HTML */}
-                {/* <span className="post-author"> {post.author}</span> */}
+                <CommentS posts={posts} setPosts={setPosts}/>
                 <button onClick={() => setEditingPostId(post.id)}>Editar</button>
                 <button onClick={() => handleDelete(post.id)}>Eliminar</button>
               </div>

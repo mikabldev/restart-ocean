@@ -4,10 +4,12 @@ import 'quill/dist/quill.snow.css'; // Importar los estilos de Quill
 import './NewPostForm.css';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 const NewPostForm = () => {
     const token = window.sessionStorage.getItem('token')
     const userdId = sessionStorage.getItem('userId');
+    const Navigate = useNavigate()
     useEffect(() => {
         if (userdId && token) {
             console.log('ID encontrado desde newPostForm:', userdId);
@@ -77,6 +79,7 @@ const NewPostForm = () => {
                     if (quillInstanceRef.current) {
                         quillInstanceRef.current.root.innerHTML = '';
                     }
+                    Navigate('/foro')
                 })
                 .catch((error => {
                     // Manejo de error
