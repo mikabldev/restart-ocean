@@ -68,8 +68,8 @@ const NewPostForm = () => {
                         content: ''
                     })
 
-                     // Vacía el contenido del editor
-                     if (quillInstanceRef.current) {
+                    // Vacía el contenido del editor
+                    if (quillInstanceRef.current) {
                         quillInstanceRef.current.root.innerHTML = '';
                     }
                 })
