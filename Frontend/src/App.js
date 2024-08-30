@@ -35,6 +35,8 @@ function App() {
                     <Route path="*" element={<NotFound />} />
                     <Route path='/nuevo-post' element={<NewPost/>} />
                     <Route path='/posts-recientes' element={<PostList/>} />
+                    <Route path='/foro' element={<Foro />} />
+                    <Route path='/posts-recientes' element={<PostList/>} />
 
 
                 </Routes>
