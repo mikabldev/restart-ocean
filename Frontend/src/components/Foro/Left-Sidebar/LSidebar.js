@@ -112,12 +112,12 @@ const LSidebar = () => {
                     <i className='bx bx-message-rounded-dots' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     <span>Mis publicaciones</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/perfil">
+                  <Dropdown.Item href="#/ajustes">
                     <i className='bx bx-cog' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     Ajustes
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="/logout" className={styles.logout}>
+                  <Dropdown.Item href="#/logout" className={styles.logout}>
                     <i className='bx bx-log-out' style={{ marginRight: '5px', alignItems: 'center' }}></i>
                     Cerrar sesión
                   </Dropdown.Item>
